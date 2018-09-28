@@ -1572,6 +1572,7 @@ a.text-success:hover {
 }
 .menubar-visible #menubar {
   width: 240px;
+  /*width: 500px;*/
 }
 #menubar.animate {
   -webkit-transition: width 0.5s cubic-bezier(0.15, 0.99, 0.18, 1.01);
@@ -2126,7 +2127,8 @@ body:not(.menubar-first) .menubar-fixed-panel {
   border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
 }
 .menubar-inverse .gui-controls li .title {
-  color: rgba(255, 255, 255, 0.55);
+  /*color: rgba(255, 255, 255, 0.55);*/
+  color: rgb(255, 255, 255);
   text-shadow: 0 1px 2px #000000;
 }
 .menubar-inverse .gui-controls li > a:hover .title {
@@ -2136,7 +2138,8 @@ body:not(.menubar-first) .menubar-fixed-panel {
   color: #ffffff;
 }
 .menubar-inverse .gui-controls li.gui-folder > a .title {
-  color: rgba(255, 255, 255, 0.5);
+  /*color: rgba(255, 255, 255, 0.5);*/
+  color: rgb(255, 255, 255);
 }
 .menubar-inverse .gui-controls li.gui-folder.expanded > a .title,
 .menubar-inverse .gui-controls li.gui-folder.active > a .title {

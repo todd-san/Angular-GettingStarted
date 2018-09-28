@@ -1,0 +1,149 @@
+[
+  {
+    "id": 49,
+    "name": "KR601",
+    "children": [
+      {
+        "id": 55,
+        "name": "Klever R/T",
+        "children": [
+          {
+            "id": 230,
+            "name": "KR601 33x12.50R22LT",
+            "children": [
+              {
+                "id": 972,
+                "name": "2% lift"
+              },
+              {
+                "id": 973,
+                "name": "2% lift 26 belt"
+              },
+              {
+                "id": 961,
+                "name": "Lower Lift 3% 26-24"
+              },
+              {
+                "id": 957,
+                "name": "LR-F lower Lift 3%"
+              },
+              {
+                "id": 962,
+                "name": "Normal"
+              }
+            ]
+          },
+          {
+            "id": 176,
+            "name": "KR601 35x10.50R17LT",
+            "children": [
+              {
+                "id": 780,
+                "name": "Klever R/T"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "FEA Validation",
+    "type": "project",
+    "children": [
+      {
+        "id": 23,
+        "name": "PCR LTR Phase 2",
+        "children": [
+          {
+            "id": 40,
+            "type": "design",
+            "name": "KR30 195/55R16",
+            "children": [
+            {
+            "id": 37,
+            "url": "http://ktek/kapi/api/specs/37/",
+            "name": "Spec A3",
+            "description": "",
+            "tag": "",
+            "date_modified": "06_21_18 : 10:50:03 AM",
+            "owner_username": "eblitz",
+            "owner": 23,
+            "type": "spec",
+            "blessed": false,
+            "build": false,
+            "project": 18,
+            "phase": 23,
+            "design": 40
+            }
+            ]
+          },
+          {
+            "id": 32,
+            "name": "KR30 195/65R15",
+            "type": "design",
+            "children": [
+            {
+            "id": 697,
+            "url": "http://ktek/kapi/api/specs/697/",
+            "name": "A2_DOT_AsBuilt",
+            "description": "",
+            "tag": "",
+            "date_modified": "08_14_18 : 07:36:19 AM",
+            "owner_username": "eblitz",
+            "owner": 23,
+            "type": "spec",
+            "blessed": false,
+            "build": false,
+            "project": 18,
+            "phase": 23,
+            "design": 32
+            },
+            {
+            "id": 32,
+            "url": "http://ktek/kapi/api/specs/32/",
+            "name": "Spec A2",
+            "description": "",
+            "tag": "",
+            "date_modified": "07_11_18 : 07:09:15 AM",
+            "owner_username": "eblitz",
+            "owner": 23,
+            "type": "spec",
+            "blessed": false,
+            "build": false,
+            "project": 18,
+            "phase": 23,
+            "design": 32
+            }
+            ]
+          },
+          {
+            "id": 42,
+            "name": "KR30 215/55R16",
+            "type": "design",
+            "children": [
+            {
+            "id": 39,
+            "url": "http://ktek/kapi/api/specs/39/",
+            "name": "Spec A1",
+            "description": "",
+            "tag": "",
+            "date_modified": "06_25_18 : 10:06:37 AM",
+            "owner_username": "eblitz",
+            "owner": 23,
+            "type": "spec",
+            "blessed": false,
+            "build": false,
+            "project": 18,
+            "phase": 23,
+            "design": 42
+            }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+
