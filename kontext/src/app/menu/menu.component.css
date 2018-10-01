@@ -1,0 +1,12 @@
+.menu-label{
+  font-size: 18px;
+  padding-left: 10px;
+  color: #ffffff;
+}
+
+.menu-label:focus {
+  color: #ff0000;
+}
+.menu-label:hover {
+  color: #ff0000;
+}
