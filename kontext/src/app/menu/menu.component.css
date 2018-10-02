@@ -1,5 +1,5 @@
 .menu-label{
-  font-size: 18px;
+  font-size: 20px;
   padding-left: 10px;
   color: #ffffff;
 }
@@ -10,3 +10,156 @@
 .menu-label:hover {
   color: #ff0000;
 }
+
+
+@media (min-width: 1200px) {
+  .menubar-pin .gui-controls > li:not(.gui-folder) > a:hover {
+    background-color: rgba(12, 12, 12, 0.07);
+  }
+  .menubar-pin .gui-controls > li.active:not(.gui-folder) > a {
+    background-color: #ffffff;
+    -webkit-transition: background 0.3s linear;
+    -o-transition: background 0.3s linear;
+    transition: background 0.3s linear;
+  }
+  .menubar-pin .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+    background-color: #313942;
+  }
+  .menubar-pin .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+    background-color: #20252b;
+  }
+  .menubar-pin .gui-controls li .title {
+    left: 0;
+    opacity: 1;
+  }
+  .menubar-pin .gui-folder > a:after {
+    opacity: 1;
+  }
+  .menubar-pin .gui-folder:hover:not(.active) .gui-icon {
+    background-color: rgba(12, 12, 12, 0.07);
+    color: #353132;
+  }
+  .menubar-pin .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+    background: inherit;
+  }
+  .menubar-pin .gui-icon:hover {
+    background: inherit;
+  }
+  .menubar-pin .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ff4a4c;
+  }
+  .menubar-pin .menubar-inverse .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+    background: inherit;
+  }
+  .menubar-pin .menubar-inverse .gui-icon:hover {
+    background: inherit;
+  }
+}
+.menubar-visible .menubar-inverse .gui-controls small,
+.menubar-pin .menubar-inverse .gui-controls small {
+  color: rgba(255, 28, 25, 0.55);
+}
+.menubar-inverse .gui-controls > li ul > li > a:active,
+.menubar-inverse .gui-controls > li ul > li > a.active {
+  background-color: #20252b;
+}
+.menubar-inverse .gui-controls > li ul > li > a:hover,
+.menubar-inverse .gui-controls > li ul > li > a:focus {
+  background-color: #313942;
+}
+.expanded-menu-item-markup .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+  background-color: #313942;
+}
+.expanded-menu-item-markup .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+  background-color: #20252b;
+}
+.menubar-visible .gui-controls > li:not(.gui-folder) > a:hover {
+  background-color: rgba(12, 12, 12, 0.07);
+}
+.menubar-visible .gui-controls > li.active:not(.gui-folder) > a {
+  background-color: #d356ff;
+  -webkit-transition: background 0.3s linear;
+  -o-transition: background 0.3s linear;
+  transition: background 0.3s linear;
+}
+.menubar-visible .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+  background-color: #313942;
+}
+.menubar-visible .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+  background-color: #20252b;
+}
+.menubar-inverse .gui-controls > li ul > li:before {
+  border-left: 1px dashed rgba(255, 255, 255, 0.3);
+}
+.menubar-inverse .gui-controls > li ul > li > a:before {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+.menubar-inverse .gui-controls li .title {
+  /*color: rgba(255, 255, 255, 0.55);*/
+  color: rgb(255, 255, 255);
+  text-shadow: 0 1px 2px #000000;
+}
+.menubar-inverse .gui-controls li > a:hover .title {
+  color: #ff171f;
+}
+.menubar-inverse .gui-controls li.active > a .title {
+  color: #fffafa;
+}
+.menubar-inverse .gui-controls li.gui-folder > a .title {
+  /*color: rgba(255, 255, 255, 0.5);*/
+  color: rgb(252, 250, 255);
+}
+.menubar-inverse .gui-controls li.gui-folder > a .title:hover {
+  /*color: rgba(255, 255, 255, 0.5);*/
+  color: rgb(255, 105, 95);
+}
+.menubar-inverse .gui-controls li.gui-folder > a .title:active,
+.menubar-inverse .gui-controls li.gui-folder > a .title:focus,
+.menubar-inverse .gui-controls li.gui-folder > span .menu-label:active,
+.menubar-inverse .gui-controls li.gui-folder > span .menu-label:focus {
+  /*color: rgba(255, 255, 255, 0.5);*/
+  color: rgb(109, 9, 6);
+}
+.menubar-inverse .gui-controls li.gui-folder.expanded > a .title,
+.menubar-inverse .gui-controls li.gui-folder.active > a .title {
+  color: rgb(255, 23, 31);
+}
+.menubar-inverse .gui-folder > a:after {
+  color: rgba(255, 255, 255, 0.5);
+}
+.menubar-inverse .gui-controls > .gui-folder.expanding > a:after,
+.menubar-inverse .gui-controls > .gui-folder.expanded > a:after {
+  color: rgba(255, 255, 255, 0.4);
+}
+.menubar-inverse .gui-icon {
+  color: rgba(255, 255, 255, 0.65);
+}
+.menubar-inverse .gui-icon:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+.menubar-inverse .gui-controls a.expanded .gui-icon,
+.menubar-inverse .gui-controls li.active .gui-icon,
+.menubar-inverse .gui-controls li.active .gui-icon:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #eb0038;
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.ngx-contextmenu.cdk-overlay-pane {
+  position: fixed;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
