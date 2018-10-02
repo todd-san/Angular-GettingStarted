@@ -1,4 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Inject } from '@angular/core';
+import {DOCUMENT} from "@angular/common";
+
+declare var jQuery:any;
+declare var $:any;
 
 @Component({
   selector: 'app-content',
@@ -6,5 +10,6 @@ import { Component, ViewChild } from '@angular/core';
 })
 
 export class ContentComponent {
+
 
 }

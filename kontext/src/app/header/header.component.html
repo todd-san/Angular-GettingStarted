@@ -6,7 +6,7 @@
         <li class="header-nav-brand" >
           <div class="brand-holder">
             <!--<a href="../../html/dashboards/dashboard.html">-->
-              <span class="text-lg text-bold text-primary">{{title}}</span>
+              <span class="text-lg text-bold text-primary" style="font-size: 25px; font-style: italic">{{title}}</span>
             <!--</a>-->
           </div>
         </li>
@@ -22,15 +22,23 @@
             <div class="form-group">
               <input type="text" class="form-control" name="headerSearch" placeholder="Enter your keyword">
             </div>
-            <button type="submit" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-search"></i></button>
+            <button type="submit" title="search" class="btn btn-icon-toggle ink-reaction"><i class="fa fa-search"></i></button>
           </form>
         </li>
-         <li>
+        <li>
+          <!-- Help Toggle-->
+          <form class="navbar-item">
+            <a class="btn btn-icon-toggle ink-reaction" title="help" href="#offcanvas-left" data-toggle="offcanvas">
+                <i class="fa fa-question-circle fa-2x" style="color:#1b15c6"></i>
+            </a>
+          </form>
+        </li>
+        <li>
           <!-- Filter Toggle-->
           <form class="navbar-item">
-            <button type="submit" class="btn btn-icon-toggle ink-reaction">
-              <i class="fa fa-filter fa-2x" style="color:#c60000"></i>
-            </button>
+            <a class="btn btn-icon-toggle ink-reaction" title="filter"  href="#offcanvas-right" data-toggle="offcanvas">
+                <i class="fa fa-filter fa-2x" style="color:#c60000"></i>
+            </a>
           </form>
         </li>
       </ul>
@@ -45,16 +53,17 @@
           </a>
           <ul class="dropdown-menu animation-dock">
             <!--<li class="dropdown-header">Config</li>-->
-            <li><a href="../../html/pages/profile.html">My profile</a></li>
+            <li><a href="#">My profile</a></li>
             <!--<li><a href="../../html/pages/blog/post.html">My blog <span class="badge style-danger pull-right">16</span></a></li>-->
             <!--<li><a href="../../html/pages/calendar.html">My appointments</a></li>-->
             <li class="divider"></li>
             <!--<li><a href="../../html/pages/locked.html"><i class="fa fa-fw fa-lock"></i> Lock</a></li>-->
-            <li><a href="../../html/pages/login.html"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+            <li><a href="#"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
           </ul><!--end .dropdown-menu -->
         </li><!--end .dropdown -->
       </ul>
     </div>
 </div>
 </header>
+
 

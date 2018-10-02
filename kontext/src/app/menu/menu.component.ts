@@ -1,6 +1,7 @@
-import {Component, OnInit, ViewChild,} from '@angular/core';
+import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import {MenuService} from "./menu.service";
 import {ContextMenuService, ContextMenuComponent} from "ngx-contextmenu";
+import {fn} from "@angular/compiler/src/output/output_ast";
 
 
 @Component({
@@ -9,6 +10,7 @@ import {ContextMenuService, ContextMenuComponent} from "ngx-contextmenu";
   styleUrls: ['./menu.component.css'],
   providers: [MenuService,]
 })
+
 
 export class MenuComponent implements OnInit {
   items: any = [];
@@ -41,6 +43,16 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.menuService.getMenu().subscribe(
+      items => {
+        this.items = items;
+        this.filteredItems = this.items;
+      },
+      error => this.errorMessage = <any>error
+    );
+  }
+
+  public paginateMenu(page){
+     this.menuService.getMenu(page).subscribe(
       items => {
         this.items = items;
         this.filteredItems = this.items;

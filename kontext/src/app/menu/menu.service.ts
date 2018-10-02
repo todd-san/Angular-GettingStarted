@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {catchError, tap,} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
@@ -14,21 +14,30 @@ import {throwError} from "rxjs/internal/observable/throwError";
 
 export class MenuService {
   // private productUrl = "api/products/products.json";
+
   private treeUrl = "http://127.0.0.1:8000/kontext/projects/nav_menu/";
+
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'my-auth-token'
     })
   };
 
   constructor(private http: HttpClient){}
 
-  getMenu(): Observable<any[]>{
-    return this.http.get<any[]>(this.treeUrl,).pipe(
-      tap(data => console.log('All: ', data)),
-      catchError(this.handleError)
-    );
+  getMenu(page?): Observable<any[]>{
+    if(page){
+      return this.http.get<any[]>(this.treeUrl+"?page="+page,).pipe(
+        tap(data => console.log('Page'+page+', data: ', data)),
+        catchError(this.handleError)
+      );
+    } else{
+      return this.http.get<any[]>(this.treeUrl,).pipe(
+        tap(data => console.log('Page 1, data: ', data)),
+        catchError(this.handleError)
+      );
+    }
+
   }
 
   private handleError(err: HttpErrorResponse){

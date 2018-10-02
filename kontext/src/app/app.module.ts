@@ -11,6 +11,7 @@ import { FormsModule } from "@angular/forms";
 import { ContentComponent } from './content/content.component';
 import { ContextMenuModule } from "ngx-contextmenu";
 import { FilterComponent } from './filter/filter.component';
+import { HelpComponent } from './help/help.component';
 
 
 
@@ -22,6 +23,7 @@ import { FilterComponent } from './filter/filter.component';
     BaseComponent,
     ContentComponent,
     FilterComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@
   </div>
   <div class="menubar-scroll-panel">
 
+    <div style="text-align: center; font-size: 20px; font-style: italic;"><span class="title men-label">Projects</span></div>
     <!-- BEGIN MAIN MENU -->
     <ul id="main-menu" class="gui-controls" *ngIf="items">
 
@@ -197,6 +198,15 @@
         </context-menu>
 
     <div class="menubar-foot-panel">
+      <div style="text-align: center">
+        <button class="btn btn-icon-toggle ink-reaction" (click)="paginateMenu(2)"><i class="fa fa-angle-double-left fa-2x"></i></button>
+        <button class="btn btn-icon-toggle ink-reaction" (click)="paginateMenu(1)"><i class="fa fa-angle-left fa-2x"></i></button>
+        <span style="font-size: 20px; vertical-align: bottom; color: white;">1</span>
+        <button class="btn btn-icon-toggle ink-reaction" (click)="paginateMenu(2)"><i class="fa fa-angle-right fa-2x"></i></button>
+        <button class="btn btn-icon-toggle ink-reaction" (click)="paginateMenu(2)"><i class="fa fa-angle-double-right fa-2x"></i></button>
+      </div>
+      <br>
+      <hr>
       <small class="no-linebreak hidden-folded">
         <span class="opacity-75">Copyright &copy; 2014</span> <strong>CodeCovers</strong>
       </small>

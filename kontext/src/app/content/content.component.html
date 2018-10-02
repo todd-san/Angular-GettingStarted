@@ -1,36 +1,78 @@
 <!-- BEGIN CONTENT-->
 <div id="content">
+  <section class="col-xs-10 col-xs-offset-2">
+    <div class="section-header">
+      <ol class="breadcrumb">
+        <li class="active">Off-canvas</li>
+      </ol>
+    </div>
+    <div class="section-body contain-lg">
 
-  <!-- BEGIN 404 MESSAGE -->
-  <section class="col-xs-offset-2 col-xs-10">
-      <div class="section-header">
-        <ol class="breadcrumb">
-          <li><a href="../../html/.html">home</a></li>
-          <li class="active">404</li>
-        </ol>
-      </div>
-      <div class="section-body contain-lg">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h1><span class="text-xxxl text-light">404 <i class="fa fa-search-minus text-primary"></i></span></h1>
-            <h2 class="text-light">This page does not exist</h2>
-          </div><!--end .col -->
-        </div><!--end .row -->
-      </div><!--end .section-body -->
+      <!-- BEGIN POSITIONING -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h4>Positioning</h4>
+        </div><!--end .col -->
+        <div class="col-lg-3 col-md-4">
+          <article class="margin-bottom-xxl">
+            <p>
+              You can place an off-canvas either on the left or the right side off the screen.
+            </p>
+          </article>
+        </div><!--end .col -->
+        <div class="col-lg-offset-1 col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <a class="btn btn-raised ink-reaction btn-default-bright" href="#offcanvas-left" data-toggle="offcanvas">
+                <i class="md md-arrow-back"></i>
+                Open left off-canvas
+              </a>
+              <a class="btn btn-raised ink-reaction btn-default-bright pull-right" href="#offcanvas-right" data-toggle="offcanvas">
+                Open right off-canvas
+                <i class="md md-arrow-forward"></i>
+              </a>
+            </div><!--end .card-body -->
+          </div><!--end .card -->
+        </div><!--end .col -->
+      </div><!--end .row -->
+      <!-- END POSITIONING -->
+
+
+    </div><!--end .section-body -->
   </section>
-  <!-- END 404 MESSAGE -->
-
-  <!-- BEGIN SEARCH SECTION -->
-  <section class="col-xs-offset-2 col-xs-10">
-    <div class="section-body contain-sm">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-search"></i></span>
-          <input type="text" class="form-control" placeholder="You're searching for...">
-          <span class="input-group-btn"><button class="btn btn-primary" type="submit">Find</button></span>
-        </div>
-      </div><!--end .section-body -->
-  </section>
-  <!-- END SEARCH SECTION -->
-
 </div><!--end #content-->
 <!-- END CONTENT -->
+
+<!-- BEGIN OFFCANVAS RIGHT -->
+<div class="offcanvas">
+  <div id="offcanvas-right" class="offcanvas-pane width-12">
+    <div class="offcanvas-head">
+      <header>Right off-canvas</header>
+      <div class="offcanvas-tools">
+        <a class="btn btn-icon-toggle btn-default-light pull-right" data-dismiss="offcanvas">
+          <i class="md md-close"></i>
+        </a>
+      </div>
+    </div>
+    <div class="offcanvas-body">
+      <p>
+        An off-canvas can hold any content you want.
+      </p>
+      <p>
+        Close this off-canvas by clicking on the backdrop or press the close button in the upper right corner.
+      </p>
+      <p>&nbsp;</p>
+      <h4>Some details</h4>
+      <ul class="list-divided">
+        <li><strong>Width</strong><br/><span class="opacity-75">240px</span></li>
+        <li><strong>Height</strong><br/><span class="opacity-75">100%</span></li>
+        <li><strong>Body scroll</strong><br/><span class="opacity-75">disabled</span></li>
+        <li><strong>Background color</strong><br/><span class="opacity-75">Default</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+ <!--END OFFCANVAS RIGHT-->
+
+
+
