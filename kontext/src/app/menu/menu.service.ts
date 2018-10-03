@@ -4,43 +4,35 @@ import {Observable} from "rxjs";
 import {catchError, tap,} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
 
-// import {IProduct} from "./product";
+import {Project} from "./interfaces/project";
 
 
 @Injectable({
   providedIn: 'root'
 })
 
-
 export class MenuService {
-  // private productUrl = "api/products/products.json";
 
-  private treeUrl = "http://127.0.0.1:8000/kontext/projects/nav_menu/";
-
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    })
-  };
+  private treeUrl: string = "http://127.0.0.1:8000/kontext/projects/nav_menu/";
 
   constructor(private http: HttpClient){}
 
-  getMenu(page?): Observable<any[]>{
+  getMenu(page?): Observable<HttpResponse<Project[]>>{
     if(page){
-      return this.http.get<any[]>(this.treeUrl+"?page="+page,).pipe(
-        tap(data => console.log('Page'+page+', data: ', data)),
-        catchError(this.handleError)
-      );
+      return this.http.get<Project[]>(this.treeUrl+"?page="+page, {observe: 'response', })
+        .pipe(
+          tap(resp => console.log('header page: ', resp.headers.get('X-Page'))),
+          catchError(MenuService.handleError)
+        );
     } else{
-      return this.http.get<any[]>(this.treeUrl,).pipe(
-        tap(data => console.log('Page 1, data: ', data)),
-        catchError(this.handleError)
+      return this.http.get<Project[]>(this.treeUrl,{observe: 'response'}).pipe(
+        tap(resp => console.log('project page: ', resp.headers.get('X-Page'))),
+        catchError(MenuService.handleError)
       );
     }
-
   }
 
-  private handleError(err: HttpErrorResponse){
+  private static handleError(err: HttpErrorResponse){
     let errorMessage = '';
     if (err.error instanceof ErrorEvent){
       errorMessage = `An error occurred: ${err.error.message}`;
@@ -49,6 +41,5 @@ export class MenuService {
     }
     console.error(errorMessage);
     return throwError(errorMessage);
-
   }
 }
