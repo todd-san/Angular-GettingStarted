@@ -199,11 +199,11 @@
 
     <div class="menubar-foot-panel">
       <div style="text-align: center">
-        <button *ngIf="page.double_prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchItems(1)"><i class="fa fa-angle-double-left fa-2x"></i></button>
-        <button *ngIf="page.prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchItems(page.page -1)"><i class="fa fa-angle-left fa-2x"></i></button>
+        <button *ngIf="page.double_prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(1)"><i class="fa fa-angle-double-left fa-2x"></i></button>
+        <button *ngIf="page.prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page -1)"><i class="fa fa-angle-left fa-2x"></i></button>
         <span style="font-size: 20px; vertical-align: bottom; color: white;">{{page.page}}</span>
-        <button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchItems(page.page +1)"><i class="fa fa-angle-right fa-2x"></i></button>
-        <button *ngIf="page.double_next" class="btn btn-icon-toggle ink-reaction" (click)="fetchItems(paginationHeaders.xTotalPages)"><i class="fa fa-angle-double-right fa-2x"></i></button>
+        <button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page +1)"><i class="fa fa-angle-right fa-2x"></i></button>
+        <button *ngIf="page.double_next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(paginationHeaders.xTotalPages)"><i class="fa fa-angle-double-right fa-2x"></i></button>
       </div>
 
       <br>

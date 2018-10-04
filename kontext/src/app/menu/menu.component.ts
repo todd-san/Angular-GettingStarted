@@ -39,7 +39,7 @@ export class MenuComponent implements OnInit {
     $event.preventDefault();
   }
 
-  public fetchItems(page?){
+  public fetchMenuItems(page?){
      this.menuService.getMenu(page).subscribe(
       items => {
         this.items = items.body;
@@ -80,8 +80,7 @@ export class MenuComponent implements OnInit {
 
 
   ngOnInit() {
-    this.fetchItems();
-
+    this.fetchMenuItems();
   }
 }
 
