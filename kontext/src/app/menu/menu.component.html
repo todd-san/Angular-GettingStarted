@@ -10,9 +10,27 @@
   <div class="menubar-scroll-panel">
 
     <div style="text-align: center; font-size: 20px; font-style: italic;"><span class="title men-label">Projects</span></div>
+    <div style="text-align: center">
+      <div class="col-xs-5">
+        <button *ngIf="page.double_prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(1)">
+          <i style="color: #aa0000" class="fa fa-angle-double-left fa-2x"></i></button>
+        <button *ngIf="page.prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page -1)">
+          <i style="color: #ff0000" class="fa fa-angle-left fa-2x"></i></button>
+      </div>
+      <div class="col-xs-2">
+         <span style="font-size: 20px; vertical-align: bottom; color: white; text-align: center;">{{page.page}}</span>
+      </div>
+      <div class="col-xs-5">
+        <button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page +1)">
+          <i style="color: #ff0000" class="fa fa-angle-right fa-2x"></i></button>
+        <button *ngIf="page.double_next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(paginationHeaders.xTotalPages)">
+          <i style="color: #aa0000" class="fa fa-angle-double-right fa-2x"></i></button>
+      </div>
+    </div>
+
+    <hr>
     <!-- BEGIN MAIN MENU -->
     <ul id="main-menu" class="gui-controls" *ngIf="items">
-
       <li class="gui-folder" *ngFor="let item of items" [contextMenu]="projectMenu">
         <a class="menu-item">
           <div class="gui-icon">
@@ -22,7 +40,6 @@
         </a>
 
         <!-- context menu for projects -->
-
 
         <ul *ngFor="let phase of item.children">
           <li class="gui-folder" [contextMenu]="phaseMenu">
@@ -198,15 +215,6 @@
         </context-menu>
 
     <div class="menubar-foot-panel">
-      <div style="text-align: center">
-        <button *ngIf="page.double_prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(1)"><i class="fa fa-angle-double-left fa-2x"></i></button>
-        <button *ngIf="page.prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page -1)"><i class="fa fa-angle-left fa-2x"></i></button>
-        <span style="font-size: 20px; vertical-align: bottom; color: white;">{{page.page}}</span>
-        <button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page +1)"><i class="fa fa-angle-right fa-2x"></i></button>
-        <button *ngIf="page.double_next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(paginationHeaders.xTotalPages)"><i class="fa fa-angle-double-right fa-2x"></i></button>
-      </div>
-
-      <br>
       <hr>
       <small class="no-linebreak hidden-folded">
         <span class="opacity-75">Copyright &copy; 2014</span> <strong>CodeCovers</strong>
