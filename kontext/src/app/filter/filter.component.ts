@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {FilterService} from "./filter.service";
+import {MenuService} from "../menu/menu.service";
 
 
 import {ProjectName} from "./interfaces/projectName";
@@ -7,6 +8,8 @@ import {PhaseName} from "./interfaces/phaseName";
 import {DesignSize} from "./interfaces/designSize";
 import {TireLine} from "./interfaces/tireLine";
 import {UserName} from "./interfaces/userName";
+import {Project} from "../menu/interfaces/project";
+import {PaginationHeaders} from "../menu/interfaces/paginationHeaders";
 
 @Component({
   selector: 'app-filter',
@@ -21,6 +24,8 @@ export class FilterComponent implements OnInit {
 
   message: string;
   params: any = {};
+  items: Project[];
+  paginationHeaders: PaginationHeaders;
 
   /* interfaced variable types for KTEK API objects
   *
@@ -40,10 +45,20 @@ export class FilterComponent implements OnInit {
   selectedSize: DesignSize;
   selectedLine: TireLine;
 
-  constructor(private filterService: FilterService) {
-    filterService.currentMessage.subscribe(
-      message =>{
-        this.message = message;
+  constructor(private filterService: FilterService, private menuService: MenuService) {
+    filterService.filter_params.subscribe(
+      params => {
+        this.params = params;
+      }
+    );
+    filterService.currentItems.subscribe(
+      items =>{
+        this.items = items;
+      }
+    );
+    filterService.currentPagination.subscribe(
+       item =>{
+        this.paginationHeaders = item;
       }
     )
   }
@@ -132,6 +147,7 @@ export class FilterComponent implements OnInit {
   public updateBySelected(type, id){
     switch (type){
       case 'user': {
+        console.log('CASE=USER');
         this.params = {
           uid: this.getSelected('selectedUser', this.users, id),
         };
@@ -144,6 +160,7 @@ export class FilterComponent implements OnInit {
         break
       }
       case 'project': {
+        console.log('CASE=PROJECT');
         this.params = {
           uid: this.selectedUser ? this.selectedUser: null,
           pid: this.getSelected('selectedProject', this.projects, id),
@@ -155,10 +172,11 @@ export class FilterComponent implements OnInit {
         break
       }
       case 'phase': {
+        console.log('CASE=PHASE');
         this.params = {
           uid: this.selectedUser ? this.selectedUser : null,
           pid: this.selectedProject ? this.selectedProject: null,
-          phid: this.getSelected('selectedProject', this.projects, id),
+          phid: this.getSelected('selectedPhase', this.phases, id),
         };
         this.getSizes(this.params);
         this.getLines(this.params);
@@ -166,6 +184,7 @@ export class FilterComponent implements OnInit {
         break
       }
       case 'size': {
+        console.log('CASE=SIZE');
         this.params = {
           uid: this.selectedUser ? this.selectedUser : null,
           pid: this.selectedProject ? this.selectedProject: null,
@@ -177,6 +196,7 @@ export class FilterComponent implements OnInit {
         break
       }
       case 'line': {
+        console.log('CASE=LINE');
         this.params = {
           uid: this.selectedUser ? this.selectedUser : null,
           pid: this.selectedProject ? this.selectedProject: null,
@@ -195,7 +215,6 @@ export class FilterComponent implements OnInit {
       }
     }
     console.log('Current Message: ', this.message);
-    this.newMessage();
   }
 
   /* splits the projects list by ownership or membership
@@ -237,11 +256,21 @@ export class FilterComponent implements OnInit {
       array.findIndex(a => a[propertyName] === e[propertyName]) === i);
   }
 
-  newMessage(){
-    console.log('setting new message!');
-    this.filterService.changeMessage('Hello From FilterComponent!');
-    console.log(this.filterService.currentMessage);
-    console.log(this.message);
+  public filterMenu(){
+    console.log('=====================================');
+    console.log('PARAMS on FILTER MENU! ', this.params);
+    console.log('=====================================');
+    this.menuService.getMenu(this.params, null).subscribe(
+      items => {
+        this.filterService.changeItems(items.body);
+        this.filterService.changePagination({
+          xPage: parseInt(items.headers.get('X-Page')),
+          xPerPage: parseInt(items.headers.get('X-Per-Page')),
+          xTotal: parseInt(items.headers.get('X-Total')),
+          xTotalPages: parseInt(items.headers.get('X-Total-Pages'))
+        });
+      }
+    );
   }
 
   /* tasks on page load
@@ -253,7 +282,7 @@ export class FilterComponent implements OnInit {
     this.getPhases({});
     this.getSizes({});
     this.getLines({});
-    this.filterService.filter_params.subscribe(filter_params => this.params = filter_params);
+    this.filterMenu();
 
   }
 

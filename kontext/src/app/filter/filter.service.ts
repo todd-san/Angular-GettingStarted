@@ -3,11 +3,15 @@ import {HttpClient, HttpErrorResponse, HttpResponse, HttpParams} from "@angular/
 import {Observable, Subject, BehaviorSubject} from "rxjs";
 import {catchError, tap,} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
+
+import {Project} from "../menu/interfaces/project";
+
 import {ProjectName} from "./interfaces/projectName"
 import {PhaseName} from "./interfaces/phaseName"
 import {DesignSize} from "./interfaces/designSize"
 import {TireLine} from "./interfaces/tireLine"
 import {UserName} from "./interfaces/userName"
+import {PaginationHeaders} from "../menu/interfaces/paginationHeaders";
 
 
 @Injectable({
@@ -18,8 +22,11 @@ export class FilterService {
   private query_parameters = new BehaviorSubject({});
   filter_params = this.query_parameters.asObservable();
 
-  private messageSource = new BehaviorSubject('default message');
-  currentMessage = this.messageSource.asObservable();
+  private menuItems = new BehaviorSubject([]);
+  currentItems = this.menuItems.asObservable();
+
+  private menuPagination = new BehaviorSubject(<PaginationHeaders>{});
+  currentPagination: Observable<PaginationHeaders> = this.menuPagination.asObservable();
 
   private projectNameUrl: string = "http://127.0.0.1:8000/kontext/projects/names/";
   private phaseNameUrl: string = "http://127.0.0.1:8000/kontext/phases/names/";
@@ -98,9 +105,11 @@ export class FilterService {
     console.log('setValue.params: ', params);
     this.query_parameters.next(params)
   }
-
-  changeMessage(message: string) {
-    this.messageSource.next(message);
+  changeItems(items: Project[]){
+    this.menuItems.next(items);
+  }
+  changePagination(paginate: PaginationHeaders){
+    this.menuPagination.next(paginate)
   }
 
   private static handleError(err: HttpErrorResponse){
