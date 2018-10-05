@@ -2,5 +2,5 @@
 export interface UserName {
   username: string;
   id: number;
-  groups: [];
+  groups: string[];
 }

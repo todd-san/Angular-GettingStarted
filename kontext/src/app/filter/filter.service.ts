@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpErrorResponse, HttpResponse, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, Subject, BehaviorSubject} from "rxjs";
 import {catchError, tap,} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
 import {ProjectName} from "./interfaces/projectName"
@@ -15,6 +15,12 @@ import {UserName} from "./interfaces/userName"
 })
 
 export class FilterService {
+  private query_parameters = new BehaviorSubject({});
+  filter_params = this.query_parameters.asObservable();
+
+  private messageSource = new BehaviorSubject('default message');
+  currentMessage = this.messageSource.asObservable();
+
   private projectNameUrl: string = "http://127.0.0.1:8000/kontext/projects/names/";
   private phaseNameUrl: string = "http://127.0.0.1:8000/kontext/phases/names/";
   private designSizeUrl: string = "http://127.0.0.1:8000/kontext/designs/sizes/";
@@ -34,12 +40,11 @@ export class FilterService {
     let params = new HttpParams();
     if(!!qp) {
       params = new HttpParams()
-        .set('member', qp.uid ? qp.uid : null);
+        .set('member', qp.uid ? qp.uid.username : null);
     }
-    // console.log('PROJECT PARAMS: ', params);
     return this.http.get<ProjectName[]>(this.projectNameUrl, {observe: 'response', params: params})
         .pipe(
-          tap(resp => console.log('response: ', resp)),
+          // tap(resp => console.log('response: ', resp)),
           catchError(FilterService.handleError)
         );
   }
@@ -47,11 +52,10 @@ export class FilterService {
     let params = new HttpParams();
     if(!!qp){
       params = new HttpParams()
-        .set('member', qp.uid ? qp.uid : null)
-        .set('project', qp.pid ? qp.pid : null);
+        .set('member', qp.uid ? qp.uid.username : null)
+        .set('project', qp.pid ? qp.pid.name : null);
 
     }
-    // console.log('PHASE PARAMS: ', params);
     return this.http.get<PhaseName[]>(this.phaseNameUrl, {observe: 'response', params: params})
       .pipe(
         // tap(resp => console.log('response: ', resp)),
@@ -59,14 +63,13 @@ export class FilterService {
       );
   }
   getDesignSizes(qp?): Observable<HttpResponse<DesignSize[]>>{
-
-    console.log('filter_service.SIZE PARAMS 3: ', qp);
-
     let params = new HttpParams();
     if(!!qp){
       params = new HttpParams()
-        .set('member', qp.uid ? qp.uid: null)
-        .set('project', qp.pid ? qp.pid : null);
+        .set('member', qp.uid ? qp.uid.username: null)
+        .set('project', qp.pid ? qp.pid.name : null)
+        .set('phase', qp.phid ? qp.phid.name : null)
+        .set('line', qp.lid ? qp.lid.id : null)
     }
     return this.http.get<DesignSize[]>(this.designSizeUrl, {observe: 'response', params: params})
       .pipe(
@@ -78,8 +81,10 @@ export class FilterService {
     let params = new HttpParams();
     if(!!qp){
       params = new HttpParams()
-        .set('owner', qp.uid ? qp.uid: null)
-        .set('project', qp.pid ? qp.pid : null);
+        .set('owner', qp.uid ? qp.uid.username: null)
+        .set('project', qp.pid ? qp.pid.name : null)
+        .set('phase', qp.phid ? qp.phid.name : null)
+        .set('size', qp.sid ? qp.sid.size : null)
 
     }
     return this.http.get<TireLine[]>(this.tireLineUrl, {observe: 'response', params: params})
@@ -87,6 +92,15 @@ export class FilterService {
         // tap(resp => console.log('response: ', resp)),
         catchError(FilterService.handleError)
       );
+  }
+
+  changeParams(params: any){
+    console.log('setValue.params: ', params);
+    this.query_parameters.next(params)
+  }
+
+  changeMessage(message: string) {
+    this.messageSource.next(message);
   }
 
   private static handleError(err: HttpErrorResponse){

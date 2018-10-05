@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FilterService} from "./filter.service"
+import {FilterService} from "./filter.service";
+
 
 import {ProjectName} from "./interfaces/projectName";
 import {PhaseName} from "./interfaces/phaseName";
@@ -10,24 +11,42 @@ import {UserName} from "./interfaces/userName";
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.css'],
 })
-export class FilterComponent implements OnInit {
-  errorMessage: string;
 
+export class FilterComponent implements OnInit {
+  /* placeholder for filter.service HTTP errors
+  * */
+  private errorMessage: string;
+
+  message: string;
+  params: any = {};
+
+  /* interfaced variable types for KTEK API objects
+  *
+  * */
   users: UserName[];
   projects: ProjectName[];
   phases: PhaseName[];
   sizes: DesignSize[];
   lines: TireLine[];
 
+  /* placeholders to generate filter query params
+  *
+  * */
   selectedUser: UserName;
   selectedProject: ProjectName;
   selectedPhase: PhaseName;
   selectedSize: DesignSize;
   selectedLine: TireLine;
 
-  constructor(private filterService: FilterService) { }
+  constructor(private filterService: FilterService) {
+    filterService.currentMessage.subscribe(
+      message =>{
+        this.message = message;
+      }
+    )
+  }
 
   /* subscribers to filter.service.ts
   *
@@ -77,7 +96,6 @@ export class FilterComponent implements OnInit {
     );
   }
   public getSizes(params){
-    console.log('filter_component.SIZE PARAMS 2: ', params);
     this.filterService.getDesignSizes(params).subscribe(
       sizes => {
         let raw = sizes.body;
@@ -92,7 +110,7 @@ export class FilterComponent implements OnInit {
     );
   }
   public getLines(params){
-    this.filterService.getTireLines().subscribe(
+    this.filterService.getTireLines(params).subscribe(
       lines => {
         let raw = lines.body;
         this.lines = this.unique(raw, 'name');
@@ -111,35 +129,73 @@ export class FilterComponent implements OnInit {
   * on each (change) event in the filter drop-downs a new request is
   * made through KTEK's API to update the subsequent drop-down lists
   * */
-  public updateBySelectedUser(uid){
-    console.log('filter_component.SIZE PARAMS 1: ', uid);
+  public updateBySelected(type, id){
+    switch (type){
+      case 'user': {
+        this.params = {
+          uid: this.getSelected('selectedUser', this.users, id),
+        };
+        this.getProjects(this.params);
+        this.getPhases(this.params);
+        this.getSizes(this.params);
+        this.getLines(this.params);
+        this.filterService.changeParams(this.params);
 
-    this.getSelectedUser(uid);
-
-    let params = {
-      uid: this.selectedUser ? this.selectedUser.username : null,
-    };
-
-    this.getProjects(params);
-    this.getPhases(params);
-    this.getSizes(params);
-    this.getLines(params);
-
-
-  }
-  public updateBySelectedProject(pid){
-
-    this.getSelectedProject(pid);
-
-    let params = {
-      uid: this.selectedUser ? this.selectedUser.username: null,
-      pid: this.selectedProject ? this.selectedProject.name: null,
-    };
-
-    this.getPhases(params);
-    this.getSizes(params);
-    this.getLines(params);
-
+        break
+      }
+      case 'project': {
+        this.params = {
+          uid: this.selectedUser ? this.selectedUser: null,
+          pid: this.getSelected('selectedProject', this.projects, id),
+        };
+        this.getPhases(this.params);
+        this.getSizes(this.params);
+        this.getLines(this.params);
+        this.filterService.changeParams(this.params);
+        break
+      }
+      case 'phase': {
+        this.params = {
+          uid: this.selectedUser ? this.selectedUser : null,
+          pid: this.selectedProject ? this.selectedProject: null,
+          phid: this.getSelected('selectedProject', this.projects, id),
+        };
+        this.getSizes(this.params);
+        this.getLines(this.params);
+        this.filterService.changeParams(this.params);
+        break
+      }
+      case 'size': {
+        this.params = {
+          uid: this.selectedUser ? this.selectedUser : null,
+          pid: this.selectedProject ? this.selectedProject: null,
+          phid: this.selectedPhase ? this.selectedPhase : null,
+          sid: this.getSelected('selectedSize', this.sizes, id),
+        };
+        this.getLines(this.params);
+        this.filterService.changeParams(this.params);
+        break
+      }
+      case 'line': {
+        this.params = {
+          uid: this.selectedUser ? this.selectedUser : null,
+          pid: this.selectedProject ? this.selectedProject: null,
+          phid: this.selectedPhase ? this.selectedPhase : null,
+          sid: this.selectedSize ? this.selectedSize : null,
+          lid: this.getSelected('selectedLine', this.lines, id),
+        };
+        this.getSizes(this.params);
+        this.filterService.changeParams(this.params);
+        break
+      }
+      default: {
+        this.params = {};
+        console.log('ERROR! shit did not work!');
+        break
+      }
+    }
+    console.log('Current Message: ', this.message);
+    this.newMessage();
   }
 
   /* splits the projects list by ownership or membership
@@ -157,41 +213,48 @@ export class FilterComponent implements OnInit {
     })
   }
 
-  //
-  public getSelectedUser(uid){
-    if(!!uid) {
-      return this.selectedUser = this.users.filter(function (user) {
-        return (Number(user.id) === Number(uid))
-      })[0];
-
-    } else {
-      return null
-    }
-  }
-  public getSelectedProject(pid){
-    if(!!pid) {
+  /* returns object from a filter-by-pk function
+  *
+  */
+  public getSelected(selectedItem, obj_array, selectedId){
+    if(!!selectedId) {
       // converting back to the old style of filtering by username
-      this.selectedProject = this.projects.filter(function (project) {
-        return (Number(project.id) === Number(pid))
+      this[selectedItem] = obj_array.filter(function (x) {
+        return (Number(x.id) === Number(selectedId))
       })[0];
     } else{
-      this.selectedProject = null;
+      this[selectedItem] = null;
     }
+    return this[selectedItem];
   }
 
-  //
+  /* returns a unique set of objects
+   *
+   * uniqueness is judged by a passed property arg
+   */
   public unique(array, propertyName){
     return array.filter((e, i) =>
       array.findIndex(a => a[propertyName] === e[propertyName]) === i);
   }
 
-  //
+  newMessage(){
+    console.log('setting new message!');
+    this.filterService.changeMessage('Hello From FilterComponent!');
+    console.log(this.filterService.currentMessage);
+    console.log(this.message);
+  }
+
+  /* tasks on page load
+  *
+  * */
   ngOnInit() {
     this.getUsers();
     this.getProjects({});
     this.getPhases({});
     this.getSizes({});
     this.getLines({});
+    this.filterService.filter_params.subscribe(filter_params => this.params = filter_params);
+
   }
 
 }
