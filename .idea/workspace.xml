@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d60e9481-55dc-4d0b-bbc2-71793ecdde9d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/filter/filter.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/filter/filter.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/filter/filter.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/filter/filter.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,13 +12,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.21836866">
+    <splitter split-orientation="horizontal" split-proportion="0.19791667">
       <split-first>
         <leaf>
           <file leaf-file-name="filter.component.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="574">
+                <state relative-caret-position="648">
                   <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
                   <folding>
                     <element signature="n#optgroup#0;n#select#0;n#div#1;n#form#0;n#!!top" />
@@ -42,32 +37,18 @@
           <file leaf-file-name="filter.component.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="636">
-                  <caret line="207" column="53" lean-forward="true" selection-start-line="207" selection-start-column="53" selection-end-line="207" selection-end-column="53" />
+                <state relative-caret-position="72">
+                  <caret line="15" column="41" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="41" />
                   <folding>
-                    <element signature="e#0#50#0" expanded="true" />
-                    <element signature="e#579#631#0" />
-                    <element signature="e#707#767#0" />
-                    <element signature="e#886#944#0" />
                     <element signature="n#!!block;n#constructor#0;n#FilterComponent#0" />
-                    <element signature="e#1362#1521#0" />
                     <element signature="n#!!block;n#getUsers#0;n#FilterComponent#0" />
                     <element signature="n#!!block;n#getProjects#0;n#FilterComponent#0" />
                     <element signature="n#!!block;n#getPhases#0;n#FilterComponent#0" />
                     <element signature="n#!!block;n#getSizes#0;n#FilterComponent#0" />
                     <element signature="n#!!block;n#getLines#0;n#FilterComponent#0" />
-                    <element signature="e#3506#3701#0" />
-                    <element signature="e#4091#4464#0" />
-                    <element signature="e#3801#3877#0" />
-                    <element signature="e#6125#6233#0" />
-                    <element signature="e#6022#6138#0" />
                     <element signature="n#!!block;n#isProjectOwner#0;n#FilterComponent#0" />
                     <element signature="n#!!block;n#isProjectMember#0;n#FilterComponent#0" />
-                    <element signature="e#6393#6448#0" />
-                    <element signature="e#6812#6908#0" />
                     <element signature="n#!!block;n#unique#0;n#FilterComponent#0" />
-                    <element signature="e#7442#7897#0" />
-                    <element signature="e#7061#7093#0" />
                   </folding>
                 </state>
               </provider>
@@ -76,8 +57,8 @@
           <file leaf-file-name="menu.service.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+                <state relative-caret-position="504">
+                  <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                     <element signature="n#!!block;n#handleError#0;n#MenuService#0" />
@@ -107,7 +88,7 @@
       <find>position</find>
       <find>cdk</find>
       <find>z-index:</find>
-      <find>SIZE PARAMS</find>
+      <find />
       <find>console</find>
     </findStrings>
   </component>
@@ -189,7 +170,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="28" />
-    <option name="width" value="1369" />
+    <option name="width" value="1920" />
     <option name="height" value="1018" />
   </component>
   <component name="ProjectView">
@@ -376,12 +357,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538754924473</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="running into issues on filtering in backend... filter service drives menus! yay!">
+      <created>1538770049919</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1538770049919</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="1920" height="1018" extended-state="6" />
-    <editor active="true" />
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="7" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5016026" side_tool="true" weight="0.32624114" />
@@ -391,7 +378,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839744" weight="0.32624114" />
       <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32978722" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16826923" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1640625" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -452,7 +439,8 @@
     <MESSAGE value="linked filtering against KTEK's api is working in the filter form, still need to connect it to the menu tree" />
     <MESSAGE value="switched pagination controls to top of menu so I dont have to worry about css shit" />
     <MESSAGE value="service-sharing between filter and menu components!" />
-    <option name="LAST_COMMIT_MESSAGE" value="service-sharing between filter and menu components!" />
+    <MESSAGE value="running into issues on filtering in backend... filter service drives menus! yay!" />
+    <option name="LAST_COMMIT_MESSAGE" value="running into issues on filtering in backend... filter service drives menus! yay!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -828,20 +816,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#handleError#0;n#MenuService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
+        <state relative-caret-position="648">
           <caret line="51" column="33" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
           <folding>
             <element signature="n#optgroup#0;n#select#0;n#div#1;n#form#0;n#!!top" />
@@ -852,34 +829,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!block;n#handleError#0;n#MenuService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="207" column="53" lean-forward="true" selection-start-line="207" selection-start-column="53" selection-end-line="207" selection-end-column="53" />
+        <state relative-caret-position="72">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="41" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <element signature="e#579#631#0" />
-            <element signature="e#707#767#0" />
-            <element signature="e#886#944#0" />
             <element signature="n#!!block;n#constructor#0;n#FilterComponent#0" />
-            <element signature="e#1362#1521#0" />
             <element signature="n#!!block;n#getUsers#0;n#FilterComponent#0" />
             <element signature="n#!!block;n#getProjects#0;n#FilterComponent#0" />
             <element signature="n#!!block;n#getPhases#0;n#FilterComponent#0" />
             <element signature="n#!!block;n#getSizes#0;n#FilterComponent#0" />
             <element signature="n#!!block;n#getLines#0;n#FilterComponent#0" />
-            <element signature="e#3506#3701#0" />
-            <element signature="e#4091#4464#0" />
-            <element signature="e#3801#3877#0" />
-            <element signature="e#6125#6233#0" />
-            <element signature="e#6022#6138#0" />
             <element signature="n#!!block;n#isProjectOwner#0;n#FilterComponent#0" />
             <element signature="n#!!block;n#isProjectMember#0;n#FilterComponent#0" />
-            <element signature="e#6393#6448#0" />
-            <element signature="e#6812#6908#0" />
             <element signature="n#!!block;n#unique#0;n#FilterComponent#0" />
-            <element signature="e#7442#7897#0" />
-            <element signature="e#7061#7093#0" />
           </folding>
         </state>
       </provider>
