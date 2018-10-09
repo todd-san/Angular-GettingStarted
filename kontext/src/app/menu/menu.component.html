@@ -18,7 +18,7 @@
           <i style="color: #ff0000" class="fa fa-angle-left fa-2x"></i></button>
       </div>
       <div class="col-xs-2">
-         <span style="font-size: 20px; vertical-align: bottom; color: white; text-align: center;">{{page.page}}</span>
+         <span *ngIf="paginationHeaders.xTotalPages > 1" style="font-size: 20px; vertical-align: bottom; color: white; text-align: center;">{{page.page}}</span>
       </div>
       <div class="col-xs-5">
         <button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page +1)">
@@ -29,9 +29,12 @@
     </div>
 
     <hr>
+
     <!-- BEGIN MAIN MENU -->
     <ul id="main-menu" class="gui-controls" *ngIf="items">
       <li class="gui-folder" *ngFor="let item of items" [contextMenu]="projectMenu">
+
+        <!--  -->
         <a class="menu-item">
           <div class="gui-icon">
             <i class="fa fa-folder-open fa-fw"></i>
@@ -40,30 +43,26 @@
         </a>
 
         <!-- context menu for projects -->
-
         <ul *ngFor="let phase of item.children">
           <li class="gui-folder" [contextMenu]="phaseMenu">
             <a class="menu-item">
-              <!--<i class="fa fa-folder-open"></i>-->
               <span class="title menu-label">{{phase.name}}</span></a>
 
             <ul *ngFor="let design of phase.children" [contextMenu]="designMenu">
               <li class="gui-folder">
                 <a class="menu-item">
-                  <!--<i class="fa fa-folder-open fa-fw"></i>-->
                   <span class="title menu-label">{{design.name}}</span>
                 </a>
 
                 <ul *ngFor="let spec of design.children" [contextMenu]="specMenu">
                   <li class="gui-folder">
                     <a href="javascript:void(0)">
-                      <!--<i class="fa fa-folder-open fa-fw"></i>-->
                       <span class="title menu-label">{{spec.name}}</span>
                     </a>
                   </li>
                 </ul>
-              </li>
 
+              </li>
             </ul>
           </li>
         </ul>

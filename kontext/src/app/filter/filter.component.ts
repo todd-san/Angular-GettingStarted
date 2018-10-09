@@ -271,6 +271,10 @@ export class FilterComponent implements OnInit {
         });
       }
     );
+    // this.menuService.getSpecMenu(this.params, null).subscribe(
+    //   items => {
+    //     console.log('SPEC MENU: ',items.body);
+    //   });
   }
 
   /* tasks on page load

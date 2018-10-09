@@ -34,6 +34,20 @@ export class FilterService {
   private tireLineUrl: string = "http://127.0.0.1:8000/kore/api/lines/";
   private userNameUrl: string = "http://127.0.0.1:8000/kore/api/users/";
 
+  /*
+  *
+  * */
+  private removeEmpty = (obj) => {
+    Object.keys(obj).forEach((key) => (obj[key] == null) && delete obj[key]);
+  };
+  private loopThroughParams(params){
+    Object.keys(params).forEach(key => console.log('PARAMETER KEYS!: ', params[key]))
+  }
+  private toHttpParams(params) {
+      return Object.getOwnPropertyNames(params)
+                   .reduce((p, key) => p.set(key, params[key]), new HttpParams());
+  }
+
   constructor(private http: HttpClient){}
 
   getUserNames(): Observable<HttpResponse<UserName[]>>{
@@ -46,8 +60,11 @@ export class FilterService {
   getProjectNames(qp?): Observable<HttpResponse<ProjectName[]>>{
     let params = new HttpParams();
     if(!!qp) {
+      this.loopThroughParams(qp);
       params = new HttpParams()
         .set('member', qp.uid ? qp.uid.username : null);
+
+      console.log('PROJECT NAME PARAMS: ', params);
     }
     return this.http.get<ProjectName[]>(this.projectNameUrl, {observe: 'response', params: params})
         .pipe(
@@ -80,7 +97,7 @@ export class FilterService {
     }
     return this.http.get<DesignSize[]>(this.designSizeUrl, {observe: 'response', params: params})
       .pipe(
-        // tap(resp => console.log('response: ', resp)),
+        tap(resp => console.log('response: ', resp)),
         catchError(FilterService.handleError)
       );
   }

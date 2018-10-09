@@ -47,6 +47,7 @@ export class MenuComponent implements OnInit {
     filterService.currentPagination.subscribe(
       pagination =>{
         this.paginationHeaders = pagination;
+        this.setPagination();
       }
     );
 
@@ -82,19 +83,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.menuService.getMenu(this.filter_params).subscribe(
-    //   items => {
-    //     this.items = items.body;
-    //     this.paginationHeaders = {
-    //       xPage: parseInt(items.headers.get('X-Page')),
-    //       xPerPage: parseInt(items.headers.get('X-Per-Page')),
-    //       xTotal: parseInt(items.headers.get('X-Total')),
-    //       xTotalPages: parseInt(items.headers.get('X-Total-Pages'))
-    //     };
-    //     this.setPagination();
-    //   },
-    //   error => this.errorMessage = <any>error
-    // );
+
   }
 }
 
