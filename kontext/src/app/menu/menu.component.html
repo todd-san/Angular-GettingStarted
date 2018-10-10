@@ -32,7 +32,7 @@
 
     <!-- BEGIN MAIN MENU -->
     <ul id="main-menu" class="gui-controls" *ngIf="items">
-      <li class="gui-folder" *ngFor="let item of items" [contextMenu]="projectMenu">
+      <li class="gui-folder" *ngFor="let item of items" [contextMenu]="projectMenu" (click)="log(item)">
 
         <!--  -->
         <a class="menu-item">
@@ -45,6 +45,7 @@
         <!-- context menu for projects -->
         <ul *ngFor="let phase of item.children">
           <li class="gui-folder" [contextMenu]="phaseMenu">
+            <!--<a class="menu-item">-->
             <a class="menu-item">
               <span class="title menu-label">{{phase.name}}</span></a>
 

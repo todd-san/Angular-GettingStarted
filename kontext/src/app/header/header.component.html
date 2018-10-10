@@ -6,13 +6,13 @@
         <li class="header-nav-brand" >
           <div class="brand-holder">
             <!--<a href="../../html/dashboards/dashboard.html">-->
-              <span class="text-lg text-bold text-primary" style="font-size: 25px; font-style: italic">{{title}}</span>
+              <!--<span class="text-lg text-bold text-primary" style="font-size: 25px; font-style: italic">{{title}}</span>-->
+              <img src="../../assets/img/kenda-vector-logo.png" style="width: 200px; margin-left: 125px;">
             <!--</a>-->
           </div>
         </li>
       </ul>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="headerbar-right">
       <ul class="header-nav header-nav-options">
@@ -37,7 +37,8 @@
           <!-- Filter Toggle-->
           <form class="navbar-item">
             <a class="btn btn-icon-toggle ink-reaction" title="filter"  href="#offcanvas-right" data-toggle="offcanvas">
-                <i class="fa fa-filter fa-2x" style="color:#c60000"></i>
+                <i class="fa fa-filter fa-2x" *ngIf="filter_params" style="color:#f31f32"></i>
+                <i class="fa fa-filter fa-2x" *ngIf="!filter_params" style="color:#8d8c89"></i>
             </a>
           </form>
         </li>

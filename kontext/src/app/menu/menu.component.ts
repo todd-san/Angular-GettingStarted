@@ -82,6 +82,16 @@ export class MenuComponent implements OnInit {
 
   }
 
+  public showMessage(item){
+    console.log(item);
+  }
+
+
+  public log(item){
+    console.log(item);
+    console.log(this.filter_params)
+  }
+
   ngOnInit() {
 
   }

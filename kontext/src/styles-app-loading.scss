@@ -1,0 +1,9 @@
+.app-loading {
+  .logo {
+    width: 512px;
+    height: 512px;
+    // this way asset gets processed by webpack
+    //background: url(./assets/superman_logo.png) center center no-repeat;
+    background: url(./assets/img/logo.png) center center no-repeat;
+  }
+}
