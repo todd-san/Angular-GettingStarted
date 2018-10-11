@@ -1,14 +1,14 @@
-import {Component, OnInit, ViewChild, Input} from '@angular/core';
+import {Component, OnInit, ViewChild, Injectable} from '@angular/core';
 import {MenuService} from "./menu.service";
 import {ContextMenuService, ContextMenuComponent} from "ngx-contextmenu";
 import {FilterService} from "../filter/filter.service";
+
 
 // Interfaces
 import {PaginationHeaders} from "./interfaces/paginationHeaders";
 import {Project} from "./interfaces/project";
 import {Page} from "./interfaces/page";
 import {filter} from "rxjs/internal/operators";
-
 
 @Component({
   selector: 'app-menu',
@@ -22,7 +22,6 @@ export class MenuComponent implements OnInit {
   page: Page = <Page>{};
   items: Project[] = [];
   paginationHeaders: PaginationHeaders;
-  errorMessage: string;
   filter_params: any;
   message: string;
 
@@ -82,14 +81,13 @@ export class MenuComponent implements OnInit {
 
   }
 
-  public showMessage(item){
-    console.log(item);
-  }
-
-
   public log(item){
     console.log(item);
     console.log(this.filter_params)
+  }
+
+  showMessage(item){
+    console.log(item);
   }
 
   ngOnInit() {

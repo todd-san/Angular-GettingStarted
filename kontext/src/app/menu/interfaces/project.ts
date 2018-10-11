@@ -4,7 +4,7 @@ import {Phase} from "./phase";
 export interface Project {
   name: string;
   id: number;
-  type: 'project';
+  type: string;
   children: Phase[];
 
 }

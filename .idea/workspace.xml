@@ -2,18 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d60e9481-55dc-4d0b-bbc2-71793ecdde9d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/kontext/src/assets/img/k_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/assets/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/assets/img/superman_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/styles-app-loading.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/tmiller.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/filter/filter.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/filter/filter.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/content/content.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/content/content.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/interfaces/project.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/interfaces/project.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/styles-app-loading.scss" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,63 +29,120 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="filter.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-              <folding>
-                <element signature="e#202#208#1" expanded="true" />
-                <element signature="e#540#546#1" expanded="true" />
-                <element signature="n#optgroup#0;n#select#0;n#div#1;n#form#0;n#!!top" />
-                <element signature="n#optgroup#1;n#select#0;n#div#1;n#form#0;n#!!top" />
-                <element signature="n#optgroup#2;n#select#0;n#div#1;n#form#0;n#!!top" />
-                <element signature="n#select#0;n#div#2;n#form#0;n#!!top" />
-                <element signature="e#1415#1421#1" expanded="true" />
-                <element signature="e#1749#1755#1" expanded="true" />
-                <element signature="e#2078#2084#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="content.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kontext/src/app/content/content.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="51" column="92" selection-start-line="51" selection-start-column="92" selection-end-line="51" selection-end-column="92" />
-              <folding>
-                <element signature="n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="82" column="3" lean-forward="true" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#66#0" expanded="true" />
-                <element signature="e#256#321#0" expanded="true" />
-                <element signature="n#!!block;n#setPagination#0;n#MenuComponent#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.80824894">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="tree-example.component.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="488">
+                  <caret line="136" column="4" lean-forward="true" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="4" />
+                  <folding>
+                    <element signature="e#0#52#0" expanded="true" />
+                    <element signature="e#577#1093#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="kontextItem.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="252">
+                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="filter.service.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="283">
+                  <caret line="25" column="14" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                    <element signature="n#!!block;n#getUserNames#0;n#FilterService#0" />
+                    <element signature="n#!!block;n#getProjectNames#0;n#FilterService#0" />
+                    <element signature="n#!!block;n#getPhaseNames#0;n#FilterService#0" />
+                    <element signature="n#!!block;n#getDesignSizes#0;n#FilterService#0" />
+                    <element signature="n#!!block;n#getTireLines#0;n#FilterService#0" />
+                    <element signature="n#!!block;n#changeParams#0;n#FilterService#0" />
+                    <element signature="n#!!block;n#changePagination#0;n#FilterService#0" />
+                    <element signature="n#!!block;n#handleError#0;n#FilterService#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="menu.component.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="652">
+                  <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+                  <folding>
+                    <element signature="e#0#71#0" expanded="true" />
+                    <element signature="e#262#327#0" expanded="true" />
+                    <element signature="n#!!block;n#constructor#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#onContextMenu#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#setPagination#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#log#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#showMessage#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#ngOnInit#0;n#MenuComponent#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="menu.component.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="198">
+                  <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+                  <folding>
+                    <element signature="e#0#71#0" expanded="true" />
+                    <element signature="e#262#327#0" expanded="true" />
+                    <element signature="n#!!block;n#onContextMenu#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#setPagination#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#log#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#showMessage#0;n#MenuComponent#0" />
+                    <element signature="n#!!block;n#ngOnInit#0;n#MenuComponent#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="tree-example.component.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="648">
+                  <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="37" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="menu.service.ts" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="594">
+                  <caret line="55" column="43" lean-forward="true" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                    <element signature="e#675#758#0" />
+                    <element signature="n#!!block;n#loopThroughParams#0;n#MenuService#0" />
+                    <element signature="n#!!block;n#toHttpParams#0;n#MenuService#0" />
+                    <element signature="n#!!block;n#handleError#0;n#MenuService#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -101,7 +164,14 @@
       <find>SIZE PARAMS</find>
       <find>console</find>
       <find>ul</find>
+      <find>Project</find>
+      <find>FileNode</find>
+      <find>menuItems</find>
+      <find>currentItems</find>
     </findStrings>
+    <replaceStrings>
+      <replace>KontextItem</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,14 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/APM/src/app/products/product-detail.component.ts" />
-        <option value="$PROJECT_DIR$/APM/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/header/header.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/kontext/src/api/ktek_data" />
-        <option value="$PROJECT_DIR$/kontext/src/api/data.JSON" />
-        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.ts" />
-        <option value="$PROJECT_DIR$/APM/src/app/products/product-list.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/assets/less/materialadmin/gui-controls-inverse.less" />
         <option value="$PROJECT_DIR$/kontext/src/app/menu/contextMenu.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/menu/context-menu.component.ts" />
@@ -139,7 +201,6 @@
         <option value="$PROJECT_DIR$/kontext/src/app/menu/design.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/menu/spec.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/menu/project.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/menu/interfaces/project.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/menu/interfaces/page.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/base/base.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/filter/interfaces/phaseName.ts" />
@@ -148,18 +209,27 @@
         <option value="$PROJECT_DIR$/kontext/src/app/filter/interfaces/projectName.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/filter/interfaces/userName.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/shared/page.service.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/filter/filter.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" />
-        <option value="$PROJECT_DIR$/kontext/angular.json" />
         <option value="$PROJECT_DIR$/kontext/src/styles-app-loading.scss" />
         <option value="$PROJECT_DIR$/kontext/src/app/header/header.component.html" />
-        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/index.html" />
-        <option value="$PROJECT_DIR$/kontext/src/app/content/content.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/filter/filter.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/index.html" />
+        <option value="$PROJECT_DIR$/kontext/angular.json" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu2/menu2.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu2/menu2.component.css" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu2/menu2.component.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.css" />
+        <option value="$PROJECT_DIR$/kontext/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/content/content.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/interfaces/kontextItem.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/interfaces/project.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.ts" />
       </list>
     </option>
   </component>
@@ -190,7 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,7 +307,7 @@
               <item name="kontext" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
+              <item name="menu" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Angular-GettingStarted" type="b2602c69:ProjectViewProjectNode" />
@@ -246,19 +315,44 @@
               <item name="kontext" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="filter" type="462c0819:PsiDirectoryNode" />
+              <item name="menu" type="462c0819:PsiDirectoryNode" />
               <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular-GettingStarted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular-GettingStarted" type="462c0819:PsiDirectoryNode" />
+              <item name="kontext" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular-GettingStarted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular-GettingStarted" type="462c0819:PsiDirectoryNode" />
+              <item name="kontext" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="tree-example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Angular-GettingStarted" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Angular-GettingStarted" type="462c0819:PsiDirectoryNode" />
+              <item name="kontext" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/tmiller/Projects/angular/Angular-GettingStarted/kontext/src/app/tree-example/tree-example.component.html" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bda" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -266,14 +360,15 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/kontext/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/kontext/src/app/menu/interfaces" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/kontext/src/app/filter/interfaces" />
       <recent name="$PROJECT_DIR$/kontext/src/app/menu" />
       <recent name="$PROJECT_DIR$/kontext/src/app/content" />
       <recent name="$PROJECT_DIR$/kontext/src/assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/kontext/src/app/shared" />
+      <recent name="$PROJECT_DIR$/kontext/src/app/menu/interfaces" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -390,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539123935662</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="need to -&gt; show that filter is active/inactive, expand to filtered level, turn pagination back on &amp; fix look/feel, add page contents, expand-all, gather details on page when item is clicked, with clever loading">
+      <created>1539207817140</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1539207817140</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -400,18 +502,18 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5016026" side_tool="true" weight="0.32624114" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839744" weight="0.32624114" />
       <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32978722" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16399573" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26175213" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -421,28 +523,28 @@
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22596154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="10" weight="0.32978722" />
-      <window_info anchor="bottom" id="Python Console" order="13" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49839744" visible="true" weight="0.32624114" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5016026" side_tool="true" weight="0.32624114" />
+      <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5016026" side_tool="true" weight="0.32624114" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +571,8 @@
     <MESSAGE value="running into issues on filtering in backend... filter service drives menus! yay!" />
     <MESSAGE value="filters need work on the backend, but nearly there! close to rendering content and routing!" />
     <MESSAGE value="next step, fill out the page, get into reppin' the directory space" />
-    <option name="LAST_COMMIT_MESSAGE" value="next step, fill out the page, get into reppin' the directory space" />
+    <MESSAGE value="need to -&gt; show that filter is active/inactive, expand to filtered level, turn pagination back on &amp; fix look/feel, add page contents, expand-all, gather details on page when item is clicked, with clever loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="need to -&gt; show that filter is active/inactive, expand to filtered level, turn pagination back on &amp; fix look/feel, add page contents, expand-all, gather details on page when item is clicked, with clever loading" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -477,27 +580,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/content/content.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/assets/css/theme-5/materialadmin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="827" column="10" lean-forward="true" selection-start-line="827" selection-start-column="10" selection-end-line="827" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/api/kapi_data.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -543,22 +625,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/interfaces/project.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/interfaces/paginationHeaders.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/interfaces/phaseName.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -640,20 +712,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/APM/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/shared/page.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -711,25 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="73" column="3" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#getUserNames#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getProjectNames#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getPhaseNames#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getDesignSizes#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getTireLines#0;n#FilterService#0" />
-            <element signature="n#!!block;n#changeParams#0;n#FilterService#0" />
-            <element signature="n#!!block;n#changeItems#0;n#FilterService#0" />
-            <element signature="n#!!block;n#changePagination#0;n#FilterService#0" />
-            <element signature="n#!!block;n#handleError#0;n#FilterService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/assets/less/materialadmin/gui-controls-inverse.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -737,70 +780,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/browserslist">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/assets/img/superman_logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/assets/img/k_logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/assets/img/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/assets/img/avatar12.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/angular.json">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+        <state relative-caret-position="574">
+          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding>
-            <element signature="n#!!block;n#configurations#0;n#!!block;n#build#0;n#!!block;n#architect#0;n#!!block;n#kontext#0;n#!!block;n#projects#0;n#!!top" />
+            <element signature="e#202#208#1" expanded="true" />
+            <element signature="e#540#546#1" expanded="true" />
+            <element signature="n#optgroup#0;n#select#0;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#optgroup#1;n#select#0;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#optgroup#2;n#select#0;n#div#1;n#form#0;n#!!top" />
+            <element signature="n#select#0;n#div#2;n#form#0;n#!!top" />
+            <element signature="e#1415#1421#1" expanded="true" />
+            <element signature="e#1749#1755#1" expanded="true" />
+            <element signature="e#2078#2084#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/styles-app-loading.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/assets/img/kenda-vector-logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#form#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#1;n#a#0;n#form#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#header#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="295">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
             <element signature="e#917#948#0" />
             <element signature="e#968#1144#0" />
-            <element signature="e#1302#1563#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/test_menu/menu2.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/test_menu/menu2.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/test_menu/menu2.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#517#1033#0" />
+            <element signature="n#FileDatabase#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/test_menu/menu2.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/angular.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#configurations#0;n#!!block;n#build#0;n#!!block;n#architect#0;n#!!block;n#kontext#0;n#!!block;n#projects#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="48" column="33" lean-forward="true" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+        <state relative-caret-position="108">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -817,60 +904,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+        <state relative-caret-position="162">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="22" lean-forward="true" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/content/content.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/node_modules/@angular/material/button/typings/index.metadata.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret column="2042" selection-start-column="2042" selection-end-column="2042" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/node_modules/rxjs/src/internal/Observable.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="71" column="2" selection-start-line="71" selection-start-column="2" selection-end-line="71" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/interfaces/project.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="14" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#handleError#0;n#MenuService#0" />
+            <element signature="n#!!block;n#getUserNames#0;n#FilterService#0" />
+            <element signature="n#!!block;n#getProjectNames#0;n#FilterService#0" />
+            <element signature="n#!!block;n#getPhaseNames#0;n#FilterService#0" />
+            <element signature="n#!!block;n#getDesignSizes#0;n#FilterService#0" />
+            <element signature="n#!!block;n#getTireLines#0;n#FilterService#0" />
+            <element signature="n#!!block;n#changeParams#0;n#FilterService#0" />
+            <element signature="n#!!block;n#changePagination#0;n#FilterService#0" />
+            <element signature="n#!!block;n#handleError#0;n#FilterService#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="82" column="3" lean-forward="true" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+        <state relative-caret-position="652">
+          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
           <folding>
-            <element signature="e#0#66#0" expanded="true" />
-            <element signature="e#256#321#0" expanded="true" />
+            <element signature="e#0#71#0" expanded="true" />
+            <element signature="e#262#327#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#onContextMenu#0;n#MenuComponent#0" />
             <element signature="n#!!block;n#setPagination#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#log#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#showMessage#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#ngOnInit#0;n#MenuComponent#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.html">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="252">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/content/content.component.html">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="51" column="92" selection-start-line="51" selection-start-column="92" selection-end-line="51" selection-end-column="92" />
+        <state relative-caret-position="594">
+          <caret line="55" column="43" lean-forward="true" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
           <folding>
-            <element signature="n#div#0;n#!!top" />
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#675#758#0" />
+            <element signature="n#!!block;n#loopThroughParams#0;n#MenuService#0" />
+            <element signature="n#!!block;n#toHttpParams#0;n#MenuService#0" />
+            <element signature="n#!!block;n#handleError#0;n#MenuService#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.html">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="41" column="37" lean-forward="true" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+        <state relative-caret-position="648">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/tree-example/tree-example.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="136" column="4" lean-forward="true" selection-start-line="136" selection-start-column="4" selection-end-line="136" selection-end-column="4" />
           <folding>
-            <element signature="e#202#208#1" expanded="true" />
-            <element signature="e#540#546#1" expanded="true" />
-            <element signature="n#optgroup#0;n#select#0;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#optgroup#1;n#select#0;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#optgroup#2;n#select#0;n#div#1;n#form#0;n#!!top" />
-            <element signature="n#select#0;n#div#2;n#form#0;n#!!top" />
-            <element signature="e#1415#1421#1" expanded="true" />
-            <element signature="e#1749#1755#1" expanded="true" />
-            <element signature="e#2078#2084#1" expanded="true" />
+            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#577#1093#0" />
           </folding>
         </state>
       </provider>

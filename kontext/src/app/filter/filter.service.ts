@@ -4,7 +4,7 @@ import {Observable, Subject, BehaviorSubject} from "rxjs";
 import {catchError, tap,} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
 
-import {Project} from "../menu/interfaces/project";
+import {KontextItem} from "../shared/kontextItem";
 
 import {ProjectName} from "./interfaces/projectName"
 import {PhaseName} from "./interfaces/phaseName"
@@ -27,6 +27,12 @@ export class FilterService {
 
   private menuPagination = new BehaviorSubject(<PaginationHeaders>{});
   currentPagination: Observable<PaginationHeaders> = this.menuPagination.asObservable();
+
+  private menuTree = new BehaviorSubject([]);
+  currentTree = this.menuTree.asObservable();
+
+
+
 
   private projectNameUrl: string = "http://127.0.0.1:8000/kontext/projects/names/";
   private phaseNameUrl: string = "http://127.0.0.1:8000/kontext/phases/names/";
@@ -122,8 +128,9 @@ export class FilterService {
     console.log('setValue.params: ', params);
     this.query_parameters.next(params)
   }
-  changeItems(items: Project[]){
+  changeItems(items: KontextItem[]){
     this.menuItems.next(items);
+    this.menuTree.next(items);
   }
   changePagination(paginate: PaginationHeaders){
     this.menuPagination.next(paginate)

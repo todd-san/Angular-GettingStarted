@@ -5,6 +5,7 @@ import {catchError, tap,} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
 
 import {Project} from "./interfaces/project";
+import {KontextItem} from "../shared/kontextItem";
 import {PaginationHeaders} from "./interfaces/paginationHeaders";
 
 
@@ -30,7 +31,7 @@ export class MenuService {
 
   constructor(private http: HttpClient){}
 
-  getMenu(qp, page?): Observable<HttpResponse<Project[]>>{
+  getMenu(qp, page?): Observable<HttpResponse<KontextItem[]>>{
     let url: string;
     let params = new HttpParams();
 
@@ -49,7 +50,7 @@ export class MenuService {
         .set('line', qp.lid ? qp.lid.id : null);
     }
 
-    return this.http.get<Project[]>(url, {observe: 'response', params: params})
+    return this.http.get<KontextItem[]>(url, {observe: 'response', params: params})
       .pipe(
         tap(resp => console.log('PROJECTS: ', resp)),
         catchError(MenuService.handleError)

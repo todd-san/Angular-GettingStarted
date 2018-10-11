@@ -14,7 +14,8 @@ import { FilterComponent } from './filter/filter.component';
 import { HelpComponent } from './help/help.component';
 import {MenuService} from "./menu/menu.service";
 import {FilterService} from "./filter/filter.service";
-
+import { TreeExampleComponent } from './tree-example/tree-example.component';
+import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {FilterService} from "./filter/filter.service";
     ContentComponent,
     FilterComponent,
     HelpComponent,
+    TreeExampleComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,9 @@ import {FilterService} from "./filter/filter.service";
       autoFocus: true,
       // useBootstrap4: true,
     }),
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule,
     // RouterModule.forRoot([
     //   {
     //     path: 'two',
