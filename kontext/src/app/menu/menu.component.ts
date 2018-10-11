@@ -1,14 +1,16 @@
-import {Component, OnInit, ViewChild, Injectable} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MenuService} from "./menu.service";
 import {ContextMenuService, ContextMenuComponent} from "ngx-contextmenu";
 import {FilterService} from "../filter/filter.service";
+import {NestedTreeControl} from "@angular/cdk/tree";
+import {MatTreeNestedDataSource} from "@angular/material/tree";
 
 
 // Interfaces
 import {PaginationHeaders} from "./interfaces/paginationHeaders";
-import {Project} from "./interfaces/project";
 import {Page} from "./interfaces/page";
-import {filter} from "rxjs/internal/operators";
+import {KontextItem} from "../shared/kontextItem";
+
 
 @Component({
   selector: 'app-menu',
@@ -20,19 +22,27 @@ import {filter} from "rxjs/internal/operators";
 export class MenuComponent implements OnInit {
 
   page: Page = <Page>{};
-  items: Project[] = [];
   paginationHeaders: PaginationHeaders;
   filter_params: any;
   message: string;
 
-  private contextMenuService;
+  showTools: boolean = false;
+  showProjects: boolean = false;
+  showFilter: boolean = false;
 
-  @ViewChild('projectMenu') public projectMenu: ContextMenuComponent;
-  @ViewChild('phaseMenu') public phaseMenu: ContextMenuComponent;
-  @ViewChild('designMenu') public designMenu: ContextMenuComponent;
-  @ViewChild('specMenu') public specMenu: ContextMenuComponent;
+  nestedTreeControl: NestedTreeControl<KontextItem>;
+  nestedDataSource: MatTreeNestedDataSource<KontextItem>;
 
-  constructor(private menuService: MenuService, private filterService : FilterService) {
+
+  @ViewChild('kontextMenu') public kontextMenu: ContextMenuComponent;
+
+  constructor(private menuService: MenuService,
+              private filterService : FilterService,
+              private contextMenuService: ContextMenuService) {
+
+    this.nestedTreeControl = new NestedTreeControl<KontextItem>(this._getChildren);
+    this.nestedDataSource = new MatTreeNestedDataSource();
+
     filterService.filter_params.subscribe(
       params => {
         this.filter_params = params;
@@ -40,7 +50,8 @@ export class MenuComponent implements OnInit {
     );
     filterService.currentItems.subscribe(
       items =>{
-        this.items = items;
+        // this.items = items;
+        this.nestedDataSource.data = this.buildFileTree(items, 0)
       }
     );
     filterService.currentPagination.subscribe(
@@ -50,14 +61,14 @@ export class MenuComponent implements OnInit {
       }
     );
 
-    this.contextMenuService = ContextMenuService;
   }
 
-  public onContextMenu($event: MouseEvent, item: any): void {
-    this.contextMenuService.show.next({ event: $event, item: item });
-    $event.preventDefault();
+  /* Pagination Control
+  * */
+  public fetchMenuItems(page){
+    console.log("filter_params: ", this.filter_params);
+    console.log("requesting page: ", page)
   }
-
   public setPagination(){
     let next = function(page, total){
       return page < total
@@ -81,13 +92,44 @@ export class MenuComponent implements OnInit {
 
   }
 
-  public log(item){
-    console.log(item);
-    console.log(this.filter_params)
+  /* Mat-tree controllers and build
+  *
+  * */
+  public hasNestedChild = (_: number, nodeData: KontextItem) => {
+    if (nodeData.children){
+      return nodeData.children.length > 0;
+    } else{
+      return false;
+    }
+  };
+  private buildFileTree(obj: any[], level: number): KontextItem[] {
+    return obj.map(item => new KontextItem(item));
+  }
+  private _getChildren = (node: KontextItem) => node.children;
+
+  /* DOM toggles
+  *
+  * */
+  public toggleProjects(){
+    this.showProjects = !this.showProjects;
+  }
+  public toggleTools(){
+    this.showTools = !this.showTools;
+  }
+  public toggleFilter(){
+    this.showFilter = !this.showFilter;
   }
 
-  showMessage(item){
-    console.log(item);
+  /* Context Menu
+  *
+  *
+  * */
+  public showMessage(item, value){
+    console.log(item, value);
+  }
+  public onContextMenu($event: MouseEvent, item: any): void {
+    this.contextMenuService.show.next({ event: $event, item: item });
+    $event.preventDefault();
   }
 
   ngOnInit() {

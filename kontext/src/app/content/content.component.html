@@ -39,16 +39,16 @@
     <!--</div>&lt;!&ndash;end .section-body &ndash;&gt;-->
   <!--</section>-->
   <div class="container">
-    <app-tree-example></app-tree-example>
+
   </div>
 </div><!--end #content-->
 <!-- END CONTENT -->
 
 <!-- BEGIN OFFCANVAS RIGHT -->
-<div class="offcanvas">
+<div class="offcanvas" *ngIf="filter_menu">
   <div id="offcanvas-right" class="offcanvas-pane width-12">
     <div class="offcanvas-head">
-      <header>Right off-canvas</header>
+      <header>Project Filter</header>
       <div class="offcanvas-tools">
         <a class="btn btn-icon-toggle btn-default-light pull-right" data-dismiss="offcanvas">
           <i class="md md-close"></i>

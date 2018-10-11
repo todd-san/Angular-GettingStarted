@@ -2,225 +2,197 @@
 <div id="menubar" class="menubar-inverse" style="width: 25%;">
   <div class="menubar-fixed-panel">
     <div class="expanded">
-      <!--<a href="../../html/dashboards/dashboard.html">-->
-        <!--<span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>-->
-      <!--</a>-->
     </div>
   </div>
+
   <div class="menubar-scroll-panel">
-
-    <div style="text-align: center; font-size: 20px; font-style: italic;"><span class="title men-label">Projects</span></div>
-    <div style="text-align: center">
-      <div class="col-xs-5">
-        <button *ngIf="page.double_prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(1)">
-          <i style="color: #aa0000" class="fa fa-angle-double-left fa-2x"></i></button>
-        <button *ngIf="page.prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page -1)">
-          <i style="color: #ff0000" class="fa fa-angle-left fa-2x"></i></button>
-      </div>
-      <div class="col-xs-2">
-         <span *ngIf="paginationHeaders.xTotalPages > 1" style="font-size: 20px; vertical-align: bottom; color: white; text-align: center;">{{page.page}}</span>
-      </div>
-      <div class="col-xs-5">
-        <button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page +1)">
-          <i style="color: #ff0000" class="fa fa-angle-right fa-2x"></i></button>
-        <button *ngIf="page.double_next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(paginationHeaders.xTotalPages)">
-          <i style="color: #aa0000" class="fa fa-angle-double-right fa-2x"></i></button>
-      </div>
-    </div>
-
-    <hr>
-
-    <!-- BEGIN MAIN MENU -->
-    <ul id="main-menu" class="gui-controls" *ngIf="items">
-      <li class="gui-folder" *ngFor="let item of items" [contextMenu]="projectMenu" (click)="log(item)">
-
-        <!--  -->
-        <a class="menu-item">
-          <div class="gui-icon">
-            <i class="fa fa-folder-open fa-fw"></i>
-          </div>
-          <span class="title menu-label">{{item.name}}</span>
-        </a>
-
-        <!-- context menu for projects -->
-        <ul *ngFor="let phase of item.children">
-          <li class="gui-folder" [contextMenu]="phaseMenu">
-            <!--<a class="menu-item">-->
-            <a class="menu-item">
-              <span class="title menu-label">{{phase.name}}</span></a>
-
-            <ul *ngFor="let design of phase.children" [contextMenu]="designMenu">
-              <li class="gui-folder">
-                <a class="menu-item">
-                  <span class="title menu-label">{{design.name}}</span>
-                </a>
-
-                <ul *ngFor="let spec of design.children" [contextMenu]="specMenu">
-                  <li class="gui-folder">
-                    <a href="javascript:void(0)">
-                      <span class="title menu-label">{{spec.name}}</span>
-                    </a>
-                  </li>
-                </ul>
-
-              </li>
-            </ul>
+  <!--<div>-->
+    <ul id="main-menu" class="gui-controls" style="margin-bottom: -15px;">
+      <li>
+        <button class="btn btn-primary-dark ink-reaction" style="width: 100%">
+            <span class="primary-menu-label">
+              <i class="fa fa-home"></i>
+              Home
+            </span>
+        </button>
+      </li>
+      <li>
+          <button class="btn btn-primary-dark ink-reaction" style="width: 100%" (click)="toggleTools()">
+            <span class="primary-menu-label">
+              <i class="fa fa-wrench"></i>
+              Tools
+            </span>
+          </button>
+      </li>
+      <div *ngIf="showTools">
+        <ul id="tool-menu" class="gui-controls" style="margin-top: -15px;">
+          <li style="margin: 0">
+            <button class="btn btn-default-bright ink-reaction" style="width: 100%">
+              <span class="tool-title">
+                <i class="fa fa-gear fa-lg pull-left" style="margin-left: 15px;"></i>
+                Air Perm Calculator
+              </span>
+            </button>
+          </li>
+          <li style="margin: 0">
+            <button class="btn btn-default-bright ink-reaction" style="width: 100%">
+              <span class="tool-title" >
+                <i class="fa fa-gear fa-lg pull-left" style="margin-left: 15px;"></i>
+                Safety-Factor Calculator
+              </span>
+            </button>
           </li>
         </ul>
+      </div>
+
+      <li>
+          <button class="btn btn-primary-dark ink-reaction" style="width: 100%" (click)="toggleProjects()">
+            <span class="primary-menu-label">
+              <i class="fa fa-folder"></i> Projects</span>
+          </button>
       </li>
 
-      <!-- END LEVELS -->
+    </ul>
 
-    </ul><!--end .main-menu -->
-    <!-- END MAIN MENU -->
+    <!--<div style="text-align: center; margin-bottom: -15px; font-size: 22px; color: #ff0000" class="menu-label title">Projects</div>-->
+    <!--<div style="text-align: center" style="height: 35px;">-->
+      <!--<div class="col-xs-5">-->
+        <!--<button *ngIf="page.double_prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(1)">-->
+          <!--<i style="color: #aa0000" class="fa fa-angle-double-left fa-2x"></i></button>-->
+        <!--<button *ngIf="page.prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page -1)">-->
+          <!--<i style="color: #ff0000" class="fa fa-angle-left fa-2x"></i></button>-->
+      <!--</div>-->
+      <!--<div class="col-xs-2">-->
+         <!--<span *ngIf="paginationHeaders.xTotalPages > 1" class="btn btn-icon-toggle" style="color: #ffffff; font-size: 20px;">{{page.page}}</span>-->
+      <!--</div>-->
+      <!--<div class="col-xs-5">-->
+        <!--<button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page +1)">-->
+          <!--<i style="color: #ff0000" class="fa fa-angle-right fa-2x"></i></button>-->
+        <!--<button *ngIf="page.double_next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(paginationHeaders.xTotalPages)">-->
+          <!--<i style="color: #aa0000" class="fa fa-angle-double-right fa-2x"></i></button>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <!--CONTEXT MENUS -->
-    <context-menu #projectMenu
-                      (close)="showMessage('closed static', $event)"
-                      (open)="showMessage('open', $event)">
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Expanding Project')">
-            <i class="fa fa-expand">&nbsp;</i> Expand
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Edit Project')">
-            <i class="fa fa-edit">&nbsp;</i> Edit
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Delete Project')">
-            <i class="fa fa-trash">&nbsp;</i> Delete
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Copy Project')">
-            <i class="fa fa-copy">&nbsp;</i> Copy
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Create Phase')">
-            <i class="fa fa-plus">&nbsp;</i> Create Phase
-          </ng-template>
-        </context-menu>
-    <context-menu #phaseMenu
-                      (close)="showMessage('closed static', $event)"
-                      (open)="showMessage('open', $event)">
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Expanding Project')">
-            <i class="fa fa-expand">&nbsp;</i> Expand
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Edit Project')">
-            <i class="fa fa-edit">&nbsp;</i> Edit
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Delete Project')">
-            <i class="fa fa-trash">&nbsp;</i> Delete
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Copy Project')">
-            <i class="fa fa-copy">&nbsp;</i> Copy
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Create Phase')">
-            <i class="fa fa-plus">&nbsp;</i> Create Design
-          </ng-template>
-        </context-menu>
-    <context-menu #designMenu
-                      (close)="showMessage('closed static', $event)"
-                      (open)="showMessage('open', $event)">
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Expanding Project')">
-            <i class="fa fa-expand">&nbsp;</i> Expand
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Edit Project')">
-            <i class="fa fa-edit">&nbsp;</i> Edit
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Delete Project')">
-            <i class="fa fa-trash">&nbsp;</i> Delete
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Copy Project')">
-            <i class="fa fa-copy">&nbsp;</i> Copy
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Create Phase')">
-            <i class="fa fa-plus">&nbsp;</i> Create Spec
-          </ng-template>
-        </context-menu>
-    <context-menu #specMenu
-                      (close)="showMessage('closed static', $event)"
-                      (open)="showMessage('open', $event)">
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Expand Spec')">
-            <i class="fa fa-expand">&nbsp;</i> Expand
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Edit Spec')">
-            <i class="fa fa-edit">&nbsp;</i> Edit
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Delete Spec')">
-            <i class="fa fa-trash">&nbsp;</i> Delete
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Copy Spec')">
-            <i class="fa fa-copy">&nbsp;</i> Copy
-          </ng-template>
-
-        </context-menu>
-
-    <div class="menubar-foot-panel">
-      <hr>
-      <small class="no-linebreak hidden-folded">
-        <span class="opacity-75">Copyright &copy; 2014</span> <strong>CodeCovers</strong>
-      </small>
+    <div *ngIf="showProjects">
+      <ul id="project-menu" class="gui-controls" style="margin-bottom: -15px;">
+        <li style="margin: 0">
+          <button class="btn btn-default-bright ink-reaction" style="width: 50%" (click)="toggleFilter()">
+            <span class="tool-title">
+              Filter
+            </span>
+          </button>
+          <button class="btn btn-primary-light ink-reaction" style="width: 25%" (click)="toggleFilter()">
+            <span class="tool-title">
+              <i class="fa fa-filter fa-lg"></i>
+            </span>
+          </button>
+          <button class="btn btn-accent-light ink-reaction" style="width: 25%" (click)="toggleFilter()">
+            <span class="tool-title">
+              <i class="fa fa-close fa-lg"></i>
+            </span>
+          </button>
+        </li>
+        <li style="margin-top: 0">
+          <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+              <span class="title menu-label">
+                <i class="fa fa-angle-double-left fa-lg"></i>
+              </span>
+          </button>
+            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+              <span class="title menu-label">
+                <i class="fa fa-angle-left fa-lg"></i>
+              </span>
+          </button>
+            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+              <span class="title menu-label">
+                1
+              </span>
+          </button>
+            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+              <span class="title menu-label">
+                <i class="fa fa-angle-right fa-lg"></i>
+              </span>
+          </button>
+            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+              <span class="title menu-label">
+                <i class="fa fa-angle-double-right fa-lg"></i>
+              </span>
+          </button>
+        </li>
+      </ul>
     </div>
 
+    <div class="menubar-scroll-panel" *ngIf="showProjects">
+    <mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+        <li class="mat-tree-node" style="margin-left: 35px;">
+          <a disabled><i class="fa fa-circle-o fa-2x"></i></a>
+          <span class="title menu-label"  [contextMenu]="kontextMenu" [contextMenuSubject]="node">{{node.name}}</span>
+        </li>
+      </mat-tree-node>
+    <!---->
+      <mat-nested-tree-node *matTreeNodeDef="let node; when: hasNestedChild">
+        <li>
+          <div class="mat-tree-node" style="margin-left: 35px;">
+            <a  matTreeNodeToggle
+                    [attr.aria-label]="'toggle ' + node.filename">
+              <i *ngIf="nestedTreeControl.isExpanded(node)" class="fa fa-angle-down fa-2x"></i>
+              <i *ngIf="!nestedTreeControl.isExpanded(node)" class="fa fa-angle-right fa-2x"></i>
+              <span class="title menu-label"
+                    [contextMenu]="kontextMenu"
+                    [contextMenuSubject]="node"
+                    *ngIf="nestedTreeControl.isExpanded(node)" style="color: #a20036; font-weight: bold;">{{node.name}}</span>
+              <span class="title menu-label"
+                    [contextMenu]="kontextMenu"
+                    [contextMenuSubject]="node"
+                    *ngIf="!nestedTreeControl.isExpanded(node)" style="color: #d1d1d1;">{{node.name}}</span>
+
+            </a>
+          </div>
+          <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
+            <ng-container matTreeNodeOutlet></ng-container>
+          </ul>
+        </li>
+      </mat-nested-tree-node>
+    </mat-tree>
+    <hr class="style-one">
+    </div>
+
+    <!--CONTEXT MENUS -->
+    <context-menu #kontextMenu>
+          <ng-template contextMenuItem
+                       [visible]="true"
+                       [enabled]="true"
+                       (execute)="showMessage('Expanding Project', $event.item)">
+            <i class="fa fa-expand">&nbsp;</i> Expand
+          </ng-template>
+          <ng-template contextMenuItem [divider]="true"></ng-template>
+          <ng-template contextMenuItem
+                       [visible]="true"
+                       [enabled]="true"
+                       (execute)="showMessage('Edit', $event.item)">
+            <i class="fa fa-edit">&nbsp;</i> Edit
+          </ng-template>
+          <ng-template contextMenuItem
+                       [visible]="true"
+                       [enabled]="true"
+                       (execute)="showMessage('Delete', $event.item)">
+            <i class="fa fa-trash">&nbsp;</i> Delete
+          </ng-template>
+          <ng-template contextMenuItem
+                       [visible]="true"
+                       [enabled]="true"
+                       (execute)="showMessage('Copy', $event.item)">
+            <i class="fa fa-copy">&nbsp;</i> Copy
+          </ng-template>
+          <ng-template contextMenuItem [divider]="true"></ng-template>
+          <ng-template contextMenuItem
+                       [visible]="true"
+                       [enabled]="true"
+                       (execute)="showMessage('Create', $event.item)">
+            <i class="fa fa-plus">&nbsp;</i> Create
+          </ng-template>
+        </context-menu>
   </div><!--end .menubar-scroll-panel-->
 </div><!--end #menubar-->
 <!-- END MENUBAR -->

@@ -1,7 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import {FilterService} from "./filter.service";
 import {MenuService} from "../menu/menu.service";
-
 
 import {ProjectName} from "./interfaces/projectName";
 import {PhaseName} from "./interfaces/phaseName";
@@ -10,6 +9,8 @@ import {TireLine} from "./interfaces/tireLine";
 import {UserName} from "./interfaces/userName";
 import {Project} from "../menu/interfaces/project";
 import {PaginationHeaders} from "../menu/interfaces/paginationHeaders";
+
+declare var $: any;
 
 @Component({
   selector: 'app-filter',
@@ -21,6 +22,8 @@ export class FilterComponent implements OnInit {
   /* placeholder for filter.service HTTP errors
   * */
   private errorMessage: string;
+
+  showFilter: boolean = false;
 
   message: string;
   params: any = {};
@@ -255,12 +258,11 @@ export class FilterComponent implements OnInit {
     return array.filter((e, i) =>
       array.findIndex(a => a[propertyName] === e[propertyName]) === i);
   }
-
-  public filterMenu(){
+  public filterMenu(page?){
     console.log('=====================================');
     console.log('PARAMS on FILTER MENU! ', this.params);
     console.log('=====================================');
-    this.menuService.getMenu(this.params, null).subscribe(
+    this.menuService.getMenu(this.params, page ? page : null).subscribe(
       items => {
         this.filterService.changeItems(items.body);
         this.filterService.changePagination({
@@ -275,6 +277,15 @@ export class FilterComponent implements OnInit {
     //   items => {
     //     console.log('SPEC MENU: ',items.body);
     //   });
+  }
+
+
+  public toggleFilter(){
+    this.showFilter = !this.showFilter;
+    $('headerFilterToggle').click();
+    if(!this.showFilter){
+      console.log('TRYING TO LOG!', $('headerFilterToggle').click())
+    }
   }
 
   /* tasks on page load

@@ -1,7 +1,29 @@
+
+.primary-menu-label{
+  font-size: 20px;
+  padding-left: 10px;
+  color: #ffffff;
+  /*font-style: italic;*/
+  /*font-weight: bold;*/
+  cursor: pointer;
+}
+
+.tool-title{
+  font-size: 15px;
+  /*padding-left: 10px;*/
+  color: #000000;
+  /*font-style: italic;*/
+  /*font-weight: bold;*/
+  cursor: pointer;
+}
+
 .menu-label{
   font-size: 20px;
   padding-left: 10px;
   color: #ffffff;
+  font-style: italic;
+  /*font-weight: bold;*/
+  cursor: pointer;
 }
 
 .menu-label:focus {
@@ -9,6 +31,13 @@
 }
 .menu-label:hover {
   color: #ff0000;
+}
+
+hr.style-one {
+    border: 0;
+    height: 2px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 
@@ -161,5 +190,16 @@
   pointer-events: auto;
   box-sizing: border-box;
   z-index: 1000;
+}
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
 }
 

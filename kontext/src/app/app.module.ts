@@ -14,7 +14,6 @@ import { FilterComponent } from './filter/filter.component';
 import { HelpComponent } from './help/help.component';
 import {MenuService} from "./menu/menu.service";
 import {FilterService} from "./filter/filter.service";
-import { TreeExampleComponent } from './tree-example/tree-example.component';
 import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
 
 
@@ -27,7 +26,7 @@ import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
     ContentComponent,
     FilterComponent,
     HelpComponent,
-    TreeExampleComponent,
+
   ],
   imports: [
     BrowserModule,

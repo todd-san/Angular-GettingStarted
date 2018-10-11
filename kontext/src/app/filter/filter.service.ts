@@ -12,6 +12,7 @@ import {DesignSize} from "./interfaces/designSize"
 import {TireLine} from "./interfaces/tireLine"
 import {UserName} from "./interfaces/userName"
 import {PaginationHeaders} from "../menu/interfaces/paginationHeaders";
+import {isBoolean} from "util";
 
 
 @Injectable({
@@ -32,6 +33,12 @@ export class FilterService {
   currentTree = this.menuTree.asObservable();
 
 
+  private filterMenu = new BehaviorSubject(false);
+  filter_menu = this.filterMenu.asObservable();
+
+  toggleFilter(state){
+    this.filterMenu.next(state);
+  }
 
 
   private projectNameUrl: string = "http://127.0.0.1:8000/kontext/projects/names/";
