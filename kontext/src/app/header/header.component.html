@@ -5,15 +5,11 @@
       <ul class="header-nav header-nav-options">
         <li class="header-nav-brand" >
           <div class="brand-holder">
-            <!--<a href="../../html/dashboards/dashboard.html">-->
-              <!--<span class="text-lg text-bold text-primary" style="font-size: 25px; font-style: italic">{{title}}</span>-->
-              <img src="../../assets/img/kenda-vector-logo.png" style="width: 200px; margin-left: 125px;">
-            <!--</a>-->
+           <img src="../../assets/img/kenda-vector-logo.png" style="width: 200px; margin-left: 125px;">
           </div>
         </li>
       </ul>
     </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="headerbar-right">
       <ul class="header-nav header-nav-options">
         <li>
@@ -38,17 +34,7 @@
           <form class="navbar-item">
             <a class="btn btn-icon-toggle ink-reaction" id="headerFilterToggle" title="filter"
                href="#offcanvas-right" data-toggle="offcanvas">
-                <i class="fa fa-filter fa-2x" *ngIf="filter_params" style="color:#f31f32"></i>
-                <i class="fa fa-filter fa-2x" *ngIf="!filter_params" style="color:#8d8c89"></i>
-            </a>
-          </form>
-        </li>
-        <li>
-          <!-- Filter Toggle-->
-          <form class="navbar-item">
-            <a class="btn btn-icon-toggle ink-reaction" (click)="toggleFilter()">
-                <i class="fa fa-filter fa-2x" style="color:#f31f32"></i>
-                <!--<i class="fa fa-filter fa-2x" *ngIf="!filter_params" style="color:#8d8c89"></i>-->
+                <i class="fa fa-filter fa-2x" style="color:#8d8c89"></i>
             </a>
           </form>
         </li>
@@ -63,12 +49,8 @@
             </span>
           </a>
           <ul class="dropdown-menu animation-dock">
-            <!--<li class="dropdown-header">Config</li>-->
             <li><a href="#">My profile</a></li>
-            <!--<li><a href="../../html/pages/blog/post.html">My blog <span class="badge style-danger pull-right">16</span></a></li>-->
-            <!--<li><a href="../../html/pages/calendar.html">My appointments</a></li>-->
             <li class="divider"></li>
-            <!--<li><a href="../../html/pages/locked.html"><i class="fa fa-fw fa-lock"></i> Lock</a></li>-->
             <li><a href="#"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
           </ul><!--end .dropdown-menu -->
         </li><!--end .dropdown -->

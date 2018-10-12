@@ -5,8 +5,8 @@
     </div>
   </div>
 
-  <div class="menubar-scroll-panel">
-  <!--<div>-->
+  <!--<div class="menubar-scroll-panel">-->
+  <div>
     <ul id="main-menu" class="gui-controls" style="margin-bottom: -15px;">
       <li>
         <button class="btn btn-primary-dark ink-reaction" style="width: 100%">
@@ -54,66 +54,76 @@
 
     </ul>
 
-    <!--<div style="text-align: center; margin-bottom: -15px; font-size: 22px; color: #ff0000" class="menu-label title">Projects</div>-->
-    <!--<div style="text-align: center" style="height: 35px;">-->
-      <!--<div class="col-xs-5">-->
-        <!--<button *ngIf="page.double_prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(1)">-->
-          <!--<i style="color: #aa0000" class="fa fa-angle-double-left fa-2x"></i></button>-->
-        <!--<button *ngIf="page.prev" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page -1)">-->
-          <!--<i style="color: #ff0000" class="fa fa-angle-left fa-2x"></i></button>-->
-      <!--</div>-->
-      <!--<div class="col-xs-2">-->
-         <!--<span *ngIf="paginationHeaders.xTotalPages > 1" class="btn btn-icon-toggle" style="color: #ffffff; font-size: 20px;">{{page.page}}</span>-->
-      <!--</div>-->
-      <!--<div class="col-xs-5">-->
-        <!--<button *ngIf="page.next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(page.page +1)">-->
-          <!--<i style="color: #ff0000" class="fa fa-angle-right fa-2x"></i></button>-->
-        <!--<button *ngIf="page.double_next" class="btn btn-icon-toggle ink-reaction" (click)="fetchMenuItems(paginationHeaders.xTotalPages)">-->
-          <!--<i style="color: #aa0000" class="fa fa-angle-double-right fa-2x"></i></button>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <div *ngIf="showProjects">
+    <div *ngIf="showProjectTree()">
       <ul id="project-menu" class="gui-controls" style="margin-bottom: -15px;">
         <li style="margin: 0">
-          <button class="btn btn-default-bright ink-reaction" style="width: 50%" (click)="toggleFilter()">
+          <button *ngIf="emptyParams()" class="btn btn-default ink-reaction"
+                  style="width: 100%;border: 1px solid #0c0c0c;" (click)="toggleFilter()">
             <span class="tool-title">
+              <i class="fa fa-filter fa-lg"></i>
               Filter
             </span>
           </button>
-          <button class="btn btn-primary-light ink-reaction" style="width: 25%" (click)="toggleFilter()">
+          <button *ngIf="!emptyParams()" class="btn btn-primary-light ink-reaction"
+                  style="width: 85%; border: 1px solid #0c0c0c;" (click)="toggleFilter()">
             <span class="tool-title">
               <i class="fa fa-filter fa-lg"></i>
+              Filter (active)
             </span>
           </button>
-          <button class="btn btn-accent-light ink-reaction" style="width: 25%" (click)="toggleFilter()">
+          <button *ngIf="!emptyParams()" class="btn btn-accent-light ink-reaction"
+                  style="width: 15%; border: 1px solid #0c0c0c;" (click)="cleanFilter()">
             <span class="tool-title">
               <i class="fa fa-close fa-lg"></i>
             </span>
           </button>
         </li>
         <li style="margin-top: 0">
-          <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+          <!--DOUBLE PREV -->
+          <button *ngIf="page.double_prev" (click)="fetchMenuItems(1)" class="btn btn-default-dark ink-reaction" style="width: 20%">
               <span class="title menu-label">
                 <i class="fa fa-angle-double-left fa-lg"></i>
               </span>
           </button>
-            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+          <button *ngIf="!page.double_prev" class="btn btn-default-dark ink-reaction" style="width: 20%" disabled>
+              <span class="title menu-label">
+                <i class="fa fa-angle-double-left fa-lg"></i>
+              </span>
+          </button>
+          <!--PREV-->
+          <button *ngIf="page.prev" (click)="fetchMenuItems(page.page-1)" class="btn btn-default-dark ink-reaction" style="width: 20%">
               <span class="title menu-label">
                 <i class="fa fa-angle-left fa-lg"></i>
               </span>
           </button>
-            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+          <button *ngIf="!page.prev" class="btn btn-default-dark ink-reaction" style="width: 20%" disabled>
               <span class="title menu-label">
-                1
+                <i class="fa fa-angle-left fa-lg"></i>
               </span>
           </button>
-            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+            <button class="btn btn-default-dark" style="width: 20%">
+              <span class="page-label">
+                {{page.page}}
+              </span>
+          </button>
+          <!--NEXT-->
+            <button *ngIf="page.next" (click)="fetchMenuItems(page.page+1)" class="btn btn-default-dark ink-reaction" style="width: 20%">
               <span class="title menu-label">
                 <i class="fa fa-angle-right fa-lg"></i>
               </span>
           </button>
-            <button class="btn btn-default-dark ink-reaction" style="width: 20%">
+            <button *ngIf="!page.next" class="btn btn-default-dark ink-reaction" style="width: 20%" disabled>
+              <span class="title menu-label">
+                <i class="fa fa-angle-right fa-lg"></i>
+              </span>
+          </button>
+          <!--DOUBLE NEXT-->
+            <button *ngIf="page.double_next" (click)="fetchMenuItems(paginationHeaders.xTotalPages)" class="btn btn-default-dark ink-reaction" style="width: 20%">
+              <span class="title menu-label">
+                <i class="fa fa-angle-double-right fa-lg"></i>
+              </span>
+          </button>
+            <button *ngIf="!page.double_next" class="btn btn-default-dark ink-reaction" style="width: 20%" disabled>
               <span class="title menu-label">
                 <i class="fa fa-angle-double-right fa-lg"></i>
               </span>
@@ -141,7 +151,7 @@
               <span class="title menu-label"
                     [contextMenu]="kontextMenu"
                     [contextMenuSubject]="node"
-                    *ngIf="nestedTreeControl.isExpanded(node)" style="color: #a20036; font-weight: bold;">{{node.name}}</span>
+                    *ngIf="nestedTreeControl.isExpanded(node)" style="color: #f31f32; font-weight: normal;">{{node.name}}</span>
               <span class="title menu-label"
                     [contextMenu]="kontextMenu"
                     [contextMenuSubject]="node"
@@ -157,6 +167,8 @@
     </mat-tree>
     <hr class="style-one">
     </div>
+    <hr class="style-one">
+
 
     <!--CONTEXT MENUS -->
     <context-menu #kontextMenu>
@@ -182,7 +194,8 @@
           <ng-template contextMenuItem
                        [visible]="true"
                        [enabled]="true"
-                       (execute)="showMessage('Copy', $event.item)">
+                       (execute)="showSuccess('Copy', $event.item)">
+            <a data-position="toast-top-full-width"></a>
             <i class="fa fa-copy">&nbsp;</i> Copy
           </ng-template>
           <ng-template contextMenuItem [divider]="true"></ng-template>
@@ -196,3 +209,4 @@
   </div><!--end .menubar-scroll-panel-->
 </div><!--end #menubar-->
 <!-- END MENUBAR -->
+

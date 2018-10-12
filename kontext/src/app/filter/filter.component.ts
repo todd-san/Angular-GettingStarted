@@ -23,8 +23,6 @@ export class FilterComponent implements OnInit {
   * */
   private errorMessage: string;
 
-  showFilter: boolean = false;
-
   message: string;
   params: any = {};
   items: Project[];
@@ -259,9 +257,6 @@ export class FilterComponent implements OnInit {
       array.findIndex(a => a[propertyName] === e[propertyName]) === i);
   }
   public filterMenu(page?){
-    console.log('=====================================');
-    console.log('PARAMS on FILTER MENU! ', this.params);
-    console.log('=====================================');
     this.menuService.getMenu(this.params, page ? page : null).subscribe(
       items => {
         this.filterService.changeItems(items.body);
@@ -273,19 +268,6 @@ export class FilterComponent implements OnInit {
         });
       }
     );
-    // this.menuService.getSpecMenu(this.params, null).subscribe(
-    //   items => {
-    //     console.log('SPEC MENU: ',items.body);
-    //   });
-  }
-
-
-  public toggleFilter(){
-    this.showFilter = !this.showFilter;
-    $('headerFilterToggle').click();
-    if(!this.showFilter){
-      console.log('TRYING TO LOG!', $('headerFilterToggle').click())
-    }
   }
 
   /* tasks on page load

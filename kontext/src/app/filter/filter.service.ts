@@ -12,7 +12,6 @@ import {DesignSize} from "./interfaces/designSize"
 import {TireLine} from "./interfaces/tireLine"
 import {UserName} from "./interfaces/userName"
 import {PaginationHeaders} from "../menu/interfaces/paginationHeaders";
-import {isBoolean} from "util";
 
 
 @Injectable({
@@ -28,10 +27,6 @@ export class FilterService {
 
   private menuPagination = new BehaviorSubject(<PaginationHeaders>{});
   currentPagination: Observable<PaginationHeaders> = this.menuPagination.asObservable();
-
-  private menuTree = new BehaviorSubject([]);
-  currentTree = this.menuTree.asObservable();
-
 
   private filterMenu = new BehaviorSubject(false);
   filter_menu = this.filterMenu.asObservable();
@@ -132,12 +127,10 @@ export class FilterService {
   }
 
   changeParams(params: any){
-    console.log('setValue.params: ', params);
     this.query_parameters.next(params)
   }
   changeItems(items: KontextItem[]){
     this.menuItems.next(items);
-    this.menuTree.next(items);
   }
   changePagination(paginate: PaginationHeaders){
     this.menuPagination.next(paginate)

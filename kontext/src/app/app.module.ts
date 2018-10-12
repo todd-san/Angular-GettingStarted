@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {enableProdMode, NgModule} from '@angular/core';
 import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
@@ -15,8 +15,9 @@ import { HelpComponent } from './help/help.component';
 import {MenuService} from "./menu/menu.service";
 import {FilterService} from "./filter/filter.service";
 import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
+import {ToastaModule} from 'ngx-toasta';
 
-
+enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
+    ToastaModule.forRoot()
     // RouterModule.forRoot([
     //   {
     //     path: 'two',
@@ -53,4 +55,4 @@ import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

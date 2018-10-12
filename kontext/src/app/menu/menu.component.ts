@@ -1,10 +1,14 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, enableProdMode, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {MenuService} from "./menu.service";
 import {ContextMenuService, ContextMenuComponent} from "ngx-contextmenu";
 import {FilterService} from "../filter/filter.service";
 import {NestedTreeControl} from "@angular/cdk/tree";
 import {MatTreeNestedDataSource} from "@angular/material/tree";
+import {ToastaService, ToastaConfig, ToastOptions, ToastData} from 'ngx-toasta';
 
+
+
+declare var $: any;
 
 // Interfaces
 import {PaginationHeaders} from "./interfaces/paginationHeaders";
@@ -27,8 +31,7 @@ export class MenuComponent implements OnInit {
   message: string;
 
   showTools: boolean = false;
-  showProjects: boolean = false;
-  showFilter: boolean = false;
+  showProjects: boolean = true;
 
   nestedTreeControl: NestedTreeControl<KontextItem>;
   nestedDataSource: MatTreeNestedDataSource<KontextItem>;
@@ -38,12 +41,16 @@ export class MenuComponent implements OnInit {
 
   constructor(private menuService: MenuService,
               private filterService : FilterService,
-              private contextMenuService: ContextMenuService) {
+              private contextMenuService: ContextMenuService,
+              private toastaService: ToastaService,
+              private toastaConfig: ToastaConfig,
+              ) {
 
     this.nestedTreeControl = new NestedTreeControl<KontextItem>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();
 
-    filterService.filter_params.subscribe(
+    this.toastaConfig.theme = 'material';
+    menuService.menuTree_params.subscribe(
       params => {
         this.filter_params = params;
       }
@@ -67,7 +74,30 @@ export class MenuComponent implements OnInit {
   * */
   public fetchMenuItems(page){
     console.log("filter_params: ", this.filter_params);
-    console.log("requesting page: ", page)
+    console.log("requesting page: ", page);
+
+    let params = {
+      uid: {username: this.filter_params.updates[0].value},
+      pid: {name: this.filter_params.updates[1].value},
+      phid: {name: this.filter_params.updates[2].value},
+      sid: {size: this.filter_params.updates[3].value},
+      lid: {id: this.filter_params.updates[4].value},
+    };
+
+
+    this.menuService.getMenu(params, page).subscribe(
+      items => {
+        this.nestedDataSource.data = this.buildFileTree(items.body, 0);
+        this.paginationHeaders = {
+          xPage: parseInt(items.headers.get('X-Page')),
+          xPerPage: parseInt(items.headers.get('X-Per-Page')),
+          xTotal: parseInt(items.headers.get('X-Total')),
+          xTotalPages: parseInt(items.headers.get('X-Total-Pages'))
+        };
+        this.setPagination();
+      }
+    );
+
   }
   public setPagination(){
     let next = function(page, total){
@@ -90,7 +120,35 @@ export class MenuComponent implements OnInit {
     this.page.double_next = double_next(this.page.page, this.paginationHeaders.xTotalPages);
     this.page.double_prev = double_prev(this.page.page);
 
+    console.log(this.page);
+    console.log(this.paginationHeaders);
   }
+
+  addToast() {
+        // Just add default Toast with title only
+        this.toastaService.default('Hi there');
+        // Or create the instance of ToastOptions
+        var toastOptions:ToastOptions = {
+            title: "My title",
+            msg: "The message",
+            showClose: true,
+            timeout: 5000,
+            theme: 'default',
+            onAdd: (toast:ToastData) => {
+                console.log('Toast ' + toast.id + ' has been added!');
+            },
+            onRemove: function(toast:ToastData) {
+                console.log('Toast ' + toast.id + ' has been removed!');
+            }
+        };
+        // Add see all possible types in one shot
+        this.toastaService.info(toastOptions);
+        this.toastaService.success(toastOptions);
+        this.toastaService.wait(toastOptions);
+        this.toastaService.error(toastOptions);
+        this.toastaService.warning(toastOptions);
+    }
+
 
   /* Mat-tree controllers and build
   *
@@ -117,8 +175,43 @@ export class MenuComponent implements OnInit {
     this.showTools = !this.showTools;
   }
   public toggleFilter(){
-    this.showFilter = !this.showFilter;
+    console.log($('#headerFilterToggle').click());
   }
+  public emptyParams() {
+    let empty = true;
+    this.filter_params.updates.forEach((param) =>{
+      if (param.value != null && param.param != 'page'){
+        empty = false;
+      }
+    });
+    return empty;
+  }
+
+  public showProjectTree(){
+    if(this.showProjects){
+      if(this.filter_params.hasOwnProperty('updates')){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public cleanFilter(){
+    console.log('here!');
+    // this.filterService.changeParams({});
+    this.menuService.getMenu({},null).subscribe(
+      items => {
+        this.nestedDataSource.data = this.buildFileTree(items.body, 0);
+      }
+    );
+  }
+
+  showSuccess(what, message){
+    this.toastaService.info('Hi there');
+    console.log('howdy!')
+
+  }
+
 
   /* Context Menu
   *
@@ -133,6 +226,8 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setPagination();
+    this.addToast();
 
   }
 }

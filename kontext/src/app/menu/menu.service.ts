@@ -15,13 +15,15 @@ import {PaginationHeaders} from "./interfaces/paginationHeaders";
 
 export class MenuService {
   private treeUrl: string = "http://127.0.0.1:8000/kontext/projects/nav_menu/";
+  private tree_params = new BehaviorSubject({});
+  menuTree_params = this.tree_params.asObservable();
 
   constructor(private http: HttpClient){}
 
   getMenu(qp, page?): Observable<HttpResponse<KontextItem[]>>{
+
     let url: string = this.treeUrl;
     let params = new HttpParams();
-
     if(!!qp){
       params = new HttpParams()
         .set('member', qp.uid ? qp.uid.username: null)
@@ -30,7 +32,18 @@ export class MenuService {
         .set('size', qp.sid ? qp.sid.size : null)
         .set('line', qp.lid ? qp.lid.id : null)
         .set('page', page ? page : 1);
+
+      this.tree_params.next(params);
     }
+
+    console.log("===========================");
+    console.log("===========================");
+    console.log("PARAMS BEING USED");
+    console.log("qp: ", qp);
+    console.log("qp: ", qp.uid ? qp.uid.username:null);
+    console.log("http: ", params);
+    console.log("===========================");
+    console.log("===========================");
 
     return this.http.get<KontextItem[]>(url, {observe: 'response', params: params})
       .pipe(
