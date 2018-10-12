@@ -124,7 +124,6 @@ export class MenuComponent implements OnInit {
     console.log(this.paginationHeaders);
   }
 
-
   /* Mat-tree controllers and build
   *
   * */
@@ -170,7 +169,6 @@ export class MenuComponent implements OnInit {
     }
     return false;
   }
-
   public cleanFilter(){
     console.log('here!');
     // this.filterService.changeParams({});
@@ -181,7 +179,9 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  showCopyMessage(action, item){
+
+
+  public showCopyMessage(action, item){
     var toastOptions:ToastOptions = {
         title: action + ' Success!',
         msg: item.type.toUpperCase() + ': ' + item.name + ', Copied Successfully',
@@ -198,15 +198,6 @@ export class MenuComponent implements OnInit {
     this.toastaConfig.theme = 'bootstrap';
     this.toastaService.success(toastOptions);
 
-  }
-
-
-  /* Context Menu
-  *
-  *
-  * */
-  public showMessage(item, value){
-    console.log(item, value);
   }
   public onContextMenu($event: MouseEvent, item: any): void {
     this.contextMenuService.show.next({ event: $event, item: item });
