@@ -124,31 +124,6 @@ export class MenuComponent implements OnInit {
     console.log(this.paginationHeaders);
   }
 
-  addToast() {
-        // Just add default Toast with title only
-        this.toastaService.default('Hi there');
-        // Or create the instance of ToastOptions
-        var toastOptions:ToastOptions = {
-            title: "My title",
-            msg: "The message",
-            showClose: true,
-            timeout: 5000,
-            theme: 'default',
-            onAdd: (toast:ToastData) => {
-                console.log('Toast ' + toast.id + ' has been added!');
-            },
-            onRemove: function(toast:ToastData) {
-                console.log('Toast ' + toast.id + ' has been removed!');
-            }
-        };
-        // Add see all possible types in one shot
-        this.toastaService.info(toastOptions);
-        this.toastaService.success(toastOptions);
-        this.toastaService.wait(toastOptions);
-        this.toastaService.error(toastOptions);
-        this.toastaService.warning(toastOptions);
-    }
-
 
   /* Mat-tree controllers and build
   *
@@ -206,9 +181,22 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  showSuccess(what, message){
-    this.toastaService.info('Hi there');
-    console.log('howdy!')
+  showCopyMessage(action, item){
+    var toastOptions:ToastOptions = {
+        title: action + ' Success!',
+        msg: item.type.toUpperCase() + ': ' + item.name + ', Copied Successfully',
+        showClose: true,
+        timeout: 5000,
+
+        // onAdd: (toast:ToastData) => {
+        //     console.log('Toast ' + toast.id + ' has been added!');
+        // },
+        // onRemove: function(toast:ToastData) {
+        //     console.log('Toast ' + toast.id + ' has been removed!');
+        // }
+    };
+    this.toastaConfig.theme = 'bootstrap';
+    this.toastaService.success(toastOptions);
 
   }
 
@@ -227,8 +215,6 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.setPagination();
-    this.addToast();
-
   }
 }
 

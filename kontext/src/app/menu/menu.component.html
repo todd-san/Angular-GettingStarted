@@ -137,7 +137,10 @@
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
         <li class="mat-tree-node" style="margin-left: 35px;">
           <a disabled><i class="fa fa-circle-o fa-2x"></i></a>
-          <span class="title menu-label"  [contextMenu]="kontextMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          <span class="title menu-label" *ngIf="node.type == 'project'"  [contextMenu]="projectMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          <span class="title menu-label" *ngIf="node.type == 'phase'" [contextMenu]="phaseMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          <span class="title menu-label" *ngIf="node.type == 'design'" [contextMenu]="designMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          <span class="title menu-label" *ngIf="node.type == 'spec'" [contextMenu]="specMenu" [contextMenuSubject]="node">{{node.name}}</span>
         </li>
       </mat-tree-node>
     <!---->
@@ -148,14 +151,38 @@
                     [attr.aria-label]="'toggle ' + node.filename">
               <i *ngIf="nestedTreeControl.isExpanded(node)" class="fa fa-angle-down fa-2x"></i>
               <i *ngIf="!nestedTreeControl.isExpanded(node)" class="fa fa-angle-right fa-2x"></i>
+
+              <!-- PROJECT -->
               <span class="title menu-label"
-                    [contextMenu]="kontextMenu"
+                    [contextMenu]="projectMenu"
                     [contextMenuSubject]="node"
-                    *ngIf="nestedTreeControl.isExpanded(node)" style="color: #f31f32; font-weight: normal;">{{node.name}}</span>
+                    *ngIf="nestedTreeControl.isExpanded(node) && node.type == 'project'"
+                    style="color: #f31f32; font-weight: normal;">
+                {{node.name}}
+              </span>
               <span class="title menu-label"
-                    [contextMenu]="kontextMenu"
+                    [contextMenu]="projectMenu"
                     [contextMenuSubject]="node"
-                    *ngIf="!nestedTreeControl.isExpanded(node)" style="color: #d1d1d1;">{{node.name}}</span>
+                    *ngIf="!nestedTreeControl.isExpanded(node) && node.type == 'project'"
+                    style="color: #d1d1d1;">
+                {{node.name}}
+              </span>
+
+              <!-- PHASE -->
+              <span class="title menu-label"
+                    [contextMenu]="phaseMenu"
+                    [contextMenuSubject]="node"
+                    *ngIf="nestedTreeControl.isExpanded(node) && node.type == 'phase'"
+                    style="color: #f31f32; font-weight: normal;">
+                {{node.name}}
+              </span>
+              <span class="title menu-label"
+                    [contextMenu]="phaseMenu"
+                    [contextMenuSubject]="node"
+                    *ngIf="!nestedTreeControl.isExpanded(node) && node.type == 'phase'"
+                    style="color: #d1d1d1;">
+                {{node.name}}
+              </span>
 
             </a>
           </div>
@@ -171,41 +198,89 @@
 
 
     <!--CONTEXT MENUS -->
-    <context-menu #kontextMenu>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Expanding Project', $event.item)">
-            <i class="fa fa-expand">&nbsp;</i> Expand
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Edit', $event.item)">
-            <i class="fa fa-edit">&nbsp;</i> Edit
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Delete', $event.item)">
-            <i class="fa fa-trash">&nbsp;</i> Delete
-          </ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showSuccess('Copy', $event.item)">
-            <a data-position="toast-top-full-width"></a>
-            <i class="fa fa-copy">&nbsp;</i> Copy
-          </ng-template>
-          <ng-template contextMenuItem [divider]="true"></ng-template>
-          <ng-template contextMenuItem
-                       [visible]="true"
-                       [enabled]="true"
-                       (execute)="showMessage('Create', $event.item)">
-            <i class="fa fa-plus">&nbsp;</i> Create
-          </ng-template>
-        </context-menu>
+    <context-menu #projectMenu>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Expanding Project', $event.item)">
+        <i class="fa fa-expand">&nbsp;</i> Expand
+      </ng-template>
+      <ng-template contextMenuItem [divider]="true"></ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Edit', $event.item)">
+        <i class="fa fa-edit">&nbsp;</i> Edit
+      </ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Delete', $event.item)">
+        <i class="fa fa-trash">&nbsp;</i> Delete
+      </ng-template>
+      <!--<ng-template contextMenuItem-->
+                   <!--[visible]="true"-->
+                   <!--[enabled]="true"-->
+                   <!--(execute)="showCopyMessage('Copy', $event.item)">-->
+        <!--<a data-position="toast-top-full-width"></a>-->
+        <!--<i class="fa fa-copy">&nbsp;</i> Copy-->
+      <!--</ng-template>-->
+      <ng-template contextMenuItem [divider]="true"></ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Create', $event.item)">
+        <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #666666">PROJECT</span>
+      </ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Create', $event.item)">
+        <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #975837">PHASE</span>
+      </ng-template>
+    </context-menu>
+    <context-menu #phaseMenu>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Expanding Project', $event.item)">
+        <i class="fa fa-expand">&nbsp;</i> Expand
+      </ng-template>
+      <ng-template contextMenuItem [divider]="true"></ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Edit', $event.item)">
+        <i class="fa fa-edit">&nbsp;</i> Edit
+      </ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Delete', $event.item)">
+        <i class="fa fa-trash">&nbsp;</i> Delete
+      </ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showCopyMessage('Copy', $event.item)">
+        <a data-position="toast-top-full-width"></a>
+        <i class="fa fa-copy">&nbsp;</i> Copy
+      </ng-template>
+      <ng-template contextMenuItem [divider]="true"></ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Create', $event.item)">
+        <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #975837">PHASE</span>
+      </ng-template>
+      <ng-template contextMenuItem
+                   [visible]="true"
+                   [enabled]="true"
+                   (execute)="showMessage('Create', $event.item)">
+        <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #319644">DESIGN</span>
+      </ng-template>
+</context-menu>
+
   </div><!--end .menubar-scroll-panel-->
 </div><!--end #menubar-->
 <!-- END MENUBAR -->
