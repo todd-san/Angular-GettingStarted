@@ -17,6 +17,10 @@ import {FilterService} from "./filter/filter.service";
 import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
 import {ToastaModule} from 'ngx-toasta';
 import { CrudComponent } from './crud/crud.component';
+import {ProjectComponent} from "./crud/project.component";
+import {PhaseComponent} from "./crud/phase.component";
+import {DesignComponent} from "./crud/design.component";
+import {SpecComponent} from "./crud/spec.component";
 
 enableProdMode();
 @NgModule({
@@ -29,6 +33,10 @@ enableProdMode();
     FilterComponent,
     HelpComponent,
     CrudComponent,
+    ProjectComponent,
+    PhaseComponent,
+    DesignComponent,
+    SpecComponent,
 
   ],
   imports: [

@@ -182,6 +182,20 @@ export class MenuComponent implements OnInit {
     );
   }
 
+  public createItem(obj, sibling=false){
+    console.log('create: ', obj);
+    console.log('sibling: ', sibling);
+    $("#projectCreateModal").modal('show');
+  }
+  public editItem(obj){
+    console.log('edit: ', obj);
+    $("#projectCreateModal").modal('show');
+  }
+  public deleteItem(obj){
+    console.log('delete: ', obj);
+    $("#projectCreateModal").modal('show');
+  }
+
 
 
   public showCopyMessage(action, item){
