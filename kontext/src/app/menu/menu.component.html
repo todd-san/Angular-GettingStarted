@@ -1,11 +1,23 @@
 <!-- BEGIN MENUBAR-->
-<div id="menubar" class="menubar-inverse" style="width: 25%;">
+<div id="menubar" class="menubar-inverse">
+  <!--<div class="menubar-fixed-panel">-->
+    <!--<div class="expanded">-->
+    <!--</div>-->
+  <!--</div>-->
   <div class="menubar-fixed-panel">
-    <div class="expanded">
+      <div>
+        <!--<a class="btn btn-icon-toggle btn-default menubar-toggle" data-toggle="menubar" href="javascript:void(0);">-->
+          <!--<i class="fa fa-bars"></i>-->
+        <!--</a>-->
+      </div>
+      <div class="expanded">
+        <a href="#">
+          <div class="brand-holder">
+           <img src="../../assets/img/kenda-vector-logo.png" style="width: 150px; padding-left: 25px;">
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-
-  <!--<div class="menubar-scroll-panel">-->
   <div>
     <ul id="main-menu" class="gui-controls" style="margin-bottom: -15px;">
       <li>
@@ -16,34 +28,34 @@
             </span>
         </button>
       </li>
-      <li>
-          <button class="btn btn-primary-dark ink-reaction" style="width: 100%" (click)="toggleTools()">
-            <span class="primary-menu-label">
-              <i class="fa fa-wrench"></i>
-              Tools
-            </span>
-          </button>
-      </li>
-      <div *ngIf="showTools">
-        <ul id="tool-menu" class="gui-controls" style="margin-top: -15px;">
-          <li style="margin: 0">
-            <button class="btn btn-default-bright ink-reaction" style="width: 100%">
-              <span class="tool-title">
-                <i class="fa fa-gear fa-lg pull-left" style="margin-left: 15px;"></i>
-                Air Perm Calculator
-              </span>
-            </button>
-          </li>
-          <li style="margin: 0">
-            <button class="btn btn-default-bright ink-reaction" style="width: 100%">
-              <span class="tool-title" >
-                <i class="fa fa-gear fa-lg pull-left" style="margin-left: 15px;"></i>
-                Safety-Factor Calculator
-              </span>
-            </button>
-          </li>
-        </ul>
-      </div>
+      <!--<li>-->
+          <!--<button class="btn btn-primary-dark ink-reaction" style="width: 100%" (click)="toggleTools()">-->
+            <!--<span class="primary-menu-label">-->
+              <!--<i class="fa fa-wrench"></i>-->
+              <!--Tools-->
+            <!--</span>-->
+          <!--</button>-->
+      <!--</li>-->
+      <!--<div *ngIf="showTools">-->
+        <!--<ul id="tool-menu" class="gui-controls" style="margin-top: -15px;">-->
+          <!--<li style="margin: 0">-->
+            <!--<button class="btn btn-default-bright ink-reaction" style="width: 100%">-->
+              <!--<span class="tool-title">-->
+                <!--<i class="fa fa-gear fa-lg pull-left" style="margin-left: 15px;"></i>-->
+                <!--Air Perm Calculator-->
+              <!--</span>-->
+            <!--</button>-->
+          <!--</li>-->
+          <!--<li style="margin: 0">-->
+            <!--<button class="btn btn-default-bright ink-reaction" style="width: 100%">-->
+              <!--<span class="tool-title" >-->
+                <!--<i class="fa fa-gear fa-lg pull-left" style="margin-left: 15px;"></i>-->
+                <!--Safety-Factor Calculator-->
+              <!--</span>-->
+            <!--</button>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
 
       <li>
           <button class="btn btn-primary-dark ink-reaction" style="width: 100%" (click)="toggleProjects()">
