@@ -16,6 +16,7 @@ import {MenuService} from "./menu/menu.service";
 import {FilterService} from "./filter/filter.service";
 import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
 import {ToastaModule} from 'ngx-toasta';
+import { CrudComponent } from './crud/crud.component';
 
 enableProdMode();
 @NgModule({
@@ -27,6 +28,7 @@ enableProdMode();
     ContentComponent,
     FilterComponent,
     HelpComponent,
+    CrudComponent,
 
   ],
   imports: [

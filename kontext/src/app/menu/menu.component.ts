@@ -153,11 +153,14 @@ export class MenuComponent implements OnInit {
   }
   public emptyParams() {
     let empty = true;
-    this.filter_params.updates.forEach((param) =>{
-      if (param.value != null && param.param != 'page'){
-        empty = false;
-      }
-    });
+    if(this.filter_params && this.filter_params.hasOwnProperty('updates')){
+      this.filter_params.updates.forEach((param) =>{
+        if (param.value != null && param.param != 'page'){
+          empty = false;
+        }
+      });
+    }
+
     return empty;
   }
 
@@ -187,13 +190,6 @@ export class MenuComponent implements OnInit {
         msg: item.type.toUpperCase() + ': ' + item.name + ', Copied Successfully',
         showClose: true,
         timeout: 5000,
-
-        // onAdd: (toast:ToastData) => {
-        //     console.log('Toast ' + toast.id + ' has been added!');
-        // },
-        // onRemove: function(toast:ToastData) {
-        //     console.log('Toast ' + toast.id + ' has been removed!');
-        // }
     };
     this.toastaConfig.theme = 'bootstrap';
     this.toastaService.success(toastOptions);
