@@ -12,8 +12,6 @@ import { ContentComponent } from './content/content.component';
 import { ContextMenuModule } from "ngx-contextmenu";
 import { FilterComponent } from './filter/filter.component';
 import { HelpComponent } from './help/help.component';
-import {MenuService} from "./menu/menu.service";
-import {FilterService} from "./filter/filter.service";
 import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
 import {ToastaModule} from 'ngx-toasta';
 import { CrudComponent } from './crud/crud.component';

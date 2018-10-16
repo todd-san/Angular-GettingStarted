@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CrudService} from "./crud.service";
 
 @Component({
   selector: 'app-crud',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crud.component.css']
 })
 export class CrudComponent implements OnInit {
+  projects: any;
 
-  constructor() { }
+  constructor(private crudService: CrudService) {
+    crudService.getProjects().subscribe(
+      items => {
+        this.projects = items;
+      }
+    );
+  }
 
   ngOnInit() {
   }

@@ -151,6 +151,17 @@ export class MenuComponent implements OnInit {
   public toggleFilter(){
     console.log($('#headerFilterToggle').click());
   }
+  public toggleProjectTree(){
+    if(this.showProjects){
+      if(this.filter_params.hasOwnProperty('updates')){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /*
+  * */
   public emptyParams() {
     let empty = true;
     if(this.filter_params && this.filter_params.hasOwnProperty('updates')){
@@ -163,15 +174,6 @@ export class MenuComponent implements OnInit {
 
     return empty;
   }
-
-  public showProjectTree(){
-    if(this.showProjects){
-      if(this.filter_params.hasOwnProperty('updates')){
-        return true;
-      }
-    }
-    return false;
-  }
   public cleanFilter(){
     console.log('here!');
     // this.filterService.changeParams({});
@@ -182,6 +184,15 @@ export class MenuComponent implements OnInit {
     );
   }
 
+  /*
+  * */
+  public log(item){
+    console.log(item);
+  }
+
+  /*
+  *
+  * */
   public createItem(obj, sibling=false){
     console.log('create: ', obj);
     console.log('sibling: ', sibling);
@@ -189,15 +200,15 @@ export class MenuComponent implements OnInit {
   }
   public editItem(obj){
     console.log('edit: ', obj);
-    $("#projectCreateModal").modal('show');
+    $("#projectEditModal").modal('show');
   }
   public deleteItem(obj){
     console.log('delete: ', obj);
-    $("#projectCreateModal").modal('show');
+    $("#projectDeleteModal").modal('show');
   }
 
-
-
+  /*
+  * */
   public showCopyMessage(action, item){
     var toastOptions:ToastOptions = {
         title: action + ' Success!',
