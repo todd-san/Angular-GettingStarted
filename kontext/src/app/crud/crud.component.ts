@@ -10,11 +10,14 @@ export class CrudComponent implements OnInit {
   projects: any;
 
   constructor(private crudService: CrudService) {
-    crudService.getProjects().subscribe(
-      items => {
-        this.projects = items;
-      }
-    );
+    // crudService.getKontextById('', '').subscribe(
+    //   items => {
+    //     this.projects = items.body;
+    //   }
+    // );
+  }
+  log(){
+    console.log(this.projects);
   }
 
   ngOnInit() {

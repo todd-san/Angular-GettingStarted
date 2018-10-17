@@ -15,10 +15,17 @@ import { HelpComponent } from './help/help.component';
 import {MatButtonModule, MatIconModule, MatTreeModule} from "@angular/material";
 import {ToastaModule} from 'ngx-toasta';
 import { CrudComponent } from './crud/crud.component';
-import {ProjectComponent} from "./crud/project.component";
-import {PhaseComponent} from "./crud/phase.component";
-import {DesignComponent} from "./crud/design.component";
-import {SpecComponent} from "./crud/spec.component";
+import { DetailsComponent } from './content/details/details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {ProjectCrudComponent} from "./crud/project-crud.component";
+import { HomeComponent } from './content/home/home.component';
+import {SpecDetailsComponent} from "./content/details/spec-details.component";
+import {DesignDetailsComponent} from "./content/details/design-details.component";
+import {PhaseDetailsComponent} from "./content/details/phase-details.component";
+import {ProjectDetailsComponent} from "./content/details/project-details.component";
+import {ConvertToSlashesPipe} from "./shared/convert-to-slashes.pipe";
+
+
 
 enableProdMode();
 @NgModule({
@@ -31,11 +38,15 @@ enableProdMode();
     FilterComponent,
     HelpComponent,
     CrudComponent,
-    ProjectComponent,
-    PhaseComponent,
-    DesignComponent,
-    SpecComponent,
-
+    ProjectCrudComponent,
+    DetailsComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+    ProjectDetailsComponent,
+    PhaseDetailsComponent,
+    DesignDetailsComponent,
+    SpecDetailsComponent,
+    ConvertToSlashesPipe,
   ],
   imports: [
     BrowserModule,
@@ -48,17 +59,17 @@ enableProdMode();
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
-    ToastaModule.forRoot()
-    // RouterModule.forRoot([
-    //   {
-    //     path: 'two',
-    //     component: ChildTwoComponent,
-    //   },
-    //   {
-    //     path: '**',
-    //     component: ChildOneComponent,
-    //   }
-    // ]),
+    ToastaModule.forRoot(),
+    RouterModule.forRoot([
+      // { path: 'details', component: DetailsComponent},
+      { path: 'project/:id', component: ProjectDetailsComponent},
+      { path: 'phase/:id', component: PhaseDetailsComponent},
+      { path: 'design/:id', component: DesignDetailsComponent},
+      { path: 'spec/:id', component: SpecDetailsComponent},
+      { path: 'home', component: HomeComponent},
+      { path: '', redirectTo: 'home', pathMatch: 'full'},
+      { path: '**', component: PageNotFoundComponent}
+        ], {useHash: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]

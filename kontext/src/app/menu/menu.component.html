@@ -127,11 +127,21 @@
     <mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
         <li class="mat-tree-node" style="margin-left: 35px;">
-          <a (click)="log(node)" disabled><i class="fa fa-circle-o fa-2x"></i>
-            <span class="title menu-label" *ngIf="node.type == 'project'"  [contextMenu]="projectMenu" [contextMenuSubject]="node">{{node.name}}</span>
-            <span class="title menu-label" *ngIf="node.type == 'phase'" [contextMenu]="phaseMenu" [contextMenuSubject]="node">{{node.name}}</span>
-            <span class="title menu-label" *ngIf="node.type == 'design'" [contextMenu]="designMenu" [contextMenuSubject]="node">{{node.name}}</span>
-            <span class="title menu-label" *ngIf="node.type == 'spec'" [contextMenu]="specMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          <a *ngIf="node.type == 'project'" (click)="log(node)" routerLink="project/{{node.id}}" disabled>
+            <i class="fa fa-circle-o fa-2x"></i>
+            <span class="title menu-label"  [contextMenu]="projectMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          </a>
+           <a *ngIf="node.type == 'phase'" (click)="log(node)" routerLink="phase/{{node.id}}" disabled>
+             <i class="fa fa-circle-o fa-2x"></i>
+            <span class="title menu-label" [contextMenu]="phaseMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          </a>
+          <a *ngIf="node.type == 'design'" (click)="log(node)" routerLink="design/{{node.id}}" disabled>
+            <i class="fa fa-circle-o fa-2x"></i>
+            <span class="title menu-label" [contextMenu]="designMenu" [contextMenuSubject]="node">{{node.name}}</span>
+          </a>
+          <a *ngIf="node.type == 'spec'" (click)="log(node)" routerLink="spec/{{node.id}}" disabled>
+            <i class="fa fa-circle-o fa-2x"></i>
+            <span class="title menu-label" [contextMenu]="specMenu" [contextMenuSubject]="node">{{node.name}}</span>
           </a>
         </li>
       </mat-tree-node>
@@ -139,7 +149,8 @@
         <li>
           <div class="mat-tree-node" style="margin-left: 35px;">
             <a  matTreeNodeToggle (click)="log(node)"
-                    [attr.aria-label]="'toggle ' + node.filename">
+                [attr.aria-label]="'toggle ' + node.filename" routerLink="{{node.type}}/{{node.id}}">
+
               <i *ngIf="nestedTreeControl.isExpanded(node)" class="fa fa-angle-down fa-2x"></i>
               <i *ngIf="!nestedTreeControl.isExpanded(node)" class="fa fa-angle-right fa-2x"></i>
 

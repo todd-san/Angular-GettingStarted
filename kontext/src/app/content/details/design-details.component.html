@@ -1,0 +1,55 @@
+<h2 class="text-light text-center">
+  {{design.name}}<br><small class="text-primary">
+  Design-Details</small></h2>
+
+<div class="col-xs-10 col-xs-offset-1" style="margin-top: 25px;">
+  <div class="card">
+    <div class="card-head">
+      <header>Description </header>
+    </div>
+    <div class="card-body" style="margin-top: -30px;">
+      <div style="padding-left: 3em;">
+        <ul class="text-muted list-group list-comments">
+          <li class="text-muted">
+            Design Type: <span class="text-primary">{{design.design_type}}</span>
+          </li>
+          <li class="text-muted" style="margin-top: -15px;">
+            Customer: <span class="text-primary">{{design.customer}}</span>
+          </li>
+          <li class="text-muted" style="margin-top: -15px;">
+            Date Modified: <span class="text-primary">{{design.date_modified}}</span>
+          </li>
+        </ul>
+        <div>
+          {{design.description}}
+        </div>
+      </div>
+      <div class="stick-bottom-right">
+        <!--<button class="btn btn-primary" (click)="log()">Log</button>-->
+      </div>
+    </div><!--end .card-body -->
+  </div><!--end .card -->
+</div>
+<div class="col-xs-10 col-xs-offset-1" >
+  <div class="card">
+    <div class="card-head">
+      <header>Analysis Queue </header>
+    </div>
+    <div class="card-body">
+        <div class="stick-bottom-right">
+        </div>
+    </div><!--end .card-body -->
+  </div><!--end .card -->
+</div>
+<div class="col-xs-10 col-xs-offset-1" >
+  <div class="card">
+    <div class="card-head">
+      <header>Members</header>
+    </div>
+    <div class="card-body">
+      {{design.owner_username}}
+        <div class="stick-bottom-right">
+        </div>
+    </div><!--end .card-body -->
+  </div><!--end .card -->
+</div>

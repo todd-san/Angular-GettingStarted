@@ -5,6 +5,6 @@ import { Component,} from '@angular/core';
   templateUrl: './forms/project.component.html',
   styleUrls: ['./crud.component.css']
 })
-export class ProjectComponent{
+export class ProjectCrudComponent{
   constructor() { }
 }

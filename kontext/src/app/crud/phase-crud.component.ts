@@ -5,7 +5,7 @@ import { Component,} from '@angular/core';
   templateUrl: './forms/phase.component.html',
   styleUrls: ['./crud.component.css']
 })
-export class PhaseComponent{
+export class PhaseCrudComponent{
 
   constructor() { }
 }

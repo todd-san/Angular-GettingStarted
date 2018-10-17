@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, enableProdMode, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MenuService} from "./menu.service";
 import {ContextMenuService, ContextMenuComponent} from "ngx-contextmenu";
 import {FilterService} from "../filter/filter.service";
@@ -14,6 +14,7 @@ declare var $: any;
 import {PaginationHeaders} from "./interfaces/paginationHeaders";
 import {Page} from "./interfaces/page";
 import {KontextItem} from "../shared/kontextItem";
+import {CrudService} from "../crud/crud.service";
 
 
 @Component({
@@ -24,7 +25,7 @@ import {KontextItem} from "../shared/kontextItem";
 
 
 export class MenuComponent implements OnInit {
-
+  kontextDetail: any;
   page: Page = <Page>{};
   paginationHeaders: PaginationHeaders;
   filter_params: any;
@@ -39,11 +40,18 @@ export class MenuComponent implements OnInit {
 
   @ViewChild('kontextMenu') public kontextMenu: ContextMenuComponent;
 
+  /* constructor
+  * menuService subscriptions
+  * filterService subscriptions
+  * toastaService & Config subscriptions
+  *
+  * */
   constructor(private menuService: MenuService,
               private filterService : FilterService,
               private contextMenuService: ContextMenuService,
               private toastaService: ToastaService,
               private toastaConfig: ToastaConfig,
+              private crudService: CrudService
               ) {
 
     this.nestedTreeControl = new NestedTreeControl<KontextItem>(this._getChildren);
@@ -188,6 +196,12 @@ export class MenuComponent implements OnInit {
   * */
   public log(item){
     console.log(item);
+    this.crudService.getKontextById(item.type, item.id).subscribe(
+      details =>{
+        this.kontextDetail = details.body;
+      }
+    );
+    console.log(this.kontextDetail);
   }
 
   /*

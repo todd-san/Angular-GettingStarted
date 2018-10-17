@@ -1,5 +1,6 @@
 import { Component, ViewChild, Inject, OnInit } from '@angular/core';
 import {ToastaService, ToastaConfig, ToastOptions, ToastData} from 'ngx-toasta';
+import {CrudService} from "../crud/crud.service";
 
 declare var $:any;
 
@@ -9,11 +10,14 @@ declare var $:any;
 })
 
 export class ContentComponent implements OnInit{
- constructor(private toastaService: ToastaService,
-              private toastaConfig: ToastaConfig){
-   this.toastaConfig.theme = 'material';
-   this.toastaConfig.position= 'top-center';
-   this.toastaConfig.position.big();
+  projects: any;
+
+  constructor(private toastaService: ToastaService,
+             private toastaConfig: ToastaConfig,
+             private crudService:CrudService,){
+    this.toastaConfig.theme = 'material';
+    this.toastaConfig.position= 'top-center';
+    this.toastaConfig.position.big();
  }
 
  addToast(title, msg) {
@@ -35,6 +39,12 @@ export class ContentComponent implements OnInit{
     this.toastaService.success(toastOptions);
 
  }
+
+ log(){
+    console.log(this.crudService);
+    let kontext = this.crudService.getCurrentKontext();
+    console.log(kontext)
+  }
 
 
  ngOnInit() {

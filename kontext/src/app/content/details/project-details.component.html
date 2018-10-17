@@ -1,0 +1,68 @@
+<h2 class="text-light text-center">
+  {{project.name}}<br><small class="text-primary">
+  Project-Details</small></h2>
+<!--DETAILS-->
+<div class="col-xs-10 col-xs-offset-1" style="margin-top: 25px;" *ngIf="!isEmpty(project)">
+  <div class="card">
+    <div class="card-head">
+      <header>Description </header>
+    </div>
+    <div class="card-body" style="margin-top: -30px;">
+      <div style="padding-left: 3em;">
+        <ul class="text-muted list-group list-comments">
+          <li class="text-muted">
+            Project Type: <span class="text-primary">{{project.project_type}}</span>
+          </li>
+          <li class="text-muted" style="margin-top: -15px;">
+            Customer: <span class="text-primary">{{project.customer}}</span>
+          </li>
+          <li class="text-muted" style="margin-top: -15px;">
+            Date Modified: <span class="text-primary">{{project.date_modified | convertToSlashes: "_"}}</span>
+          </li>
+        </ul>
+        <div>
+          <div id="inlineContent1"
+             class="col-md-12 cke_editable cke_editable_inline cke_contents_ltr"
+             contenteditable="true"
+             tabindex="0"
+             spellcheck="false"
+             role="textbox"
+             aria-label="Rich Text Editor, inlineContent1"
+             title="Rich Text Editor, inlineContent1"
+             aria-describedby="cke_110" style="position: relative; margin-left: -1em;">
+          <h4>Description</h4>
+          <p>{{project.details}}</p>
+        </div>
+        </div>
+      </div>
+      <div class="stick-bottom-right">
+        <!--<button class="btn btn-primary" (click)="log()">Log</button>-->
+      </div>
+    </div><!--end .card-body -->
+  </div><!--end .card -->
+</div>
+<!--ANALYSIS QUEUE-->
+<div class="col-xs-10 col-xs-offset-1" >
+  <div class="card">
+    <div class="card-head">
+      <header>Analysis Queue </header>
+    </div>
+    <div class="card-body">
+        <div class="stick-bottom-right">
+        </div>
+    </div><!--end .card-body -->
+  </div><!--end .card -->
+</div>
+<!--MEMBERS-->
+<div class="col-xs-10 col-xs-offset-1" >
+  <div class="card">
+    <div class="card-head">
+      <header>Members</header>
+    </div>
+    <div class="card-body">
+      {{project.owner_username}}
+        <div class="stick-bottom-right">
+        </div>
+    </div><!--end .card-body -->
+  </div><!--end .card -->
+</div>

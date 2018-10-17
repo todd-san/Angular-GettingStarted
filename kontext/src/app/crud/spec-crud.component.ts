@@ -5,9 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './forms/spec.component.html',
   styleUrls: ['./crud.component.css']
 })
-export class SpecComponent {
+export class SpecCrudComponent {
 
   constructor() { }
 
+  ngOnInit() {
+  }
 
 }
