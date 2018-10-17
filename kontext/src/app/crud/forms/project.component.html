@@ -1,5 +1,5 @@
 
-<!-- CREATE MODAL-->
+<!-- PROJECT CREATE MODAL-->
 <div class="modal fade"
      id="projectCreateModal"
      tabindex="-1"
@@ -11,13 +11,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="projectCreateForm">Create A New KTEK Project</h4>
+        <h3 class="modal-title" id="projectCreateForm">Create A Project</h3>
+        <p class="text-muted"><span class="text-primary" style="font-weight: bold;">*required</span>/optional</p>
       </div>
       <form class="form-horizontal" role="form">
         <div class="modal-body">
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_name" class="control-label" style="font-weight: bold; color: black">*Name </label>
+              <label for="pr_name" class="text-primary" style="font-weight: bold;">*Name </label>
             </div>
             <div class="col-sm-9">
               <input type="text" name="project_name" id="pr_name" class="form-control" placeholder="Project Name">
@@ -35,7 +36,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_type" class="control-label" style="font-weight: bold; color: black;">*Project Type</label>
+              <label for="pr_type" class="text-primary" style="font-weight: bold;">*Project Type</label>
             </div>
             <div class="col-sm-9">
               <select name="pr_type" class="form-control" id="pr_type">
@@ -75,21 +76,17 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left"
-                  style="background-color: #e24c42; color: #ffffff;" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-default"
-                  style="background-color: #00a55e; color: #ffffff">Create and Add Project Phase</button>
-          <button type="button" class="btn btn-default"
-                  style="background-color: #74acc5; color: #ffffff">Create and Add Another</button>
-          <button type="button" class="btn btn-default"
-                  style="background-color: #358bb8; color: #ffffff">Create</button>
+          <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success-dark">Create and Add Project Phase</button>
+          <button type="button" class="btn btn-accent">Create and Add Another</button>
+          <button type="button" class="btn btn-accent-dark">Create</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<!-- EDIT MODAL -->
+<!-- PROJECT EDIT MODAL -->
 <div class="modal fade"
      id="projectEditModal"
      tabindex="-1"
@@ -107,7 +104,7 @@
         <div class="modal-body">
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_name_edit" class="control-label" style="font-weight: bold; color: black;">*Name </label>
+              <label for="pr_name_edit" class="text-primary" style="font-weight: bold;">*Name </label>
             </div>
             <div class="col-sm-9">
               <input type="text" name="project_name" id="pr_name_edit" class="form-control" placeholder="Project Name">
@@ -125,7 +122,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_type_edit" class="control-label" style="font-weight: bold; color: black;">*Project Type</label>
+              <label for="pr_type_edit" class="text-primary" style="font-weight: bold;">*Project Type</label>
             </div>
             <div class="col-sm-9">
               <select name="pr_type" class="form-control" id="pr_type_edit">
@@ -165,19 +162,16 @@
           </div>
         </div>
         <div class="modal-footer">
-           <button type="button" class="btn btn-default pull-left"
-                  style="background-color: #e24c42; color: #ffffff;" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-default"
-                  style="background-color: #74acc5; color: #ffffff">Save and Continue Editing</button>
-          <button type="button" class="btn btn-default"
-                  style="background-color: #358bb8; color: #ffffff">Update</button>
+          <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-accent">Save and Continue Editing</button>
+          <button type="button" class="btn btn-accent-dark">Update</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<!-- DELETE MODAL -->
+<!-- PROJECT DELETE MODAL -->
 <div class="modal fade"
      id="projectDeleteModal"
      tabindex="-1"
@@ -195,7 +189,7 @@
         <div class="modal-body">
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_name_delete" class="control-label" style="font-weight: bold; color: black;">*Name </label>
+              <label for="pr_name_delete" class="text-primary" style="font-weight: bold;">*Name </label>
             </div>
             <div class="col-sm-9">
               <input type="text" name="project_name" id="pr_name_delete" class="form-control" placeholder="Project Name" disabled>
@@ -213,7 +207,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_type_delete" class="control-label" style="font-weight: bold; color: black;">*Project Type</label>
+              <label for="pr_type_delete" class="text-primary" style="font-weight: bold;">*Project Type</label>
             </div>
             <div class="col-sm-9">
               <select name="pr_type" class="form-control" id="pr_type_delete" disabled>
@@ -255,10 +249,11 @@
         <div class="modal-footer">
            <button type="button" class="btn btn-default pull-left"
                    data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-default"
-                  style="background-color: #e24c42; color: #ffffff">Delete</button>
+          <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+

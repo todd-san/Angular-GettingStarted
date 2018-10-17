@@ -208,10 +208,22 @@ export class MenuComponent implements OnInit {
   *
   * */
   public createItem(obj, sibling=false){
-    console.log('create: ', obj);
-    console.log('sibling: ', sibling);
-    $("#projectCreateModal").modal('show');
+    console.log('======== CRUD MODAL LAUNCHER =========');
+    console.log(obj.type);
+    console.log(sibling);
+    console.log('======================================');
+
+    // $("#projectCreateModal").modal('show')
+
+    if (obj.type === 'project' && sibling){
+      $("#projectCreateModal").modal('show');
+    } else if (obj.type === 'project' && !sibling){
+      $("#phaseCreateModal").modal('show');
+    } else if (obj.type === 'phase' && sibling){
+      $("#phaseCreateModal").modal('show');
+    }
   }
+
   public editItem(obj){
     console.log('edit: ', obj);
     $("#projectEditModal").modal('show');
