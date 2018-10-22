@@ -221,6 +221,14 @@ export class MenuComponent implements OnInit {
       $("#phaseCreateModal").modal('show');
     } else if (obj.type === 'phase' && sibling){
       $("#phaseCreateModal").modal('show');
+    } else if (obj.type === 'phase' && !sibling){
+      $("#designCreateModal").modal('show');
+    } else if (obj.type === 'design' && sibling){
+      $("#designCreateModal").modal('show');
+    }  else if (obj.type === 'design' && !sibling){
+      $("#specCreateModal").modal('show');
+    }  else if (obj.type === 'spec' && sibling){
+      $("#specCreateModal").modal('show');
     }
   }
 

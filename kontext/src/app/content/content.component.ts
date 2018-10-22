@@ -42,8 +42,8 @@ export class ContentComponent implements OnInit{
 
  log(){
     console.log(this.crudService);
-    let kontext = this.crudService.getCurrentKontext();
-    console.log(kontext)
+    // let kontext = this.crudService.getCurrentKontext();
+    // console.log(kontext)
   }
 
 

@@ -21,7 +21,7 @@
               <label for="pr_name" class="text-primary" style="font-weight: bold;">*Name </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="project_name" id="pr_name" class="form-control" placeholder="Project Name">
+              <input type="text" [(ngModel)]="new_project.name" name="name" id="pr_name" class="form-control" placeholder="Project Name">
               <div class="form-control-line"></div>
             </div>
           </div>
@@ -79,7 +79,7 @@
           <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-success-dark">Create and Add Project Phase</button>
           <button type="button" class="btn btn-accent">Create and Add Another</button>
-          <button type="button" class="btn btn-accent-dark">Create</button>
+          <button type="button" (click)="log()" class="btn btn-accent-dark">Create</button>
         </div>
       </form>
     </div>

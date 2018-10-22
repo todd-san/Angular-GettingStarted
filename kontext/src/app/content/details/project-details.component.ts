@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CrudService} from "../../crud/crud.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Observable} from "rxjs/index";
 
 @Component({
   templateUrl: './project-details.component.html',

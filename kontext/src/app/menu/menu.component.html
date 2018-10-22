@@ -342,7 +342,7 @@
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
-                   (execute)="showMessage('Create', $event.item)">
+                   (execute)="createItem($event.item, sibling=false)">
         <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #a84ba3">SPEC</span>
       </ng-template>
 </context-menu>
@@ -377,7 +377,7 @@
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
-                   (execute)="showMessage('Create', $event.item)">
+                   (execute)="createItem($event.item, sibling=true)">
         <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #a84ba3">SPEC</span>
       </ng-template>
 </context-menu>
