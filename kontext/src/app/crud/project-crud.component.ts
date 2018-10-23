@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {CrudService} from "./crud.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../shared/user";
 
 export class NewProject {
   constructor(){}
@@ -24,6 +25,7 @@ export class NewProject {
 
 export class ProjectCrudComponent implements OnInit {
   route: any;
+  current_user: any;
   current_project: any;
   new_project: NewProject = new NewProject();
 
@@ -34,10 +36,17 @@ export class ProjectCrudComponent implements OnInit {
         this.current_project = item;
       }
     );
+
     // NEEDED SERVICES
-    // this.crudService.getCurrentUser.subscribe();
+    // this.crudService.getCurrentUser().subscribe(
+    //   user  => {
+    //     this.current_user = user;
+    //   }
+    // );
+
     // this.crudService.getProjectTypes.subscribe();
     // this.crudService.getCustomers.subscribe();
+
 
 
     this.router.events.subscribe(

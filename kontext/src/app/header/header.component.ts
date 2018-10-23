@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FilterService} from "../filter/filter.service";
 import {MenuService} from "../menu/menu.service";
 
@@ -7,7 +7,9 @@ import {MenuService} from "../menu/menu.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
+
   title: string = 'KTEK';
   filter_menu: boolean;
   filter_params: any;

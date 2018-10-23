@@ -1,4 +1,5 @@
-<div id="base">
+<div id="base" *ngIf="loggedIn.value">
+  <app-header></app-header>
 
   <!-- BEGIN OFFCANVAS LEFT -->
   <app-help></app-help>
@@ -11,4 +12,9 @@
 
   <!--CRUD FORMS-->
   <app-crud></app-crud>
+
+</div>
+<div *ngIf="!loggedIn.value">
+  <router-outlet></router-outlet>
+
 </div>

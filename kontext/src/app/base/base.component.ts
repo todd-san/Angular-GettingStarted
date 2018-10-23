@@ -1,5 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {DOCUMENT} from "@angular/common";
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import {BehaviorSubject} from "rxjs/index";
 
 @Component({
   selector: 'app-base',
@@ -7,7 +8,19 @@ import {DOCUMENT} from "@angular/common";
   styleUrls: ['./base.component.css']
 })
 export class BaseComponent implements OnInit {
+  private loggedIn = new BehaviorSubject(false);
+
+
+  @Input() public isUserLoggedIn = this.loggedIn.asObservable();
+
+  constructor(private router: Router){}
+
+  public setLoggedIn(value){
+    this.loggedIn.next(value);
+  }
+
   ngOnInit() {
+    this.setLoggedIn(false);
   }
 
 }

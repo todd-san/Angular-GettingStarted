@@ -29,6 +29,7 @@ import { DesignCrudComponent } from "./crud/design-crud.component";
 import { SpecCrudComponent } from "./crud/spec-crud.component";
 
 import {ConvertToSlashesPipe} from "./shared/convert-to-slashes.pipe";
+import { LoginComponent } from './login/login.component';
 
 
 enableProdMode();
@@ -53,6 +54,7 @@ enableProdMode();
     DesignDetailsComponent,
     SpecDetailsComponent,
     ConvertToSlashesPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,13 +69,13 @@ enableProdMode();
     MatButtonModule,
     ToastaModule.forRoot(),
     RouterModule.forRoot([
-      // { path: 'details', component: DetailsComponent},
       { path: 'project/:id', component: ProjectDetailsComponent},
       { path: 'phase/:id', component: PhaseDetailsComponent},
       { path: 'design/:id', component: DesignDetailsComponent},
       { path: 'spec/:id', component: SpecDetailsComponent},
       { path: 'home', component: HomeComponent},
-      { path: '', redirectTo: 'home', pathMatch: 'full'},
+      { path: 'login', component: LoginComponent},
+      { path: '', redirectTo: 'login', pathMatch: 'full'},
       { path: '**', component: PageNotFoundComponent}
         ], {useHash: true}),
   ],
