@@ -9,7 +9,6 @@ import { MatButtonModule, MatIconModule, MatTreeModule } from "@angular/material
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './menu/menu.component';
 import { BaseComponent } from './base/base.component';
 import { ContentComponent } from './content/content.component';
 import { FilterComponent } from './filter/filter.component';
@@ -30,6 +29,8 @@ import { SpecCrudComponent } from "./crud/spec-crud.component";
 
 import {ConvertToSlashesPipe} from "./shared/convert-to-slashes.pipe";
 import { LoginComponent } from './login/login.component';
+import { ProjectTreeComponent } from './project-tree/project-tree.component';
+import { NavComponent } from './nav/nav.component';
 
 
 enableProdMode();
@@ -37,7 +38,6 @@ enableProdMode();
   declarations: [
     AppComponent,
     HeaderComponent,
-    MenuComponent,
     BaseComponent,
     ContentComponent,
     FilterComponent,
@@ -55,6 +55,8 @@ enableProdMode();
     SpecDetailsComponent,
     ConvertToSlashesPipe,
     LoginComponent,
+    ProjectTreeComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

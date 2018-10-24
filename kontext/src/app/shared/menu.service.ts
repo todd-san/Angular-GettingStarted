@@ -4,9 +4,9 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {catchError, tap,} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
 
-import {Project} from "./interfaces/project";
-import {KontextItem} from "../shared/kontextItem";
-import {PaginationHeaders} from "./interfaces/paginationHeaders";
+import {KontextItem} from "./kontextItem";
+import { PaginationHeaders} from "../project-tree/interfaces/paginationHeaders";
+import {Project} from "../project-tree/interfaces/project";
 
 
 @Injectable({

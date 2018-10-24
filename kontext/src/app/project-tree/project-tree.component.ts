@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MenuService} from "./menu.service";
 import {ContextMenuService, ContextMenuComponent} from "ngx-contextmenu";
 import {FilterService} from "../filter/filter.service";
 import {NestedTreeControl} from "@angular/cdk/tree";
@@ -7,25 +6,24 @@ import {MatTreeNestedDataSource} from "@angular/material/tree";
 import {ToastaService, ToastaConfig, ToastOptions, ToastData} from 'ngx-toasta';
 
 
-
-declare var $: any;
-
-// Interfaces
-import {PaginationHeaders} from "./interfaces/paginationHeaders";
-import {Page} from "./interfaces/page";
 import {KontextItem} from "../shared/kontextItem";
 import {CrudService} from "../crud/crud.service";
 import {Router} from "@angular/router";
+import {PaginationHeaders} from "./interfaces/paginationHeaders";
+import {Page} from "./interfaces/page";
+import {MenuService} from "../menu/menu.service";
+
+
+declare var $: any;
 
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css'],
+  selector: 'app-project-tree',
+  templateUrl: './project-tree.component.html',
+  styleUrls: ['./project-tree.component.css']
 })
+export class ProjectTreeComponent implements OnInit {
 
-
-export class MenuComponent implements OnInit {
   kontextDetail: any;
   page: Page = <Page>{};
   paginationHeaders: PaginationHeaders;
@@ -34,27 +32,21 @@ export class MenuComponent implements OnInit {
 
   showTools: boolean = false;
   showProjects: boolean = true;
-
   nestedTreeControl: NestedTreeControl<KontextItem>;
   nestedDataSource: MatTreeNestedDataSource<KontextItem>;
 
 
   @ViewChild('kontextMenu') public kontextMenu: ContextMenuComponent;
 
-  /* constructor
-  * menuService subscriptions
-  * filterService subscriptions
-  * toastaService & Config subscriptions
-  *
-  * */
-  constructor(private menuService: MenuService,
-              private filterService : FilterService,
-              private contextMenuService: ContextMenuService,
-              private toastaService: ToastaService,
-              private toastaConfig: ToastaConfig,
-              private crudService: CrudService,
-              private router: Router,
-              ) {
+  constructor(
+    private menuService: MenuService,
+    private filterService : FilterService,
+    private contextMenuService: ContextMenuService,
+    private toastaService: ToastaService,
+    private toastaConfig: ToastaConfig,
+    private crudService: CrudService,
+    private router: Router,
+  ) {
 
     this.nestedTreeControl = new NestedTreeControl<KontextItem>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();
@@ -65,12 +57,14 @@ export class MenuComponent implements OnInit {
         this.filter_params = params;
       }
     );
+
     filterService.currentItems.subscribe(
       items =>{
         // this.items = items;
         this.nestedDataSource.data = this.buildFileTree(items, 0)
       }
     );
+
     filterService.currentPagination.subscribe(
       pagination =>{
         this.paginationHeaders = pagination;
@@ -80,9 +74,8 @@ export class MenuComponent implements OnInit {
 
   }
 
-  /* Pagination Control
-  * */
-  public fetchMenuItems(page){
+
+   public fetchMenuItems(page){
 
     let params = {
       uid: {username: this.filter_params.updates[0].value},
@@ -151,11 +144,6 @@ export class MenuComponent implements OnInit {
   public toggleTools(){
     this.showTools = !this.showTools;
   }
-  public toggleFilter(){
-    // console.log($('#headerFilterToggle').click());
-    // $('#headerFilterToggle').click();
-    console.log($('.offcanvas-collapse').toggleClass('open'))
-  }
   public toggleProjectTree(){
     if(this.showProjects){
       if(this.filter_params.hasOwnProperty('updates')){
@@ -163,6 +151,11 @@ export class MenuComponent implements OnInit {
       }
     }
     return false;
+  }
+  public static toggleFilter(){
+    // console.log($('#headerFilterToggle').click());
+    // $('#headerFilterToggle').click();
+    console.log($('.offcanvas-collapse').toggleClass('open'))
   }
 
   /*
@@ -201,7 +194,7 @@ export class MenuComponent implements OnInit {
   /*
   *
   * */
-  public createItem(obj, sibling=false){
+  public static createItem(obj, sibling=false){
     // console.log('======== CRUD MODAL LAUNCHER =========');
     // console.log(obj.type);
     // console.log(sibling);
@@ -225,10 +218,10 @@ export class MenuComponent implements OnInit {
       $("#specCreateModal").modal('show');
     }
   }
-  public editItem(obj){
+  public static editItem(obj){
     $("#projectEditModal").modal('show');
   }
-  public deleteItem(obj){
+  public static deleteItem(obj){
     // console.log('delete: ', obj);
     $("#projectDeleteModal").modal('show');
   }
@@ -254,6 +247,8 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.setPagination();
   }
+
 }
+
 
 
