@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs/index";
 
@@ -9,8 +9,6 @@ import {BehaviorSubject} from "rxjs/index";
 })
 export class BaseComponent implements OnInit {
   private loggedIn = new BehaviorSubject(false);
-
-
   @Input() public isUserLoggedIn = this.loggedIn.asObservable();
 
   constructor(private router: Router){}

@@ -2,24 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d60e9481-55dc-4d0b-bbc2-71793ecdde9d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/base/auth-interceptor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/base/base.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/login/login.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/login/login.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/login/login.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/login/login.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/shared/projectType.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/shared/user.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/base/auth-interceptor.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/src/app/base/base.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/base/base.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/src/app/base/base.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/base/base.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/base/base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/base/base.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/content/content.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/content/content.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/crud.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/crud.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,193 +25,105 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.20119523">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="project.component.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/forms/project.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="594">
-                  <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-                  <folding>
-                    <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#1;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#select#0;n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#1;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#1;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                    <element signature="n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#select#0;n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" />
-                    <element signature="n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#select#0;n#div#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#div#5;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                    <element signature="n#button#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="login.component.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/login/login.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="106">
-                  <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="base.component.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="project-crud.component.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-126">
-                  <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#0#49#0" expanded="true" />
-                    <element signature="n#!!block;n#isEmpty#0;n#ProjectCrudComponent#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="crud.service.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="185">
-                  <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-                  <folding>
-                    <element signature="e#0#60#0" expanded="true" />
-                    <element signature="e#1044#1095#0" />
-                    <element signature="n#!!block;n#getProjectType#0;n#CrudService#0" />
-                    <element signature="n#!!block;n#getKontextById#0;n#CrudService#0" />
-                    <element signature="n#!!block;n#setCurrentKontext#0;n#CrudService#0" />
-                    <element signature="n#!!block;n#setProjectTypes#0;n#CrudService#0" />
-                    <element signature="n#!!block;n#setCurrentUser#0;n#CrudService#0" />
-                    <element signature="n#!!block;n#getUrl#0;n#CrudService#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="auth-interceptor.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/base/auth-interceptor.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="login.component.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/login/login.component.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="614">
-                  <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#0#50#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="base.service.ts" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.service.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="664">
-                  <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#0#60#0" expanded="true" />
-                    <element signature="n#!!block;n#handleError#0;n#CrudService#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="base.component.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="396">
-                  <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-                  <folding>
-                    <element signature="e#0#63#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="menu.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="165" column="3" lean-forward="true" selection-start-line="165" selection-start-column="3" selection-end-line="165" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#59#0" expanded="true" />
+                <element signature="e#1225#1353#0" />
+                <element signature="n#!!block;n#constructor#0;n#MenuComponent#0" />
+                <element signature="e#2320#2348#0" />
+                <element signature="n#!!block;n#fetchMenuItems#0;n#MenuComponent#0" />
+                <element signature="e#2498#2788#0" />
+                <element signature="e#2861#3263#0" />
+                <element signature="n#!!block;n#setPagination#0;n#MenuComponent#0" />
+                <element signature="e#3338#3371#0" />
+                <element signature="e#3402#3431#0" />
+                <element signature="e#3477#3515#0" />
+                <element signature="e#3553#3586#0" />
+                <element signature="e#3989#4033#0" />
+                <element signature="e#4098#4212#0" />
+                <element signature="n#!!block;n#buildFileTree#0;n#MenuComponent#0" />
+                <element signature="e#4403#4428#0" />
+                <element signature="n#!!block;n#toggleProjects#0;n#MenuComponent#0" />
+                <element signature="n#!!block;n#toggleTools#0;n#MenuComponent#0" />
+                <element signature="n#!!block;n#toggleProjectTree#0;n#MenuComponent#0" />
+                <element signature="e#4823#4832#0" />
+                <element signature="n#!!block;n#emptyParams#0;n#MenuComponent#0" />
+                <element signature="e#5382#5391#0" />
+                <element signature="n#!!block;n#log#0;n#MenuComponent#0" />
+                <element signature="e#5626#5639#0" />
+                <element signature="e#5679#6565#0" />
+                <element signature="n#!!block;n#editItem#0;n#MenuComponent#0" />
+                <element signature="n#!!block;n#deleteItem#0;n#MenuComponent#0" />
+                <element signature="e#6790#6799#0" />
+                <element signature="n#!!block;n#showCopyMessage#0;n#MenuComponent#0" />
+                <element signature="n#!!block;n#onContextMenu#0;n#MenuComponent#0" />
+                <element signature="n#!!block;n#ngOnInit#0;n#MenuComponent#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kontext/src/app/app.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kontext/src/app/content/content.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.spec.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="52">
+              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#a#0;n#form#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#header#0;n#!!top" expanded="true" />
+                <element signature="n#ul#1;n#div#1;n#div#0;n#header#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -228,14 +136,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>title</find>
-      <find>disabled</find>
-      <find>open</find>
       <find>position</find>
       <find>cdk</find>
       <find>z-index:</find>
       <find>SIZE PARAMS</find>
-      <find>console</find>
       <find>ul</find>
       <find>Project</find>
       <find>FileNode</find>
@@ -256,6 +160,12 @@
       <find>design</find>
       <find>projectCreate</find>
       <find>login</find>
+      <find>toasta</find>
+      <find>this.toastaService</find>
+      <find>toastaService</find>
+      <find>handleError</find>
+      <find>console</find>
+      <find>headerFilter</find>
     </findStrings>
     <replaceStrings>
       <replace>KontextItem</replace>
@@ -270,7 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/kontext/src/assets/less/shared/variables.less" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/project.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/phase.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/design.component.ts" />
@@ -290,17 +199,13 @@
         <option value="$PROJECT_DIR$/kontext/src/app/shared/page.service.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/shared/convert-date.pipe.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/content/details/phase-details.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/content/content.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/content/details/project-details.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/content/home/home.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/crud.component.html" />
-        <option value="$PROJECT_DIR$/kontext/src/app/crud/crud.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/content/content.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/forms/phase.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/forms/spec.component.html" />
-        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/shared/convert-to-slashes.pipe.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/content/details/project-details.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/interfaces/project.ts" />
@@ -308,19 +213,24 @@
         <option value="$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/shared/User.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/shared/projectType.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/header/header.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/header/header.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/index.html" />
-        <option value="$PROJECT_DIR$/kontext/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/kontext/src/app/base/base.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/base/auth-interceptor.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/login/login.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/base/base.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/base/auth-interceptor.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/login/login.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/base/base.service.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/crud/crud.component.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/header/header.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/base/base.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/content/content.component.html" />
       </list>
     </option>
   </component>
@@ -341,10 +251,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-33" />
-    <option name="y" value="179" />
-    <option name="width" value="1910" />
-    <option name="height" value="763" />
+    <option name="x" value="522" />
+    <option name="width" value="1407" />
+    <option name="height" value="1088" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -390,24 +299,7 @@
               <item name="kontext" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Angular-GettingStarted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Angular-GettingStarted" type="462c0819:PsiDirectoryNode" />
-              <item name="kontext" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Angular-GettingStarted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Angular-GettingStarted" type="462c0819:PsiDirectoryNode" />
-              <item name="kontext" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -420,7 +312,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/tmiller/Projects/angular/Angular-GettingStarted/kontext/src/app/tree-example/tree-example.component.html" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kontext" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -647,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540242293368</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="trying to get Token Authentication working, still not there yet!">
+      <created>1540332265323</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1540332265323</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -738,7 +637,8 @@
     <MESSAGE value="need to flesh out new routes for detail pages, /kontext/project/:id/detail type deal." />
     <MESSAGE value="fleshing out CRUD modals" />
     <MESSAGE value="project-crud, 2-way binding to templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="project-crud, 2-way binding to templates" />
+    <MESSAGE value="trying to get Token Authentication working, still not there yet!" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to get Token Authentication working, still not there yet!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -746,31 +646,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/content/details/phase-details.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="26" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="26" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#loopThroughParams#0;n#FilterService#0" />
-            <element signature="n#!!block;n#toHttpParams#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getUserNames#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getProjectNames#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getPhaseNames#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getDesignSizes#0;n#FilterService#0" />
-            <element signature="n#!!block;n#getTireLines#0;n#FilterService#0" />
-            <element signature="n#!!block;n#handleError#0;n#FilterService#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/content/details/spec-details.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -825,17 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/content/content.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="71" selection-start-line="3" selection-start-column="71" selection-end-line="3" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/phase-crud.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -847,25 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/crud.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <element signature="n#!!block;n#log#0;n#CrudComponent#0" />
-            <element signature="n#!!block;n#ngOnInit#0;n#CrudComponent#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/crud.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -912,68 +757,6 @@
           <folding>
             <element signature="n#div#1;n#!!top" />
             <element signature="n#div#2;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="326" column="20" lean-forward="true" selection-start-line="326" selection-start-column="20" selection-end-line="326" selection-end-column="20" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#a#0;n#div#1;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#1;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#1;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#2;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#2;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#1;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#1;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#2;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#2;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#3;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#3;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#4;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#4;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#5;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#5;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#6;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#6;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#7;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#7;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#button#8;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#0;n#button#8;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#li#0;n#mat-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#span#0;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#1;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#2;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#3;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#4;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#5;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#6;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#span#7;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#0;n#context-menu#0;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#0;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#2;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#3;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#4;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#6;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#0;n#context-menu#3;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#2;n#context-menu#3;n#div#1;n#div#0;n#!!top" />
-            <element signature="n#ng-template#3;n#context-menu#3;n#div#1;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -1056,31 +839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-          <folding>
-            <element signature="n#MenuComponent#0" />
-            <element signature="n#!!block;n#constructor#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#fetchMenuItems#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#setPagination#0;n#MenuComponent#0" />
-            <element signature="e#4098#4212#0" />
-            <element signature="n#!!block;n#buildFileTree#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#toggleProjects#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#toggleTools#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#toggleFilter#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#toggleProjectTree#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#emptyParams#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#cleanFilter#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#log#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#deleteItem#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#showCopyMessage#0;n#MenuComponent#0" />
-            <element signature="n#!!block;n#onContextMenu#0;n#MenuComponent#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/interfaces/project.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1119,26 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#div#1;n#div#0;n#header#0;n#!!top" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#form#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#header#0;n#!!top" expanded="true" />
-            <element signature="n#ul#1;n#div#1;n#div#0;n#header#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1162,20 +900,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="64" column="29" lean-forward="true" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/shared/kontextItem.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/auth-interceptor.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1252,30 +990,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/login/login.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        <state relative-caret-position="270">
+          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-232">
+          <caret line="5" selection-start-line="5" selection-end-line="6" />
+          <folding>
+            <element signature="n#!!block;n#handleError#0;n#CrudService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+            <element signature="n#!!block;n#isEmpty#0;n#ProjectCrudComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
+            <element signature="n#!!block;n#getProjectType#0;n#CrudService#0" />
+            <element signature="n#!!block;n#setCurrentKontext#0;n#CrudService#0" />
+            <element signature="n#!!block;n#setProjectTypes#0;n#CrudService#0" />
+            <element signature="n#!!block;n#getUrl#0;n#CrudService#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/crud.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/crud.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        <state relative-caret-position="198">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="e#477#501#0" />
-            <element signature="n#!!block;n#getMenu#0;n#MenuService#0" />
             <element signature="e#904#1279#0" />
             <element signature="n#!!block;n#handleError#0;n#MenuService#0" />
             <element signature="e#1957#2028#0" />
@@ -1284,72 +1083,165 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/auth-interceptor.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="360">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#a#0;n#div#1;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#1;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#1;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#2;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#2;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#1;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#1;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#2;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#2;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#3;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#3;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#4;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#4;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#5;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#5;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#6;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#6;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#7;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#7;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#button#8;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#button#8;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#mat-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#li#0;n#mat-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#0;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#1;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#2;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#3;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#4;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#5;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#6;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#span#7;n#a#0;n#div#0;n#li#0;n#mat-nested-tree-node#0;n#mat-tree#0;n#div#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#context-menu#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#0;n#context-menu#0;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#context-menu#1;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#context-menu#2;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#0;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#2;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#3;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#4;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#6;n#context-menu#2;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#context-menu#3;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#0;n#context-menu#3;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#2;n#context-menu#3;n#div#1;n#div#0;n#!!top" />
+            <element signature="n#ng-template#3;n#context-menu#3;n#div#1;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state>
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
-            <element signature="e#1044#1095#0" />
-            <element signature="n#!!block;n#getProjectType#0;n#CrudService#0" />
-            <element signature="n#!!block;n#getKontextById#0;n#CrudService#0" />
-            <element signature="n#!!block;n#setCurrentKontext#0;n#CrudService#0" />
-            <element signature="n#!!block;n#setProjectTypes#0;n#CrudService#0" />
-            <element signature="n#!!block;n#setCurrentUser#0;n#CrudService#0" />
-            <element signature="n#!!block;n#getUrl#0;n#CrudService#0" />
+            <element signature="e#0#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="412">
+          <caret line="70" column="26" lean-forward="true" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
           <folding>
-            <element signature="e#0#49#0" expanded="true" />
-            <element signature="n#!!block;n#isEmpty#0;n#ProjectCrudComponent#0" />
+            <element signature="e#0#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/filter/filter.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/header/header.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+        <state relative-caret-position="52">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="e#0#63#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#form#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#header#0;n#!!top" expanded="true" />
+            <element signature="n#ul#1;n#div#1;n#div#0;n#header#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/login/login.component.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/menu/menu.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
+        <state relative-caret-position="409">
+          <caret line="165" column="3" lean-forward="true" selection-start-line="165" selection-start-column="3" selection-end-line="165" selection-end-column="3" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#59#0" expanded="true" />
+            <element signature="e#1225#1353#0" />
+            <element signature="n#!!block;n#constructor#0;n#MenuComponent#0" />
+            <element signature="e#2320#2348#0" />
+            <element signature="n#!!block;n#fetchMenuItems#0;n#MenuComponent#0" />
+            <element signature="e#2498#2788#0" />
+            <element signature="e#2861#3263#0" />
+            <element signature="n#!!block;n#setPagination#0;n#MenuComponent#0" />
+            <element signature="e#3338#3371#0" />
+            <element signature="e#3402#3431#0" />
+            <element signature="e#3477#3515#0" />
+            <element signature="e#3553#3586#0" />
+            <element signature="e#3989#4033#0" />
+            <element signature="e#4098#4212#0" />
+            <element signature="n#!!block;n#buildFileTree#0;n#MenuComponent#0" />
+            <element signature="e#4403#4428#0" />
+            <element signature="n#!!block;n#toggleProjects#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#toggleTools#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#toggleProjectTree#0;n#MenuComponent#0" />
+            <element signature="e#4823#4832#0" />
+            <element signature="n#!!block;n#emptyParams#0;n#MenuComponent#0" />
+            <element signature="e#5382#5391#0" />
+            <element signature="n#!!block;n#log#0;n#MenuComponent#0" />
+            <element signature="e#5626#5639#0" />
+            <element signature="e#5679#6565#0" />
+            <element signature="n#!!block;n#editItem#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#deleteItem#0;n#MenuComponent#0" />
+            <element signature="e#6790#6799#0" />
+            <element signature="n#!!block;n#showCopyMessage#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#onContextMenu#0;n#MenuComponent#0" />
+            <element signature="n#!!block;n#ngOnInit#0;n#MenuComponent#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.service.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/content/content.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        <state relative-caret-position="540">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
-            <element signature="n#!!block;n#handleError#0;n#CrudService#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/base/base.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>

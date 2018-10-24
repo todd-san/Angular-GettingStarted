@@ -36,14 +36,14 @@ export class MenuService {
       this.tree_params.next(params);
     }
 
-    console.log("===========================");
-    console.log("===========================");
-    console.log("PARAMS BEING USED");
-    console.log("qp: ", qp);
-    console.log("qp: ", qp.uid ? qp.uid.username:null);
-    console.log("http: ", params);
-    console.log("===========================");
-    console.log("===========================");
+    // console.log("===========================");
+    // console.log("===========================");
+    // console.log("PARAMS BEING USED");
+    // console.log("qp: ", qp);
+    // console.log("qp: ", qp.uid ? qp.uid.username:null);
+    // console.log("http: ", params);
+    // console.log("===========================");
+    // console.log("===========================");
 
     return this.http.get<KontextItem[]>(url, {observe: 'response', params: params})
       .pipe(

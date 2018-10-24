@@ -15,6 +15,7 @@ import {PaginationHeaders} from "./interfaces/paginationHeaders";
 import {Page} from "./interfaces/page";
 import {KontextItem} from "../shared/kontextItem";
 import {CrudService} from "../crud/crud.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -51,13 +52,14 @@ export class MenuComponent implements OnInit {
               private contextMenuService: ContextMenuService,
               private toastaService: ToastaService,
               private toastaConfig: ToastaConfig,
-              private crudService: CrudService
+              private crudService: CrudService,
+              private router: Router,
               ) {
 
     this.nestedTreeControl = new NestedTreeControl<KontextItem>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();
-
     this.toastaConfig.theme = 'material';
+
     menuService.menuTree_params.subscribe(
       params => {
         this.filter_params = params;
@@ -81,8 +83,6 @@ export class MenuComponent implements OnInit {
   /* Pagination Control
   * */
   public fetchMenuItems(page){
-    console.log("filter_params: ", this.filter_params);
-    console.log("requesting page: ", page);
 
     let params = {
       uid: {username: this.filter_params.updates[0].value},
@@ -91,8 +91,6 @@ export class MenuComponent implements OnInit {
       sid: {size: this.filter_params.updates[3].value},
       lid: {id: this.filter_params.updates[4].value},
     };
-
-
     this.menuService.getMenu(params, page).subscribe(
       items => {
         this.nestedDataSource.data = this.buildFileTree(items.body, 0);
@@ -105,7 +103,6 @@ export class MenuComponent implements OnInit {
         this.setPagination();
       }
     );
-
   }
   public setPagination(){
     let next = function(page, total){
@@ -127,9 +124,6 @@ export class MenuComponent implements OnInit {
     this.page.prev = prev(this.page.page);
     this.page.double_next = double_next(this.page.page, this.paginationHeaders.xTotalPages);
     this.page.double_prev = double_prev(this.page.page);
-
-    console.log(this.page);
-    console.log(this.paginationHeaders);
   }
 
   /* Mat-tree controllers and build
@@ -142,6 +136,7 @@ export class MenuComponent implements OnInit {
       return false;
     }
   };
+
   private buildFileTree(obj: any[], level: number): KontextItem[] {
     return obj.map(item => new KontextItem(item));
   }
@@ -157,7 +152,9 @@ export class MenuComponent implements OnInit {
     this.showTools = !this.showTools;
   }
   public toggleFilter(){
-    console.log($('#headerFilterToggle').click());
+    // console.log($('#headerFilterToggle').click());
+    // $('#headerFilterToggle').click();
+    console.log($('.offcanvas-collapse').toggleClass('open'))
   }
   public toggleProjectTree(){
     if(this.showProjects){
@@ -183,7 +180,6 @@ export class MenuComponent implements OnInit {
     return empty;
   }
   public cleanFilter(){
-    console.log('here!');
     // this.filterService.changeParams({});
     this.menuService.getMenu({},null).subscribe(
       items => {
@@ -195,23 +191,21 @@ export class MenuComponent implements OnInit {
   /*
   * */
   public log(item){
-    console.log(item);
     this.crudService.getKontextById(item.type, item.id).subscribe(
       details =>{
         this.kontextDetail = details.body;
       }
     );
-    console.log(this.kontextDetail);
   }
 
   /*
   *
   * */
   public createItem(obj, sibling=false){
-    console.log('======== CRUD MODAL LAUNCHER =========');
-    console.log(obj.type);
-    console.log(sibling);
-    console.log('======================================');
+    // console.log('======== CRUD MODAL LAUNCHER =========');
+    // console.log(obj.type);
+    // console.log(sibling);
+    // console.log('======================================');
 
     // $("#projectCreateModal").modal('show')
 
@@ -231,20 +225,18 @@ export class MenuComponent implements OnInit {
       $("#specCreateModal").modal('show');
     }
   }
-
   public editItem(obj){
-    console.log('edit: ', obj);
     $("#projectEditModal").modal('show');
   }
   public deleteItem(obj){
-    console.log('delete: ', obj);
+    // console.log('delete: ', obj);
     $("#projectDeleteModal").modal('show');
   }
 
   /*
   * */
   public showCopyMessage(action, item){
-    var toastOptions:ToastOptions = {
+    let toastOptions:ToastOptions = {
         title: action + ' Success!',
         msg: item.type.toUpperCase() + ': ' + item.name + ', Copied Successfully',
         showClose: true,
