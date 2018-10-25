@@ -13,8 +13,10 @@ export class PhaseDetailsComponent{
   constructor(private crudService: CrudService, private router: Router) {
     this.crudService.currentKontext.subscribe(
       item => {
-        this.phase= item;
-        console.log('phase-detail: ', item)
+        if(item.hasOwnProperty('type') && item['type'] === 'phase'){
+          this.phase= item;
+          console.log('phase-detail: ', item)
+        }
       }
     );
 

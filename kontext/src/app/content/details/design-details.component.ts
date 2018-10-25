@@ -14,8 +14,10 @@ export class DesignDetailsComponent {
   constructor(private crudService: CrudService, private router: Router) {
     this.crudService.currentKontext.subscribe(
       item => {
-        this.design = item;
-        console.log('design-detail: ', item)
+        if(item.hasOwnProperty('type') && item['type'] === 'design'){
+          this.design = item;
+          console.log('design-detail: ', item)
+        }
       }
     );
 

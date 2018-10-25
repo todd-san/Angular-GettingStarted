@@ -11,7 +11,8 @@ import {CrudService} from "../crud/crud.service";
 import {Router} from "@angular/router";
 import {PaginationHeaders} from "./interfaces/paginationHeaders";
 import {Page} from "./interfaces/page";
-import {MenuService} from "../menu/menu.service";
+import {MenuService} from "../shared/menu.service";
+import {BaseService} from "../shared/base.service";
 
 
 declare var $: any;
@@ -22,6 +23,7 @@ declare var $: any;
   templateUrl: './project-tree.component.html',
   styleUrls: ['./project-tree.component.css']
 })
+
 export class ProjectTreeComponent implements OnInit {
 
   kontextDetail: any;
@@ -45,6 +47,7 @@ export class ProjectTreeComponent implements OnInit {
     private toastaService: ToastaService,
     private toastaConfig: ToastaConfig,
     private crudService: CrudService,
+    private baseService: BaseService,
     private router: Router,
   ) {
 
@@ -74,8 +77,7 @@ export class ProjectTreeComponent implements OnInit {
 
   }
 
-
-   public fetchMenuItems(page){
+  public fetchMenuItems(page){
 
     let params = {
       uid: {username: this.filter_params.updates[0].value},
@@ -129,7 +131,6 @@ export class ProjectTreeComponent implements OnInit {
       return false;
     }
   };
-
   private buildFileTree(obj: any[], level: number): KontextItem[] {
     return obj.map(item => new KontextItem(item));
   }
@@ -138,24 +139,11 @@ export class ProjectTreeComponent implements OnInit {
   /* DOM toggles
   *
   * */
-  public toggleProjects(){
-    this.showProjects = !this.showProjects;
+  public toggleFilter(){
+    this.baseService.toggleProjectFilter();
   }
-  public toggleTools(){
-    this.showTools = !this.showTools;
-  }
-  public toggleProjectTree(){
-    if(this.showProjects){
-      if(this.filter_params.hasOwnProperty('updates')){
-        return true;
-      }
-    }
-    return false;
-  }
-  public static toggleFilter(){
-    // console.log($('#headerFilterToggle').click());
-    // $('#headerFilterToggle').click();
-    console.log($('.offcanvas-collapse').toggleClass('open'))
+  public closeProjectTree(){
+    this.baseService.toggleProjectTree(false);
   }
 
   /*
@@ -181,7 +169,7 @@ export class ProjectTreeComponent implements OnInit {
     );
   }
 
-  /*
+  /* some handy logger functions
   * */
   public log(item){
     this.crudService.getKontextById(item.type, item.id).subscribe(
@@ -190,11 +178,20 @@ export class ProjectTreeComponent implements OnInit {
       }
     );
   }
+  public log_filter_params(){
+    // console.log(this.filter_params);
+
+    this.filter_params.updates.forEach(param =>{
+      if(param.value){
+        console.log(param.param, ":", param.value);
+      }
+    })
+  }
 
   /*
   *
   * */
-  public static createItem(obj, sibling=false){
+  public createItem(obj, sibling=false){
     // console.log('======== CRUD MODAL LAUNCHER =========');
     // console.log(obj.type);
     // console.log(sibling);
@@ -218,10 +215,10 @@ export class ProjectTreeComponent implements OnInit {
       $("#specCreateModal").modal('show');
     }
   }
-  public static editItem(obj){
+  public editItem(obj){
     $("#projectEditModal").modal('show');
   }
-  public static deleteItem(obj){
+  public deleteItem(obj){
     // console.log('delete: ', obj);
     $("#projectDeleteModal").modal('show');
   }
@@ -247,7 +244,6 @@ export class ProjectTreeComponent implements OnInit {
   ngOnInit() {
     this.setPagination();
   }
-
 }
 
 

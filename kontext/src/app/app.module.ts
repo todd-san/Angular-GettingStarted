@@ -8,8 +8,7 @@ import { ToastaModule } from 'ngx-toasta';
 import { MatButtonModule, MatIconModule, MatTreeModule } from "@angular/material";
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { BaseComponent } from './base/base.component';
+// import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { FilterComponent } from './filter/filter.component';
 import { HelpComponent } from './help/help.component';
@@ -37,8 +36,7 @@ enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    BaseComponent,
+    // HeaderComponent,
     ContentComponent,
     FilterComponent,
     HelpComponent,
@@ -77,7 +75,7 @@ enableProdMode();
       { path: 'spec/:id', component: SpecDetailsComponent},
       { path: 'home', component: HomeComponent},
       { path: 'login', component: LoginComponent},
-      { path: '', redirectTo: 'login', pathMatch: 'full'},
+      { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: '**', component: PageNotFoundComponent}
         ], {useHash: true}),
   ],

@@ -14,8 +14,10 @@ export class ProjectDetailsComponent implements OnInit {
   constructor(private crudService: CrudService, private router: Router) {
     this.crudService.currentKontext.subscribe(
       item => {
-        this.project = item;
-        console.log('project-detail: ', item)
+        if(item.hasOwnProperty('type') && item['type']==='project'){
+          this.project = item;
+          console.log('project-detail: ', item)
+        }
       }
     );
 

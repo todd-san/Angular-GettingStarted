@@ -1,12 +1,16 @@
 <header id="header">
   <div class="headerbar">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="headerbar-left">
       <ul class="header-nav header-nav-options">
         <li class="header-nav-brand" >
           <div class="brand-holder">
            <img src="../../assets/img/kenda-vector-logo.png" style="width: 200px; margin-left: 125px;">
           </div>
+        </li>
+        <li>
+          <a class="btn btn-icon-toggle" (click)="toggleProjectTree()">
+            <i class="fa fa-bars fa-lg"></i>
+          </a>
         </li>
       </ul>
     </div>
@@ -29,17 +33,28 @@
             </a>
           </form>
         </li>
+        <!--<li>-->
+          <!--&lt;!&ndash; Project-Tree Toggle&ndash;&gt;-->
+          <!--<form class="navbar-item">-->
+            <!--<a class="btn btn-icon-toggle ink-reaction ktek-toggle"-->
+                    <!--id="projectTreeToggle"-->
+                    <!--(click)="toggleProjectTree()"-->
+                    <!--title="filter">-->
+                <!--<i class="fa fa-tree fa-2x" id="project-tree-nav-icon"></i>-->
+            <!--</a>-->
+          <!--</form>-->
+        <!--</li>-->
         <li>
-          <!-- Filter Toggle-->
           <form class="navbar-item">
-            <a class="btn btn-icon-toggle ink-reaction" id="headerFilterToggle" title="filter"
-               href="#offcanvas-right" data-toggle="offcanvas">
-                <i class="fa fa-filter fa-2x" style="color:#8d8c89"></i>
+            <a class="btn btn-icon-toggle ink-reaction"
+                    id="filterToggle"
+                    (click)="toggleFilter()"
+                    title="filter">
+                <i class="fa fa-filter fa-2x"></i>
             </a>
           </form>
         </li>
         <li>
-          <!-- Filter Toggle-->
           <form class="navbar-item">
             <a class="btn btn-icon-toggle ink-reaction" id="headerToolToggle" title="filter"
                href="javascript: void(0);" data-toggle="dropdown">
@@ -73,5 +88,6 @@
     </div>
 </div>
 </header>
+
 
 

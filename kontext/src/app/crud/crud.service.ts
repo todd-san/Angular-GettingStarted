@@ -5,7 +5,7 @@ import {KontextItem} from "../shared/kontextItem";
 import {catchError, tap} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
 import {ProjectType} from "../shared/projectType";
-import {BaseService} from "../base/base.service";
+import {BaseService} from "../shared/base.service";
 
 @Injectable({
   providedIn: 'root'

@@ -1,35 +1,30 @@
-<!-- BEGIN MENUBAR-->
-<div id="menubar" class="menubar-inverse">
-  <div class="menubar-fixed-panel">
-    <div>
-      </div>
-      <div class="expanded">
-        <a href="#">
-          <div class="brand-holder">
-           <img src="../../assets/img/kenda-vector-logo.png" style="width: 150px; padding-left: 25px;">
-          </div>
-        </a>
-      </div>
+<!-- OFF-CANVAS PROJECT MENU -->
+<div id="project-tree-offcanvas"
+     class="offcanvas-pane style-default-dark width-12 active"
+     style="margin-top: 60px; background-color: #2f353c;">
+  <div class="offcanvas-head" style="background-color: #a20036; text-align: center;">
+
+    <!-- TITLE BANNER-->
+    <header>
+      <h3>
+        <i class="fa fa-tree fa-lg"></i> Project Tree
+      </h3>
+    </header>
+
+    <!-- UPPER-RIGHT TOOLS-->
+    <div class="offcanvas-tools">
+
+      <!-- CLOSE PROJECT TREE -->
+      <a class="btn btn-icon-toggle btn-default-light pull-right"
+         (click)="closeProjectTree()" data-backdrop="false">
+        <i class="md md-close"></i>
+      </a>
+
     </div>
-  <div>
-    <ul id="main-menu" class="gui-controls" style="margin-bottom: -15px;">
-      <!--<li>-->
-        <!--<button class="btn btn-primary-dark ink-reaction" style="width: 100%">-->
-            <!--<span class="primary-menu-label">-->
-              <!--<i class="fa fa-home"></i>-->
-              <!--Home-->
-            <!--</span>-->
-        <!--</button>-->
-      <!--</li>-->
-      <li>
-          <button class="btn btn-primary-dark ink-reaction" style="width: 100%" (click)="toggleProjects()">
-            <span class="primary-menu-label">
-              <i class="fa fa-folder"></i> Projects</span>
-          </button>
-      </li>
+  </div>
+  <div class="nano-content" tabindex="0">
 
-    </ul>
-
+    <!-- NEW PROJECT/ FILTER TOGGLE/ PAGINATION CNTRL-->
     <div *ngIf="nestedDataSource.data">
       <ul id="project-menu" class="gui-controls" style="margin-bottom: -15px;">
         <li style="margin: 0">
@@ -122,8 +117,12 @@
       </ul>
     </div>
 
-    <div class="menubar-scroll-panel" *ngIf="showProjects">
-      <mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
+    <!--PROJECT-TREE & CONTEXT MENUS-->
+    <div class="offcanvas-body">
+
+      <!-- PROJECT-TREE -->
+      <div class="menubar-scroll-panel" *ngIf="showProjects">
+        <mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
           <li class="mat-tree-node" style="margin-left: 35px;">
             <a *ngIf="node.type == 'project'" (click)="log(node)" routerLink="project/{{node.id}}" disabled>
@@ -225,46 +224,49 @@
           </li>
         </mat-nested-tree-node>
       </mat-tree>
-    <!--<hr class="style-one">-->
+      </div>
+
+
+
     </div>
+  </div>
+</div>
 
-
-    <!--CONTEXT MENUS -->
-    <context-menu #projectMenu>
-      <ng-template contextMenuItem
-                   [visible]="true"
-                   [enabled]="true"
-                   (execute)="showMessage('Expanding Project', $event.item)">
-        <i class="fa fa-expand">&nbsp;</i> Expand
-      </ng-template>
-      <ng-template contextMenuItem [divider]="true"></ng-template>
-      <ng-template contextMenuItem
-                   [visible]="true"
-                   [enabled]="true"
-                   (execute)="editItem($event.item)">
-        <i class="fa fa-edit">&nbsp;</i> Edit
-      </ng-template>
-      <ng-template contextMenuItem
-                   [visible]="true"
-                   [enabled]="true"
-                   (execute)="deleteItem($event.item)">
-        <i class="fa fa-trash">&nbsp;</i> Delete
-      </ng-template>
-      <ng-template contextMenuItem [divider]="true"></ng-template>
-      <ng-template contextMenuItem
-                   [visible]="true"
-                   [enabled]="true"
-                   (execute)="createItem($event.item, sibling=true)">
-        <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #666666">PROJECT</span>
-      </ng-template>
-      <ng-template contextMenuItem
-                   [visible]="true"
-                   [enabled]="true"
-                   (execute)="createItem($event.item, sibling=false)">
-        <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #975837">PHASE</span>
-      </ng-template>
-    </context-menu>
-    <context-menu #phaseMenu>
+<context-menu #projectMenu>
+        <ng-template contextMenuItem
+                     [visible]="true"
+                     [enabled]="true"
+                     (execute)="showMessage('Expanding Project', $event.item)">
+          <i class="fa fa-expand">&nbsp;</i> Expand
+        </ng-template>
+        <ng-template contextMenuItem [divider]="true"></ng-template>
+        <ng-template contextMenuItem
+                     [visible]="true"
+                     [enabled]="true"
+                     (execute)="editItem($event.item)">
+          <i class="fa fa-edit">&nbsp;</i> Edit
+        </ng-template>
+        <ng-template contextMenuItem
+                     [visible]="true"
+                     [enabled]="true"
+                     (execute)="deleteItem($event.item)">
+          <i class="fa fa-trash">&nbsp;</i> Delete
+        </ng-template>
+        <ng-template contextMenuItem [divider]="true"></ng-template>
+        <ng-template contextMenuItem
+                     [visible]="true"
+                     [enabled]="true"
+                     (execute)="createItem($event.item, sibling=true)">
+          <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #666666">PROJECT</span>
+        </ng-template>
+        <ng-template contextMenuItem
+                     [visible]="true"
+                     [enabled]="true"
+                     (execute)="createItem($event.item, sibling=false)">
+          <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #975837">PHASE</span>
+        </ng-template>
+      </context-menu>
+<context-menu #phaseMenu>
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
@@ -305,7 +307,7 @@
         <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #319644">DESIGN</span>
       </ng-template>
 </context-menu>
-    <context-menu #designMenu>
+<context-menu #designMenu>
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
@@ -346,7 +348,7 @@
         <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #a84ba3">SPEC</span>
       </ng-template>
 </context-menu>
-    <context-menu #specMenu>
+<context-menu #specMenu>
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
@@ -381,7 +383,3 @@
         <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #a84ba3">SPEC</span>
       </ng-template>
 </context-menu>
-
-  </div><!--end .menubar-scroll-panel-->
-</div><!--end #menubar-->
-<!-- END MENUBAR -->

@@ -1,3 +1,19 @@
+<script src="design-details.component.ts"></script>
+<div *ngIf="spec">
+
+<div class="section-header">
+  <ol class="breadcrumb">
+    <li><a routerLink="/home">home</a></li>
+    <li *ngIf="spec.hasOwnProperty('project')"><a routerLink="/{{'project'}}/{{spec.project.id}}">{{spec.project.name}}</a></li>
+    <li *ngIf="spec.hasOwnProperty('phase')">
+      <a routerLink="/phase/{{spec.phase.id}}" routerLinkActive="active">{{spec.phase.name}}</a></li>
+    <!--<li *ngIf="spec.phase"><a (click)="routeTo('phase', spec.phase.id)">{{spec.phase.name}}</a></li>-->
+    <li *ngIf="spec.hasOwnProperty('design')"><a routerLink="/design/{{spec.design.id}}">{{spec.design.name}}</a></li>
+    <li class="active">{{spec.name}}</li>
+  </ol>
+</div>
+
+
 <h2 class="text-light text-center">
   {{spec.name}}<br><small class="text-primary">
   Spec-Details</small></h2>
@@ -52,4 +68,5 @@
         </div>
     </div><!--end .card-body -->
   </div><!--end .card -->
+</div>
 </div>
