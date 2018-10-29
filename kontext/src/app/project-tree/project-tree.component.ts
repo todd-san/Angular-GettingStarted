@@ -25,14 +25,12 @@ declare var $: any;
 })
 
 export class ProjectTreeComponent implements OnInit {
-
+  activeLink: boolean = false;
   kontextDetail: any;
   page: Page = <Page>{};
   paginationHeaders: PaginationHeaders;
   filter_params: any;
   message: string;
-
-  showTools: boolean = false;
   showProjects: boolean = true;
   nestedTreeControl: NestedTreeControl<KontextItem>;
   nestedDataSource: MatTreeNestedDataSource<KontextItem>;
@@ -48,8 +46,7 @@ export class ProjectTreeComponent implements OnInit {
     private toastaConfig: ToastaConfig,
     private crudService: CrudService,
     private baseService: BaseService,
-    private router: Router,
-  ) {
+    private router: Router,) {
 
     this.nestedTreeControl = new NestedTreeControl<KontextItem>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();
@@ -63,8 +60,10 @@ export class ProjectTreeComponent implements OnInit {
 
     filterService.currentItems.subscribe(
       items =>{
-        // this.items = items;
-        this.nestedDataSource.data = this.buildFileTree(items, 0)
+        this.nestedDataSource.data = this.buildFileTree(items, 0);
+        if(this.filter_params.hasOwnProperty('updates')){
+          this.expandFiltered();
+        }
       }
     );
 
@@ -74,7 +73,6 @@ export class ProjectTreeComponent implements OnInit {
         this.setPagination();
       }
     );
-
   }
 
   public fetchMenuItems(page){
@@ -119,6 +117,7 @@ export class ProjectTreeComponent implements OnInit {
     this.page.prev = prev(this.page.page);
     this.page.double_next = double_next(this.page.page, this.paginationHeaders.xTotalPages);
     this.page.double_prev = double_prev(this.page.page);
+    console.log(this.page)
   }
 
   /* Mat-tree controllers and build
@@ -161,12 +160,21 @@ export class ProjectTreeComponent implements OnInit {
     return empty;
   }
   public cleanFilter(){
-    // this.filterService.changeParams({});
-    this.menuService.getMenu({},null).subscribe(
+    this.menuService.getMenu({},1).subscribe(
       items => {
         this.nestedDataSource.data = this.buildFileTree(items.body, 0);
+        this.filterService.currentPagination.subscribe(
+          pagination =>{
+            this.paginationHeaders = pagination;
+            console.log('------------------------------------');
+            console.log(this.paginationHeaders);
+            console.log('------------------------------------');
+            this.setPagination();
+          }
+        );
       }
     );
+
   }
 
   /* some handy logger functions
@@ -221,6 +229,67 @@ export class ProjectTreeComponent implements OnInit {
   public deleteItem(obj){
     // console.log('delete: ', obj);
     $("#projectDeleteModal").modal('show');
+  }
+
+
+  /* Route content to new page
+  * */
+  public activateRoute(node){
+    console.log(node.type+"/"+node.id);
+    this.router.navigate([node.type + "/" + node.id]);
+    // this.activeLink = !this.activeLink;
+
+    this.nestedTreeControl.expand(node);
+
+  }
+  public isExpandedOrActive(node){
+    let ans = false;
+
+    // console.log(this.router);
+
+    return this.nestedTreeControl.isExpanded(node);
+
+
+
+
+  }
+  public expandFiltered(){
+    let params = {};
+
+    this.filter_params['updates'].forEach(item=>{
+      params[item.param] = item.value;
+    });
+
+    if (params['project']){
+      this.nestedDataSource.data.forEach(item =>{
+        this.nestedTreeControl.expand(item);
+      })
+    }
+
+    if (params['phase']){
+      this.nestedDataSource.data.forEach( item =>{
+        item.children.forEach(nested_item =>{
+          this.nestedTreeControl.expand(nested_item)
+        })
+      })
+    }
+
+    if (params['size']){
+      this.nestedDataSource.data.forEach( item =>{
+        item.children.forEach(nested_item =>{
+          nested_item.children.forEach(dble_nested_item => {
+            this.nestedTreeControl.expand(dble_nested_item);
+          })
+        })
+      })
+    }
+
+    console.log('---------------------------------------');
+    console.log(this.filter_params.updates);
+    console.log(params);
+    console.log(this.nestedDataSource.data);
+    console.log('---------------------------------------');
+
   }
 
   /*

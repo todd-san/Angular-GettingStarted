@@ -24,6 +24,7 @@ export class MenuService {
 
     let url: string = this.treeUrl;
     let params = new HttpParams();
+
     if(!!qp){
       params = new HttpParams()
         .set('member', qp.uid ? qp.uid.username: null)

@@ -36,8 +36,7 @@ export class CrudService  {
   getKontextById(type, id): Observable<HttpResponse<KontextItem[]>>{
 
     let url: string = CrudService.getUrl(type, id);
-    console.log('type & id used: ', type,',', id);
-    console.log('url used: ', url);
+
     return this.http.get<any[]>(url, {observe: 'response'})
       .pipe(
         tap(resp => this.setCurrentKontext(resp)),

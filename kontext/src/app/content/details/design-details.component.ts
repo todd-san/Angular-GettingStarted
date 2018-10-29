@@ -1,35 +1,37 @@
-import { Component, } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {CrudService} from "../../crud/crud.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   templateUrl: './design-details.component.html',
   styleUrls: ['./details.component.css']
 })
 
-export class DesignDetailsComponent {
+export class DesignDetailsComponent implements OnInit{
   route: any;
   design: any;
 
-  constructor(private crudService: CrudService, private router: Router) {
-    this.crudService.currentKontext.subscribe(
-      item => {
-        if(item.hasOwnProperty('type') && item['type'] === 'design'){
-          this.design = item;
-          console.log('design-detail: ', item)
-        }
-      }
-    );
+  constructor(
+    private crudService: CrudService,
+    private router: Router,
+    private current_route: ActivatedRoute) {
 
     this.router.events.subscribe(
       route =>{
         this.route = route;
       }
     );
+
+    this.current_route.params.subscribe(
+      val =>{
+        this.crudService.getKontextById('design', val.id).subscribe(
+          design => {this.design = design.body}
+        )
+      }
+    )
   }
 
   public lazyLoadProjectByRoute(){
-    console.log('trying to lazy load from route!');
     this.crudService.getKontextById(
       this.route.url.split('/')[1],
       this.route.url.split('/')[2]
@@ -47,7 +49,6 @@ export class DesignDetailsComponent {
     }
     return true;
   }
-
 
   ngOnInit() {
     if(DesignDetailsComponent.isEmpty(this.design)){

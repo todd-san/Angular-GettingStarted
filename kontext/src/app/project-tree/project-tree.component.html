@@ -125,20 +125,20 @@
         <mat-tree [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
           <li class="mat-tree-node" style="margin-left: 35px;">
-            <a *ngIf="node.type == 'project'" (click)="log(node)" routerLink="project/{{node.id}}" disabled>
-              <i class="fa fa-circle-o fa-2x"></i>
+            <a *ngIf="node.type == 'project'" (click)="log(node)" (dblclick)="activateRoute(node)" disabled>
+              <i class="fa fa-circle-o fa-2x" style="padding-left: 10px;"></i>
               <span class="title menu-label"  [contextMenu]="projectMenu" [contextMenuSubject]="node">{{node.name}}</span>
             </a>
-             <a *ngIf="node.type == 'phase'" (click)="log(node)" routerLink="phase/{{node.id}}" disabled>
-               <i class="fa fa-circle-o fa-2x"></i>
+             <a *ngIf="node.type == 'phase'" (click)="log(node)" (dblclick)="activateRoute(node)" disabled>
+               <i class="fa fa-circle-o fa-2x" style="padding-left: 10px;"></i>
               <span class="title menu-label" [contextMenu]="phaseMenu" [contextMenuSubject]="node">{{node.name}}</span>
             </a>
-            <a *ngIf="node.type == 'design'" (click)="log(node)" routerLink="design/{{node.id}}" disabled>
-              <i class="fa fa-circle-o fa-2x"></i>
+            <a *ngIf="node.type == 'design'" (click)="log(node)" (dblclick)="activateRoute(node)" disabled>
+              <i class="fa fa-circle-o fa-2x" style="padding-left: 10px;"></i>
               <span class="title menu-label" [contextMenu]="designMenu" [contextMenuSubject]="node">{{node.name}}</span>
             </a>
-            <a *ngIf="node.type == 'spec'" (click)="log(node)" routerLink="spec/{{node.id}}" disabled>
-              <i class="fa fa-circle-o fa-2x"></i>
+            <a *ngIf="node.type == 'spec'" (click)="log(node)" (dblclick)="activateRoute(node)" disabled>
+              <i class="fa fa-circle-o fa-2x" style="padding-left: 10px;"></i>
               <span class="title menu-label" [contextMenu]="specMenu" [contextMenuSubject]="node">{{node.name}}</span>
             </a>
           </li>
@@ -146,76 +146,43 @@
         <mat-nested-tree-node *matTreeNodeDef="let node; when: hasNestedChild">
           <li>
             <div class="mat-tree-node" style="margin-left: 35px;">
-              <a  matTreeNodeToggle (click)="log(node)"
-                  [attr.aria-label]="'toggle ' + node.filename" routerLink="{{node.type}}/{{node.id}}">
+              <a  matTreeNodeToggle style="cursor: pointer" class="btn-icon-toggle">
+                <i *ngIf="nestedTreeControl.isExpanded(node)" style="padding-left: 10px;" class="fa fa-angle-down fa-2x"></i>
+                <i *ngIf="!nestedTreeControl.isExpanded(node)" style="padding-left: 10px;" class="fa fa-angle-right fa-2x"></i>
+              </a>
 
-                <i *ngIf="nestedTreeControl.isExpanded(node)" class="fa fa-angle-down fa-2x"></i>
-                <i *ngIf="!nestedTreeControl.isExpanded(node)" class="fa fa-angle-right fa-2x"></i>
-
+              <a (dblclick)="activateRoute(node)" id="{{node.type}}_{{node.id}}" [ngClass]="isExpandedOrActive(node) ? 'menu-label-active': 'menu-label'">
                 <!-- PROJECT -->
-                <span class="title menu-label"
+                <span class="title"
                       [contextMenu]="projectMenu"
                       [contextMenuSubject]="node"
-                      *ngIf="nestedTreeControl.isExpanded(node) && node.type == 'project'"
-                      style="color: #f31f32; font-weight: normal;">
-                  {{node.name}}
-                </span>
-                <span class="title menu-label"
-                      [contextMenu]="projectMenu"
-                      [contextMenuSubject]="node"
-                      *ngIf="!nestedTreeControl.isExpanded(node) && node.type == 'project'"
-                      style="color: #d1d1d1;">
+                      *ngIf="node.type == 'project'">
                   {{node.name}}
                 </span>
 
                 <!-- PHASE -->
-                <span class="title menu-label"
+                <span class="title"
                       [contextMenu]="phaseMenu"
                       [contextMenuSubject]="node"
-                      *ngIf="nestedTreeControl.isExpanded(node) && node.type == 'phase'"
-                      style="color: #f31f32; font-weight: normal;">
-                  {{node.name}}
-                </span>
-                <span class="title menu-label"
-                      [contextMenu]="phaseMenu"
-                      [contextMenuSubject]="node"
-                      *ngIf="!nestedTreeControl.isExpanded(node) && node.type == 'phase'"
-                      style="color: #d1d1d1;">
+                      *ngIf="node.type == 'phase'">
                   {{node.name}}
                 </span>
 
                 <!-- DESIGN -->
-                <span class="title menu-label"
+                <span class="title"
                       [contextMenu]="designMenu"
                       [contextMenuSubject]="node"
-                      *ngIf="nestedTreeControl.isExpanded(node) && node.type == 'design'"
-                      style="color: #f31f32; font-weight: normal;">
-                  {{node.name}}
-                </span>
-                <span class="title menu-label"
-                      [contextMenu]="designMenu"
-                      [contextMenuSubject]="node"
-                      *ngIf="!nestedTreeControl.isExpanded(node) && node.type == 'design'"
-                      style="color: #d1d1d1;">
+                      *ngIf="node.type == 'design'">
                   {{node.name}}
                 </span>
 
                 <!-- SPEC -->
-                <span class="title menu-label"
+                <span class="title"
                       [contextMenu]="specMenu"
                       [contextMenuSubject]="node"
-                      *ngIf="nestedTreeControl.isExpanded(node) && node.type == 'spec'"
-                      style="color: #f31f32; font-weight: normal;">
+                      *ngIf="node.type == 'spec'">
                   {{node.name}}
                 </span>
-                <span class="title menu-label"
-                      [contextMenu]="specMenu"
-                      [contextMenuSubject]="node"
-                      *ngIf="!nestedTreeControl.isExpanded(node) && node.type == 'spec'"
-                      style="color: #d1d1d1;">
-                  {{node.name}}
-                </span>
-
               </a>
             </div>
             <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(node)">
@@ -225,8 +192,6 @@
         </mat-nested-tree-node>
       </mat-tree>
       </div>
-
-
 
     </div>
   </div>

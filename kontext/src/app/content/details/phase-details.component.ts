@@ -1,30 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import {CrudService} from "../../crud/crud.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   templateUrl: './phase-details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class PhaseDetailsComponent{
+export class PhaseDetailsComponent implements OnInit{
   route: any;
   phase: any;
 
-  constructor(private crudService: CrudService, private router: Router) {
-    this.crudService.currentKontext.subscribe(
-      item => {
-        if(item.hasOwnProperty('type') && item['type'] === 'phase'){
-          this.phase= item;
-          console.log('phase-detail: ', item)
-        }
-      }
-    );
+  constructor(
+    private crudService: CrudService,
+    private router: Router,
+    private current_route: ActivatedRoute) {
 
     this.router.events.subscribe(
       route =>{
         this.route = route;
       }
     );
+
+    this.current_route.params.subscribe(
+      val => {
+        this.crudService.getKontextById('phase', val.id).subscribe(
+          phase => {this.phase = phase.body}
+        )
+      }
+    )
+
   }
 
   public lazyLoadProjectByRoute(){
@@ -46,7 +50,6 @@ export class PhaseDetailsComponent{
     }
     return true;
   }
-
 
   ngOnInit() {
     if(this.isEmpty()){

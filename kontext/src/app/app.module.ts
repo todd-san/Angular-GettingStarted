@@ -69,16 +69,17 @@ enableProdMode();
     MatButtonModule,
     ToastaModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'project/:id', component: ProjectDetailsComponent},
-      { path: 'phase/:id', component: PhaseDetailsComponent},
-      { path: 'design/:id', component: DesignDetailsComponent},
-      { path: 'spec/:id', component: SpecDetailsComponent},
+      { path: 'project/:id', component: ProjectDetailsComponent, runGuardsAndResolvers: 'always'},
+      { path: 'phase/:id', component: PhaseDetailsComponent, runGuardsAndResolvers: 'always'},
+      { path: 'design/:id', component: DesignDetailsComponent, runGuardsAndResolvers: 'always'},
+      { path: 'spec/:id', component: SpecDetailsComponent, runGuardsAndResolvers: 'always'},
       { path: 'home', component: HomeComponent},
       { path: 'login', component: LoginComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: '**', component: PageNotFoundComponent}
-        ], {useHash: true}),
+        ], {useHash: true, onSameUrlNavigation: "reload"}),
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })

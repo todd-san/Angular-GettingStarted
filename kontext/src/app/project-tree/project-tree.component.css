@@ -26,6 +26,16 @@
   text-shadow: 2px 2px #000000;
   cursor: pointer;
 }
+.menu-label-active{
+  font-size: 20px;
+  padding-left: 10px;
+  color: #ff0000;
+  font-style: italic;
+  /*font-weight: bold;*/
+  text-shadow: 2px 2px #000000;
+  cursor: pointer;
+}
+
 .page-label{
   font-size: 20px;
   padding-left: 10px;
@@ -41,6 +51,13 @@
 .menu-label:hover {
   color: #ff0000;
 }
+.menu-label:active{
+  color: #ff0000;
+}
+.menu-label:visited{
+  color: #ff0000;
+}
+
 
 hr.style-one {
     border: 0;

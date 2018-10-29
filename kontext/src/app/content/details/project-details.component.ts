@@ -11,21 +11,20 @@ export class ProjectDetailsComponent implements OnInit {
   route: any;
   project: any;
 
-  constructor(private crudService: CrudService, private router: Router) {
-    this.crudService.currentKontext.subscribe(
-      item => {
-        if(item.hasOwnProperty('type') && item['type']==='project'){
-          this.project = item;
-          console.log('project-detail: ', item)
-        }
-      }
-    );
+  constructor(private crudService: CrudService, private router: Router, private current_route: ActivatedRoute) {
 
     this.router.events.subscribe(
       route =>{
         this.route = route;
       }
     );
+
+    this.current_route.params.subscribe(
+      val => {
+        this.crudService.getKontextById('project', val.id).subscribe(
+          project =>{this.project = project.body;})
+      }
+    )
   }
 
   public lazyLoadProjectByRoute(){
