@@ -67,6 +67,8 @@ export class ProjectTreeComponent implements OnInit {
       }
     );
 
+
+
     filterService.currentPagination.subscribe(
       pagination =>{
         this.paginationHeaders = pagination;
@@ -254,6 +256,8 @@ export class ProjectTreeComponent implements OnInit {
 
   }
   public expandFiltered(){
+    // maybe I should make expansion recursive?
+
     let params = {};
 
     this.filter_params['updates'].forEach(item=>{

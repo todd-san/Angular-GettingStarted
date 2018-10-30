@@ -2,17 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { enableProdMode, NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { ContextMenuModule } from "ngx-contextmenu";
 import { ToastaModule } from 'ngx-toasta';
 import { MatButtonModule, MatIconModule, MatTreeModule } from "@angular/material";
 
 import { AppComponent } from './app.component';
-// import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { FilterComponent } from './filter/filter.component';
 import { HelpComponent } from './help/help.component';
-import { HomeComponent } from './content/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { DesignDetailsComponent } from "./content/details/design-details.component";
@@ -30,13 +29,18 @@ import {ConvertToSlashesPipe} from "./shared/convert-to-slashes.pipe";
 import { LoginComponent } from './login/login.component';
 import { ProjectTreeComponent } from './project-tree/project-tree.component';
 import { NavComponent } from './nav/nav.component';
+import {AuthGuard} from "./shared/auth.guard";
+import {AuthenticationService} from "./shared/authentication.service";
+
+import {UserService} from "./shared/user.service";
+import {JwtInterceptor} from "./shared/jwt.interceptor";
+import {ContentDetailsComponent} from "./content/content-details.component";
 
 
 enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
-    // HeaderComponent,
     ContentComponent,
     FilterComponent,
     HelpComponent,
@@ -47,6 +51,7 @@ enableProdMode();
     SpecCrudComponent,
     PageNotFoundComponent,
     HomeComponent,
+    ContentDetailsComponent,
     ProjectDetailsComponent,
     PhaseDetailsComponent,
     DesignDetailsComponent,
@@ -62,25 +67,37 @@ enableProdMode();
     HttpClientModule,
     ContextMenuModule.forRoot({
       autoFocus: true,
-      // useBootstrap4: true,
     }),
     MatTreeModule,
     MatIconModule,
     MatButtonModule,
     ToastaModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'project/:id', component: ProjectDetailsComponent, runGuardsAndResolvers: 'always'},
-      { path: 'phase/:id', component: PhaseDetailsComponent, runGuardsAndResolvers: 'always'},
-      { path: 'design/:id', component: DesignDetailsComponent, runGuardsAndResolvers: 'always'},
-      { path: 'spec/:id', component: SpecDetailsComponent, runGuardsAndResolvers: 'always'},
-      { path: 'home', component: HomeComponent},
+      { path: '', component: HomeComponent, canActivate: [AuthGuard],
+        children: [
+          { path: '', component: ContentDetailsComponent},
+          { path: 'project/:id', component: ProjectDetailsComponent},
+          { path: 'phase/:id', component: PhaseDetailsComponent},
+          { path: 'design/:id', component: DesignDetailsComponent},
+          { path: 'spec/:id', component: SpecDetailsComponent},
+        ]
+      },
       { path: 'login', component: LoginComponent},
-      { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: '**', component: PageNotFoundComponent}
         ], {useHash: true, onSameUrlNavigation: "reload"}),
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [
+    AuthGuard,
+    AuthenticationService,
+    ProjectTreeComponent,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

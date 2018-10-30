@@ -147,8 +147,8 @@
           <li>
             <div class="mat-tree-node" style="margin-left: 35px;">
               <a  matTreeNodeToggle style="cursor: pointer" class="btn-icon-toggle">
-                <i *ngIf="nestedTreeControl.isExpanded(node)" style="padding-left: 10px;" class="fa fa-angle-down fa-2x"></i>
-                <i *ngIf="!nestedTreeControl.isExpanded(node)" style="padding-left: 10px;" class="fa fa-angle-right fa-2x"></i>
+                <i *ngIf="nestedTreeControl.isExpanded(node)" style="padding-left: 9px;" class="fa fa-angle-down fa-2x"></i>
+                <i *ngIf="!nestedTreeControl.isExpanded(node)" style="padding-left: 13px;" class="fa fa-angle-right fa-2x"></i>
               </a>
 
               <a (dblclick)="activateRoute(node)" id="{{node.type}}_{{node.id}}" [ngClass]="isExpandedOrActive(node) ? 'menu-label-active': 'menu-label'">

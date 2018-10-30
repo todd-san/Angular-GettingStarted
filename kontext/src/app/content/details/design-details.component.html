@@ -3,7 +3,7 @@
 <div *ngIf="design">
   <div class="section-header">
     <ol class="breadcrumb">
-      <li><a routerLink="/home">home</a></li>
+      <li><a routerLink="/">home</a></li>
       <li *ngIf="design.project"><a [routerLink]="'/project/'+design.project.id">{{design.project.name}}</a></li>
       <li *ngIf="design.phase"><a [routerLink]="'/phase/'+design.phase.id">{{design.phase.name}}</a></li>
       <li class="active">{{design.name}}</li>

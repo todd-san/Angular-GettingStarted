@@ -2,6 +2,11 @@ import { Component, OnInit} from '@angular/core';
 import {CrudService} from "./crud.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../shared/user";
+import {MenuService} from "../shared/menu.service";
+import {ProjectTreeComponent} from "../project-tree/project-tree.component";
+import {FilterService} from "../filter/filter.service";
+
+declare var $: any;
 
 export class NewProject {
   constructor(){}
@@ -20,35 +25,26 @@ export class NewProject {
 @Component({
   selector: 'project-crud',
   templateUrl: './forms/project.component.html',
-  styleUrls: ['./crud.component.css']
+  styleUrls: ['./crud.component.css'],
 })
 
 export class ProjectCrudComponent implements OnInit {
+  loading: boolean = false;
+  model: any = {};
   route: any;
   current_user: any;
   current_project: any;
   new_project: NewProject = new NewProject();
 
-
-  constructor(private crudService: CrudService, private router: Router) {
+  constructor(private crudService: CrudService,
+              private router: Router,
+              private filterService: FilterService,
+              private menuService: MenuService) {
     this.crudService.currentKontext.subscribe(
       item => {
         this.current_project = item;
       }
     );
-
-    // NEEDED SERVICES
-    // this.crudService.getCurrentUser().subscribe(
-    //   user  => {
-    //     this.current_user = user;
-    //   }
-    // );
-
-    // this.crudService.getProjectTypes.subscribe();
-    // this.crudService.getCustomers.subscribe();
-
-
-
     this.router.events.subscribe(
       route =>{
         this.route = route;
@@ -72,7 +68,6 @@ export class ProjectCrudComponent implements OnInit {
     }
 
   }
-
   public isEmpty() {
     for(let prop in this.current_project) {
         if(this.current_project.hasOwnProperty(prop))
@@ -81,14 +76,36 @@ export class ProjectCrudComponent implements OnInit {
     return true;
   }
 
-  public log(){
-    console.log('current project: ', this.current_project);
-    console.log('new project: ', this.new_project);
+  create(){
+    this.loading = true;
+    this.model['owner'] =  this.current_user.id;
+    console.log(this.model);
+    this.crudService.create('http://127.0.0.1:8000/kontext/projects/', this.model).subscribe(
+      resp =>{
+        if(resp.status === 201){
+          this.router.navigate(["/project/"+resp.body.id.toString()]);
+
+          this.menuService.getMenu({}, 1).subscribe(
+            resp =>{
+
+              this.filterService.changeItems(resp.body);
+              $('#projectCreateModal').modal('toggle');
+            })
+
+        }
+        console.log(resp)
+      }
+    );
+
+
   }
 
   ngOnInit(){
     if(this.isEmpty()){
       this.lazyLoadProjectByRoute();
     }
+
+    this.current_user = JSON.parse(localStorage.getItem('currentUser'));
+
   }
 }

@@ -41,13 +41,8 @@ export class BaseService  {
         catchError(this.handleLoginError)
       );
   }
-  public currentUser(username, password): Observable<HttpResponse<any>>{
-    let url: string = "http://127.0.0.1:8000/kore/api/users/current_user/";
-    let headers = new HttpHeaders();
-    headers = headers.append("Authorization", "Basic " + btoa(username+":"+password));
-    headers = headers.append("Content-Type", "application/x-www-form-urlencoded");
-
-    return this.http.get<any>(url, {headers: headers});
+  public getCurrentUser(): Observable<HttpResponse<any>>{
+    return this.http.get<any>("http://127.0.0.1:8000/kore/api/users/current_user/", {observe: 'response'});
   }
 
   /*

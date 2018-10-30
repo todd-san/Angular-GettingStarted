@@ -6,6 +6,8 @@ import {catchError, tap} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
 import {ProjectType} from "../shared/projectType";
 import {BaseService} from "../shared/base.service";
+import {EMPTY} from "rxjs/index";
+import {map} from "rxjs/internal/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,7 @@ export class CrudService  {
     this.baseService.currentToken.subscribe(token => this.token = token)
   }
 
-  getProjectType(): Observable<HttpResponse<ProjectType>>{
+  getProjectTypes(): Observable<HttpResponse<ProjectType>>{
     let url: string = "http://127.0.0.1:8000/kore/api/project_types/";
 
     return this.http.get<ProjectType>(url, {observe: 'response'})
@@ -36,21 +38,30 @@ export class CrudService  {
   getKontextById(type, id): Observable<HttpResponse<KontextItem[]>>{
 
     let url: string = CrudService.getUrl(type, id);
+    if (url){
+      return this.http.get<any[]>(url, {observe: 'response'})
+        .pipe(
+          tap(resp => this.setCurrentKontext(resp)),
+          catchError(CrudService.handleError)
+        )
+    } else{
+      return EMPTY
+    }
+  }
 
-    return this.http.get<any[]>(url, {observe: 'response'})
-      .pipe(
-        tap(resp => this.setCurrentKontext(resp)),
-        catchError(CrudService.handleError)
-      )
-
-
+  create(url, model): Observable<HttpResponse<any>>{
+    return this.http.post<any>(url, model, {observe: 'response'})
+        .pipe(
+          map(resp => {return resp}),
+          catchError(CrudService.handleError)
+        )
   }
 
 
-  public setCurrentKontext(response){
+  setCurrentKontext(response){
     this.kontext.next(response.body);
   }
-  public setProjectTypes(response){
+  setProjectTypes(response){
     this.project_types.next(response.body);
   }
 
@@ -69,7 +80,7 @@ export class CrudService  {
         return "http://127.0.0.1:8000/kontext/specs/" + id.toString() + '/';
       }
       default: {
-        return 'type: ' + type + ' and id: ' + id.toString() + ' were not able to be parsed into a url'
+        return null
       }
     }
   }

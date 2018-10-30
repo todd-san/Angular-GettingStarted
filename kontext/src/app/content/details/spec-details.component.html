@@ -3,7 +3,7 @@
 
 <div class="section-header">
   <ol class="breadcrumb">
-    <li><a routerLink="/home">home</a></li>
+    <li><a routerLink="/">home</a></li>
     <li *ngIf="spec.hasOwnProperty('project')"><a routerLink="/{{'project'}}/{{spec.project.id}}">{{spec.project.name}}</a></li>
     <li *ngIf="spec.hasOwnProperty('phase')">
       <a routerLink="/phase/{{spec.phase.id}}" routerLinkActive="active">{{spec.phase.name}}</a></li>

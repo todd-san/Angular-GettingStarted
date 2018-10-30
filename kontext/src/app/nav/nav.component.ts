@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FilterService} from "../filter/filter.service";
 import {MenuService} from "../shared/menu.service";
 import {BaseService} from "../shared/base.service";
+import {AuthenticationService} from "../shared/authentication.service";
 
 declare var $: any;
 
@@ -12,54 +13,33 @@ declare var $: any;
 })
 
 export class NavComponent implements OnInit {
-  title: string = 'KTEK';
-  filter_menu: boolean;
-  filter_params: any;
   project_tree: boolean = true;
+  current_user: any;
 
-  constructor(private menuService: MenuService,
-              private filterService: FilterService,
-              private baseService: BaseService
-  ) {
+  constructor(private baseService: BaseService, private authenticationService: AuthenticationService) {
 
-    filterService.filter_menu.subscribe(
-      state =>{
-        this.filter_menu = state;
-      }
-    );
-
-    menuService.menuTree_params.subscribe(
-      params => {
-        this.filter_params = params;
-        console.log(params);
-      }
-    );
 
     baseService.visible_projectTree.subscribe(
       visible_projectTree => {
         this.project_tree = visible_projectTree;
       }
-    )
+    );
+
   }
 
-  public emptyParams() {
-      let empty = true;
-      this.filter_params.updates.forEach((param) =>{
-        if (param.value != null && param.param != 'page'){
-          empty = false;
-        }
-      });
-      return empty;
-    }
-  public toggleProjectTree(){
+  toggleProjectTree(){
     this.project_tree = !this.project_tree;
     this.baseService.toggleProjectTree(this.project_tree);
   }
-  public toggleFilter(){
+  toggleFilter(){
     this.baseService.toggleProjectFilter();
 
   }
+  logout(){
+    this.authenticationService.logout();
+  }
 
   ngOnInit() {
+    this.current_user = JSON.parse(localStorage.getItem('currentUser'));
   }
 }

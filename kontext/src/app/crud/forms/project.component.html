@@ -7,79 +7,117 @@
      aria-labelledby="formModalLabel"
      aria-hidden="true"
      style="display: none;">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg" style="width: 75%">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 class="modal-title" id="projectCreateForm">Create A Project</h3>
         <p class="text-muted"><span class="text-primary" style="font-weight: bold;">*required</span>/optional</p>
       </div>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal"
+            name="form"
+            (ngSubmit)="f.form.valid && create()"
+            #f="ngForm" novalidate>
         <div class="modal-body">
-          <div class="form-group">
+
+          <!--NAME-->
+          <div class="form-group" [ngClass]="{'has-error': f.submitted && !name.valid}">
             <div class="col-sm-3">
-              <label for="pr_name" class="text-primary" style="font-weight: bold;">*Name </label>
+              <label for="name" class="text-primary" style="font-weight: bold;">*Name </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" [(ngModel)]="new_project.name" name="name" id="pr_name" class="form-control" placeholder="Project Name">
+              <input type="text" [(ngModel)]="model.name"
+                     name="name"
+                     id="name"
+                     class="form-control"
+                     placeholder="Project Name"
+                     required>
+              <div class="help-block" *ngIf="f.submitted && !name.valid"> Project Name is required</div>
               <div class="form-control-line"></div>
             </div>
           </div>
-          <div class="form-group">
+
+          <!--NUMBER-->
+          <div class="form-group" [ngClass]="{'has-error': f.submitted && !number.valid}">
             <div class="col-sm-3">
-              <label for="pr_number" class="control-label">Number</label>
+              <label for="number" class="control-label">Number</label>
             </div>
             <div class="col-sm-9">
-              <input type="number" name="pr_number" id="pr_number" class="form-control" placeholder="Project Number">
+              <input type="number"
+                     name="number"
+                     id="number"
+                     [(ngModel)]="model.number"
+                     #number="ngModel"
+                     class="form-control"
+                     placeholder="Project Number">
               <div class="form-control-line"></div>
             </div>
           </div>
-          <div class="form-group">
+
+          <!--TYPE-->
+          <div class="form-group" [ngClass]="{'has-error': f.submitted && !project_type.valid}">
             <div class="col-sm-3">
-              <label for="pr_type" class="text-primary" style="font-weight: bold;">*Project Type</label>
+              <label for="project_type" class="text-primary" style="font-weight: bold;">*Project Type</label>
             </div>
             <div class="col-sm-9">
-              <select name="pr_type" class="form-control" id="pr_type">
-                <option> &nbsp;</option>
-                <option>Replacement</option>
-                <option>OE</option>
-                <option>Research</option>
+              <select name="project_type"
+                      [(ngModel)]="model.project_type"
+                      #project_type="ngModel"
+                      class="form-control"
+                      id="project_type" required>
+                <option [value]="null"></option>
+                <option [value]="'REP'">Replacement</option>
+                <option [value]="'OE'">OE</option>
+                <option [value]="'RES'">Research</option>
               </select>
             </div>
+            <div class="help-block" *ngIf="f.submitted && !type.valid"> Type is required</div>
+
           </div>
-          <div class="form-group">
+
+          <!--CUSTOMER-->
+          <div class="form-group" [ngClass]="{'has-error': f.submitted && !customer.valid}">
+            <div class="col-sm-3">
+              <label for="customer"
+                     class="control-label">Customer: </label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text"
+                     name="customer"
+                     id="customer"
+                     class="form-control"
+                     [(ngModel)]="model.customer"
+                     #customer="ngModel"
+                     placeholder="Customer">
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+
+           <!--DESCRIPTION-->
+          <div class="form-group" [ngClass]="{'has-error': f.submitted && !description.valid}">
             <div class="col-sm-3">
               <label for="description" class="control-label">Description: </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="description" id="description" class="form-control" placeholder="Description">
-              <div class="form-control-line"></div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-3">
-              <label for="customer" class="control-label">Customer: </label>
-            </div>
-            <div class="col-sm-9">
-              <input type="text" name="customer" id="customer" class="form-control" placeholder="Customer">
-              <div class="form-control-line"></div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-3">
-              <label for="tag" class="control-label">Tag: </label>
-            </div>
-            <div class="col-sm-9">
-              <input type="text" name="tag" id="tag" class="form-control" placeholder="Tag">
+              <textarea rows="10"
+                        cols="50"
+                        name="description"
+                        [(ngModel)]="model.description"
+                        #description="ngModel"
+                        id="description"
+                        class="form-control">
+              </textarea>
               <div class="form-control-line"></div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-success-dark">Create and Add Project Phase</button>
-          <button type="button" class="btn btn-accent">Create and Add Another</button>
-          <button type="button" (click)="log()" class="btn btn-accent-dark">Create</button>
+          <div class="form-group">
+            <button type="button" (click)="create()" [disabled]="loading" class="btn btn-accent-dark">Create</button>
+            <button type="button" [disabled]="loading" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
+            <button type="button" [disabled]="loading" class="btn btn-success-dark">Create and Add Project Phase</button>
+            <button type="button" [disabled]="loading" class="btn btn-accent">Create and Add Another</button>
+          </div>
         </div>
       </form>
     </div>
@@ -100,7 +138,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h4 class="modal-title" id="formModalLabel">Edit Project:</h4>
       </div>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" name="form" (ngSubmit)="f.form.valid && update()" #f="ngForm" novalidate>
         <div class="modal-body">
           <div class="form-group">
             <div class="col-sm-3">

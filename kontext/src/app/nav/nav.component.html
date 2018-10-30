@@ -4,7 +4,7 @@
       <ul class="header-nav header-nav-options">
         <li class="header-nav-brand" >
           <div class="brand-holder">
-           <img src="../../assets/img/kenda-vector-logo.png" style="width: 200px; margin-left: 125px;">
+           <img src="../../assets/img/ktek_logo_cropped.png" style="margin-left: 125px;">
           </div>
         </li>
         <li>
@@ -33,17 +33,6 @@
             </a>
           </form>
         </li>
-        <!--<li>-->
-          <!--&lt;!&ndash; Project-Tree Toggle&ndash;&gt;-->
-          <!--<form class="navbar-item">-->
-            <!--<a class="btn btn-icon-toggle ink-reaction ktek-toggle"-->
-                    <!--id="projectTreeToggle"-->
-                    <!--(click)="toggleProjectTree()"-->
-                    <!--title="filter">-->
-                <!--<i class="fa fa-tree fa-2x" id="project-tree-nav-icon"></i>-->
-            <!--</a>-->
-          <!--</form>-->
-        <!--</li>-->
         <li>
           <form class="navbar-item">
             <a class="btn btn-icon-toggle ink-reaction"
@@ -62,9 +51,8 @@
             </a>
             <ul class="dropdown-menu animation-dock">
               <li><a href="#"><i class="fa fa-gear"></i> Air Perm Calculator</a></li>
-              <!--<li class="divider"></li>-->
               <li><a href="#"><i class="fa fa-gear"></i> Safety Factor Calculator</a></li>
-          </ul><!--end .dropdown-menu -->
+          </ul>
           </form>
         </li>
       </ul>
@@ -73,17 +61,16 @@
         <li class="dropdown">
           <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
             <img src="../../assets/img/avatar1.jpg?1403934956" alt="" />
-            <span class="profile-info">
-              Todd Miller
-              <small>Administrator</small>
+            <span class="profile-info" style="font-size: 20px; text-align: center;">
+              {{current_user['first_name']}}
             </span>
           </a>
           <ul class="dropdown-menu animation-dock">
             <li><a href="#">My profile</a></li>
             <li class="divider"></li>
-            <li><a href="#"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
-          </ul><!--end .dropdown-menu -->
-        </li><!--end .dropdown -->
+            <li><a routerLink="/login/" (click)="logout()"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
 </div>

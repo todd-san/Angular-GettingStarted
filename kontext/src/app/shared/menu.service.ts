@@ -7,6 +7,7 @@ import {throwError} from "rxjs/internal/observable/throwError";
 import {KontextItem} from "./kontextItem";
 import { PaginationHeaders} from "../project-tree/interfaces/paginationHeaders";
 import {Project} from "../project-tree/interfaces/project";
+import {nextTick} from "q";
 
 
 @Injectable({
@@ -14,9 +15,12 @@ import {Project} from "../project-tree/interfaces/project";
 })
 
 export class MenuService {
+  private tree = new BehaviorSubject([]);
   private treeUrl: string = "http://127.0.0.1:8000/kontext/projects/nav_menu/";
   private tree_params = new BehaviorSubject({});
+
   menuTree_params = this.tree_params.asObservable();
+  project_tree = this.tree.asObservable();
 
   constructor(private http: HttpClient){}
 
@@ -37,20 +41,18 @@ export class MenuService {
       this.tree_params.next(params);
     }
 
-    // console.log("===========================");
-    // console.log("===========================");
-    // console.log("PARAMS BEING USED");
-    // console.log("qp: ", qp);
-    // console.log("qp: ", qp.uid ? qp.uid.username:null);
-    // console.log("http: ", params);
-    // console.log("===========================");
-    // console.log("===========================");
-
     return this.http.get<KontextItem[]>(url, {observe: 'response', params: params})
       .pipe(
-        tap(resp => console.log('TREE: ', resp)),
+        tap(resp => {
+          console.log('TREE: ', resp);
+          this.nextItems(resp.body);
+        }),
         catchError(MenuService.handleError)
       )
+  }
+
+  nextItems(items){
+    this.tree.next(items);
   }
 
   private static handleError(err: HttpErrorResponse){

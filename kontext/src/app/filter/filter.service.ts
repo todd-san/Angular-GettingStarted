@@ -45,16 +45,10 @@ export class FilterService {
   /*
   *
   * */
-  private removeEmpty = (obj) => {
-    Object.keys(obj).forEach((key) => (obj[key] == null) && delete obj[key]);
-  };
   private loopThroughParams(params){
     Object.keys(params).forEach(key => console.log('PARAMETER KEYS!: ', params[key]))
   }
-  private toHttpParams(params) {
-      return Object.getOwnPropertyNames(params)
-                   .reduce((p, key) => p.set(key, params[key]), new HttpParams());
-  }
+
 
   constructor(private http: HttpClient){}
 
