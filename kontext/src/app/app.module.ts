@@ -91,6 +91,7 @@ enableProdMode();
     AuthGuard,
     AuthenticationService,
     ProjectTreeComponent,
+    ProjectCrudComponent,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,

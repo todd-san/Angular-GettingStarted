@@ -13,6 +13,7 @@ import {PaginationHeaders} from "./interfaces/paginationHeaders";
 import {Page} from "./interfaces/page";
 import {MenuService} from "../shared/menu.service";
 import {BaseService} from "../shared/base.service";
+import {ProjectCrudComponent} from "../crud/project-crud.component";
 
 
 declare var $: any;
@@ -45,6 +46,7 @@ export class ProjectTreeComponent implements OnInit {
     private toastaService: ToastaService,
     private toastaConfig: ToastaConfig,
     private crudService: CrudService,
+    private projectCrud: ProjectCrudComponent,
     private baseService: BaseService,
     private router: Router,) {
 
@@ -66,8 +68,6 @@ export class ProjectTreeComponent implements OnInit {
         }
       }
     );
-
-
 
     filterService.currentPagination.subscribe(
       pagination =>{
@@ -229,7 +229,7 @@ export class ProjectTreeComponent implements OnInit {
     $("#projectEditModal").modal('show');
   }
   public deleteItem(obj){
-    // console.log('delete: ', obj);
+    this.crudService.setCurrentKontext(obj.type, obj.id);
     $("#projectDeleteModal").modal('show');
   }
 
@@ -305,7 +305,7 @@ export class ProjectTreeComponent implements OnInit {
         showClose: true,
         timeout: 5000,
     };
-    this.toastaConfig.theme = 'bootstrap';
+    this.toastaConfig.theme = 'material';
     this.toastaService.success(toastOptions);
 
   }

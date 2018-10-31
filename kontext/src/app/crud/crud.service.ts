@@ -35,13 +35,14 @@ export class CrudService  {
       )
 
   }
+
   getKontextById(type, id): Observable<HttpResponse<KontextItem[]>>{
 
     let url: string = CrudService.getUrl(type, id);
     if (url){
       return this.http.get<any[]>(url, {observe: 'response'})
         .pipe(
-          tap(resp => this.setCurrentKontext(resp)),
+          tap(resp => this.kontext.next(resp.body)),
           catchError(CrudService.handleError)
         )
     } else{
@@ -56,10 +57,21 @@ export class CrudService  {
           catchError(CrudService.handleError)
         )
   }
+  delete(url): Observable<HttpResponse<any>>{
+    return this.http.delete<any>(url, {observe: 'response'})
+      .pipe(
+        map(resp => {return resp}),
+        catchError(CrudService.handleError)
+      )
+  }
 
 
-  setCurrentKontext(response){
-    this.kontext.next(response.body);
+  setCurrentKontext(type, id){
+    this.getKontextById(type, id).subscribe(
+      item =>{
+        this.kontext.next(item.body);
+      }
+    );
   }
   setProjectTypes(response){
     this.project_types.next(response.body);
@@ -91,7 +103,6 @@ export class CrudService  {
     } else {
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
-    console.error(errorMessage);
     return throwError(errorMessage);
   }
 }

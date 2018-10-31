@@ -29,6 +29,7 @@
               <input type="text" [(ngModel)]="model.name"
                      name="name"
                      id="name"
+                     #name="ngModel"
                      class="form-control"
                      placeholder="Project Name"
                      required>
@@ -217,52 +218,61 @@
      aria-labelledby="formModalLabel"
      aria-hidden="true"
      style="display: none;">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg" style="width: 75%">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="projectDeleteLabel">Delete Project:</h4>
+        <h3 class="modal-title" id="projectDeleteLabel"><strong>Delete Project: {{model.name}}</strong></h3>
       </div>
       <form class="form-horizontal" role="form">
         <div class="modal-body">
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_name_delete" class="text-primary" style="font-weight: bold;">*Name </label>
+              <label for="name_delete" class="text-primary" style="font-weight: bold;">*Name </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="project_name" id="pr_name_delete" class="form-control" placeholder="Project Name" disabled>
+              <input type="text"
+                     name="name"
+                     [(ngModel)]="model.name"
+                     #name="ngModel"
+                     id="name_delete"
+                     class="form-control"
+                     disabled>
               <div class="form-control-line"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_number_delete" class="control-label">Number</label>
+              <label for="number_delete" class="control-label">Number</label>
             </div>
             <div class="col-sm-9">
-              <input type="number" name="pr_number" id="pr_number_delete" class="form-control" placeholder="Project Number" disabled>
+              <input type="number"
+                     name="number"
+                     [(ngModel)]="model.number"
+                     #number="ngModel"
+                     id="number_delete"
+                     class="form-control"
+                     disabled>
               <div class="form-control-line"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_type_delete" class="text-primary" style="font-weight: bold;">*Project Type</label>
+              <label for="project_type_delete"
+                     class="text-primary" style="font-weight: bold;">*Project Type</label>
             </div>
             <div class="col-sm-9">
-              <select name="pr_type" class="form-control" id="pr_type_delete" disabled>
-                <option> &nbsp;</option>
-                <option>Replacement</option>
-                <option>OE</option>
-                <option>Research</option>
+              <select name="project_type"
+                      class="form-control"
+                      [(ngModel)]="model.project_type"
+                      #project_type="ngModel"
+                      id="project_type_delete"
+                      disabled>
+                <option [value]="null"></option>
+                <option [value]="'REP'">Replacement</option>
+                <option [value]="'OE'">OE</option>
+                <option [value]="'RES'">Research</option>
               </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-3">
-              <label for="description_edit" class="control-label">Description: </label>
-            </div>
-            <div class="col-sm-9">
-              <input type="text" name="description" id="description_delete" class="form-control" placeholder="Description" disabled>
-              <div class="form-control-line"></div>
             </div>
           </div>
           <div class="form-group">
@@ -270,24 +280,36 @@
               <label for="customer_delete" class="control-label">Customer: </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="customer" id="customer_delete" class="form-control" placeholder="Customer" disabled>
+              <input type="text"
+                     name="customer"
+                     [(ngModel)]="model.customer"
+                     #customer="ngModel"
+                     id="customer_delete"
+                     class="form-control" disabled>
               <div class="form-control-line"></div>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="tag_delete" class="control-label">Tag: </label>
+              <label for="description_delete" class="control-label">Description: </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="tag" id="tag_delete" class="form-control" placeholder="Tag" disabled>
+              <input type="text"
+                     name="description"
+                     id="description_delete"
+                     [(ngModel)]="model.description"
+                     #description="ngModel"
+                     class="form-control" disabled>
               <div class="form-control-line"></div>
             </div>
           </div>
+
         </div>
         <div class="modal-footer">
-           <button type="button" class="btn btn-default pull-left"
-                   data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+           <div class="form-group">
+            <button type="button" (click)="destroy()" [disabled]="loading" class="btn btn-accent-dark">Delete</button>
+            <button type="button" [disabled]="loading" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
+          </div>
         </div>
       </form>
     </div>
