@@ -26,7 +26,6 @@ declare var $: any;
 })
 
 export class ProjectTreeComponent implements OnInit {
-  activeLink: boolean = false;
   kontextDetail: any;
   page: Page = <Page>{};
   paginationHeaders: PaginationHeaders;
@@ -35,6 +34,7 @@ export class ProjectTreeComponent implements OnInit {
   showProjects: boolean = true;
   nestedTreeControl: NestedTreeControl<KontextItem>;
   nestedDataSource: MatTreeNestedDataSource<KontextItem>;
+  selectedKontext: any = {};
 
 
   @ViewChild('kontextMenu') public kontextMenu: ContextMenuComponent;
@@ -53,13 +53,11 @@ export class ProjectTreeComponent implements OnInit {
     this.nestedTreeControl = new NestedTreeControl<KontextItem>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();
     this.toastaConfig.theme = 'material';
-
     menuService.menuTree_params.subscribe(
       params => {
         this.filter_params = params;
       }
     );
-
     filterService.currentItems.subscribe(
       items =>{
         this.nestedDataSource.data = this.buildFileTree(items, 0);
@@ -68,7 +66,6 @@ export class ProjectTreeComponent implements OnInit {
         }
       }
     );
-
     filterService.currentPagination.subscribe(
       pagination =>{
         this.paginationHeaders = pagination;
@@ -188,49 +185,72 @@ export class ProjectTreeComponent implements OnInit {
       }
     );
   }
-  public log_filter_params(){
-    // console.log(this.filter_params);
 
-    this.filter_params.updates.forEach(param =>{
-      if(param.value){
-        console.log(param.param, ":", param.value);
-      }
-    })
-  }
-
-  /*
+  /* context menu CRUD triggers
   *
   * */
   public createItem(obj, sibling=false){
-    // console.log('======== CRUD MODAL LAUNCHER =========');
-    // console.log(obj.type);
-    // console.log(sibling);
-    // console.log('======================================');
-
-    // $("#projectCreateModal").modal('show')
-
-    if (obj.type === 'project' && sibling){
-      $("#projectCreateModal").modal('show');
-    } else if (obj.type === 'project' && !sibling){
+    function toggleCreateProjectModal(){
+      $('#projectCreateModal').modal('show');
+    }
+    function toggleCreatePhaseModal(){
       $("#phaseCreateModal").modal('show');
-    } else if (obj.type === 'phase' && sibling){
-      $("#phaseCreateModal").modal('show');
-    } else if (obj.type === 'phase' && !sibling){
+    }
+    function toggleCreateDesignModal(){
       $("#designCreateModal").modal('show');
-    } else if (obj.type === 'design' && sibling){
-      $("#designCreateModal").modal('show');
-    }  else if (obj.type === 'design' && !sibling){
+    }
+    function toggleCreateSpecModal(){
       $("#specCreateModal").modal('show');
-    }  else if (obj.type === 'spec' && sibling){
-      $("#specCreateModal").modal('show');
+    }
+    this.crudService.setCurrentKontext(obj.type, obj.id);
+
+    switch (obj.type && sibling){
+      case 'project' && true:
+        return toggleCreateProjectModal();
+      case 'project' && false:
+        return toggleCreatePhaseModal();
+      case 'phase' && true:
+        return toggleCreatePhaseModal();
+      case 'phase' && false:
+        return toggleCreateDesignModal();
+      case 'design' && true:
+        return toggleCreateDesignModal();
+      case 'design' && false:
+        return toggleCreateSpecModal();
+      case 'spec' && true:
+        return toggleCreateSpecModal();
+
     }
   }
   public editItem(obj){
-    $("#projectEditModal").modal('show');
+    console.log('edit attempt: ', obj);
+    this.crudService.setCurrentKontext(obj.type, obj.id);
+    switch (obj.type){
+      case 'project':
+        return $('#projectEditModal').modal('show');
+      case 'phase':
+        console.log('trying to edit phase!');
+        return $("#phaseEditModal").modal('show');
+      case 'design':
+        return $("#designEditModal").modal('show');
+      case 'spec':
+        return $("#specEditModal").modal('show');
+    }
   }
   public deleteItem(obj){
+    console.log(obj);
     this.crudService.setCurrentKontext(obj.type, obj.id);
-    $("#projectDeleteModal").modal('show');
+    switch (obj.type){
+      case 'project':
+        return $('#projectDeleteModal').modal('show');
+      case 'phase':
+        return $("#phaseDeleteModal").modal('show');
+      case 'design':
+        return $("#designDeleteModal").modal('show');
+      case 'spec':
+        return $("#specDeleteModal").modal('show');
+    }
+
   }
 
 
@@ -260,13 +280,22 @@ export class ProjectTreeComponent implements OnInit {
 
     let params = {};
 
-    this.filter_params['updates'].forEach(item=>{
-      params[item.param] = item.value;
-    });
+    this.filterService.filter_params.subscribe(
+      items =>{
+          params = items;
+        });
 
-    if (params['project']){
+    // this.filter_params['updates'].forEach(item=>{
+    //   params[item.param] = item.value;
+    // });
+
+    console.log('params: ', params);
+
+    if (params['pid']){
       this.nestedDataSource.data.forEach(item =>{
-        this.nestedTreeControl.expand(item);
+        if(item.name === params['pid'].name){
+          this.nestedTreeControl.expand(item);
+        }
       })
     }
 

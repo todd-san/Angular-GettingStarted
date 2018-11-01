@@ -242,13 +242,13 @@
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
-                   (execute)="showMessage('Edit', $event.item)">
+                   (execute)="editItem($event.item)">
         <i class="fa fa-edit">&nbsp;</i> Edit
       </ng-template>
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
-                   (execute)="showMessage('Delete', $event.item)">
+                   (execute)="deleteItem($event.item)">
         <i class="fa fa-trash">&nbsp;</i> Delete
       </ng-template>
       <ng-template contextMenuItem

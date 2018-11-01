@@ -16,11 +16,9 @@ declare var $: any;
 
 export class ProjectCrudComponent implements OnInit {
   loading: boolean = false;
-  crud: any = {error: false, success: false, message: ''};
   model: any = {};
   route: any;
   current_user: any;
-  current_project: any;
 
   constructor(private crudService: CrudService,
               private router: Router,
@@ -32,7 +30,6 @@ export class ProjectCrudComponent implements OnInit {
     this.crudService.currentKontext.subscribe( resp => {
       this.model = resp;
     });
-
     this.router.events.subscribe(
       route =>{
         this.route = route;
@@ -40,98 +37,137 @@ export class ProjectCrudComponent implements OnInit {
     );
   }
 
-  public lazyLoadProjectByRoute(){
-    console.log('trying to lazy load from route!');
-    if (this.route){
-      this.crudService.getKontextById(
-        this.route.url.split('/')[1],
-        this.route.url.split('/')[2]
-      ).subscribe(
-        item => {
-          this.current_project = item.body;
-        }
-      )
-    } else {
-      this.current_project = {};
+  private handleSuccess(action, response){
+
+    this.toastaConfig.theme = 'default';
+
+    switch (action){
+      case 'create': {
+        let toastOptions = {
+          title: 'Project Created!',
+          msg: this.model.project_type.toUpperCase() + ': ' + this.model.name + ' '+ response.status + ', Created Successfully',
+          showClose: true,
+          timeout: 5000,
+        };
+        this.router.navigate(["/project/"+response.body.id.toString()]);
+        this.toastaService.success(toastOptions);
+        this.loading = false;
+
+        return this.menuService.getMenu({}, 1).subscribe(
+          resp =>{
+            this.filterService.changeItems(resp.body);
+            this.model = {};
+            $('#projectCreateModal').modal('toggle');
+          });
+      }
+      case 'destroy': {
+        let toastOptions = {
+          title: 'Project Deleted!',
+          msg: this.model.type.toUpperCase() + ': ' + this.model.name + ' '+ response.status + ', Deleted Successfully',
+          showClose: true,
+          timeout: 5000,
+        };
+        this.router.navigate(["/"]);
+        this.toastaService.success(toastOptions);
+        this.loading = false;
+
+        return this.menuService.getMenu({}, 1).subscribe(
+          resp =>{
+            this.filterService.changeItems(resp.body);
+            $('#projectDeleteModal').modal('toggle');
+          });
+      }
+      case 'update':
+        let toastOptions = {
+          title: 'Project Updated!',
+          msg: this.model.project_type.toUpperCase() + ': ' + this.model.name + ' '+ response.status + ', Updated Successfully',
+          showClose: true,
+          timeout: 5000,
+        };
+        this.router.navigate(["/project/"+response.body.id.toString()]);
+        this.toastaService.success(toastOptions);
+        this.loading = false;
+
+        return this.menuService.getMenu({}, 1).subscribe(
+          resp =>{
+            this.filterService.changeItems(resp.body);
+            this.model = {};
+            $('#projectEditModal').modal('toggle');
+          });
+
+      default: {
+        let toastOptions: ToastOptions = {
+          title: 'Success',
+          msg: 'Default Success Message',
+          showClose: true,
+          timeout: 5000,
+        };
+        this.router.navigate(["/"]);
+        this.toastaService.success(toastOptions);
+        this.loading = false;
+        this.menuService.getMenu({}, 1).subscribe(
+          resp =>{
+            this.filterService.changeItems(resp.body);
+          });
+        return
+      }
     }
   }
-  public isEmpty() {
-    for(let prop in this.current_project) {
-        if(this.current_project.hasOwnProperty(prop))
-            return false;
+  private handleError(action, error){
+    this.toastaConfig.theme = 'default';
+
+    switch (action){
+      case 'create': {
+        let toastOptions = {
+          title: 'Project Create Error!',
+          msg: this.model.type.toUpperCase() + ': ' + this.model.name + ', Could Not be Created  \n ERROR: '+ error,
+          showClose: true,
+          timeout: 5000,
+        };
+        this.toastaService.error(toastOptions);
+        this.loading = false;
+        return
+      }
+      case 'destroy': {
+        let toastOptions = {
+          title: 'Project Delete Error!',
+          msg: this.model.type.toUpperCase() + ': ' + this.model.name + ', Could Not be Deleted  \n ERROR: '+ error,
+          showClose: true,
+          timeout: 5000,
+        };
+        this.toastaService.error(toastOptions);
+        this.loading = false;
+        return
+      }
+      case 'update': {
+        let toastOptions = {
+          title: 'Project Update Error!',
+          msg: this.model.type.toUpperCase() + ': ' + this.model.name + ', Could Not be Updated \n ERROR: '+ error,
+          showClose: true,
+          timeout: 5000,
+        };
+        this.toastaService.error(toastOptions);
+        this.loading = false;
+        return
+      }
+      default: {
+        let toastOptions: ToastOptions = {
+          title: 'Success',
+          msg: 'Default Success Message',
+          showClose: true,
+          timeout: 5000,
+        };
+        this.router.navigate(["/"]);
+        this.toastaService.success(toastOptions);
+        this.loading = false;
+        this.menuService.getMenu({}, 1).subscribe(
+          resp =>{
+            this.filterService.changeItems(resp.body);
+          });
+        return
+      }
     }
-    return true;
-  }
 
-  private onSuccess(action, response){
-
-  }
-  private onError(action, error){
-
-  }
-
-  private deletedSuccess(resp){
-
-    let toastOptions:ToastOptions = {
-      title: 'Project Deleted!',
-      msg: this.model.type.toUpperCase() + ': ' + this.model.name + ' '+ resp.status + ', Deleted Successfully',
-      showClose: true,
-      timeout: 5000,
-    };
-    this.toastaConfig.theme = 'material';
-    this.toastaService.success(toastOptions);
-
-    this.router.navigate(["/"]);
-
-    this.menuService.getMenu({}, 1).subscribe(
-      resp => {
-        this.filterService.changeItems(resp.body);
-        $('#projectDeleteModal').modal('toggle');
-      });
-    this.loading = false;
-    this.model = {};
-  }
-  private deletedError(error){
-    let toastOptions:ToastOptions = {
-      title: 'Project Delete Error!',
-      msg: this.model.type.toUpperCase() + ': ' + this.model.name + ', Could Not be Deleted  \n ERROR: '+ error,
-      showClose: true,
-      timeout: 5000,
-    };
-    this.toastaConfig.theme = 'bootstrap';
-    this.toastaService.error(toastOptions);
-    this.loading = false;
-  }
-
-  private createdSuccess(resp){
-    let toastOptions:ToastOptions = {
-      title: 'Project Created!',
-      msg: this.model.type.toUpperCase() + ': ' + this.model.name + ' '+ resp.status + ', Created Successfully',
-      showClose: true,
-      timeout: 5000,
-    };
-    this.toastaConfig.theme = 'material';
-    this.toastaService.success(toastOptions);
-
-    this.router.navigate(["/project/"+resp.body.id.toString()]);
-    this.menuService.getMenu({}, 1).subscribe(
-      resp =>{
-        this.filterService.changeItems(resp.body);
-        $('#projectCreateModal').modal('toggle');
-      });
-    this.loading = false;
-    this.model = {};
-  }
-  private createdError(error){
-    let toastOptions:ToastOptions = {
-      title: 'Project Create Error!',
-      msg: this.model.type.toUpperCase() + ': ' + this.model.name + ', Could Not be Created  \n ERROR: '+ error,
-      showClose: true,
-      timeout: 5000,
-    };
-    this.toastaConfig.theme = 'material';
-    this.toastaService.error(toastOptions);
-    this.loading = false;
   }
 
   create(){
@@ -140,10 +176,12 @@ export class ProjectCrudComponent implements OnInit {
 
     this.crudService.create('http://127.0.0.1:8000/kontext/projects/', this.model).subscribe(
       resp =>{
-        this.createdSuccess(resp);
+        this.handleSuccess('create', resp);
+        this.model = {};
       },
       error =>{
-        this.createdError(error);
+        this.handleError('create', error);
+        this.model = {};
       }
     );
 
@@ -153,21 +191,35 @@ export class ProjectCrudComponent implements OnInit {
     this.loading = true;
     this.model['owner'] =  this.current_user.id;
     console.log(this.model);
-    this.crudService.delete('http://127.0.0.1:8000/kontext/projects/'+this.model.id+'/').subscribe(
+    this.crudService.destroy('http://127.0.0.1:8000/kontext/projects/'+this.model.id+'/').subscribe(
       resp => {
-        this.deletedSuccess(resp);
+        this.handleSuccess('destroy', resp);
+        this.model = {};
       },
       error=>{
-        this.deletedError(error);
+        this.handleError('destroy', error);
+        this.model = {};
+      }
+    )
+  }
+  update(){
+    this.loading = true;
+    this.model['owner'] = this.current_user.id;
+
+    this.crudService.update('http://127.0.0.1:8000/kontext/projects/'+this.model.id+'/', this.model).subscribe(
+      resp =>{
+        this.handleSuccess('update', resp);
+        this.model = {};
+      },
+      error=>{
+        this.handleError('update', error);
+        this.model = {};
       }
     )
   }
 
   ngOnInit(){
-    if(this.isEmpty()){
-      this.lazyLoadProjectByRoute();
-    }
-
+    this.model = {};
     this.current_user = JSON.parse(localStorage.getItem('currentUser'));
 
   }

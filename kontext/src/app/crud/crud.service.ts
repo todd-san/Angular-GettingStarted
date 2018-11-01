@@ -57,10 +57,18 @@ export class CrudService  {
           catchError(CrudService.handleError)
         )
   }
-  delete(url): Observable<HttpResponse<any>>{
+  destroy(url): Observable<HttpResponse<any>>{
     return this.http.delete<any>(url, {observe: 'response'})
       .pipe(
         map(resp => {return resp}),
+        catchError(CrudService.handleError)
+      )
+  }
+  update(url, model): Observable<HttpResponse<any>>{
+    console.log('crudService: ', model);
+    return this.http.put<any>(url, model, {observe: 'response'})
+      .pipe(
+        map(resp=> {return resp}),
         catchError(CrudService.handleError)
       )
   }

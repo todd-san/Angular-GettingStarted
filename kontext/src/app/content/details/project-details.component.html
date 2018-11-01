@@ -8,7 +8,9 @@
 
   <h2 class="text-light text-center">
     {{project.name}}<br><small class="text-primary">
-    Project-Details: {{project.type}}</small></h2>
+    Project-Details: {{project.project_type}}</small>
+  </h2>
+
   <!--DETAILS-->
   <div class="col-xs-10 col-xs-offset-1" style="margin-top: 25px;" *ngIf="!isEmpty(project)">
     <div class="card">
@@ -29,25 +31,25 @@
             </li>
           </ul>
           <div>
+            <h3>Notes:</h3>
+            <hr style="margin-top: 0px;">
             <div id="inlineContent1"
                class="col-md-12 cke_editable cke_editable_inline cke_contents_ltr"
                contenteditable="true"
                tabindex="0"
                spellcheck="false"
                role="textbox"
-               aria-label="Rich Text Editor, inlineContent1"
-               title="Rich Text Editor, inlineContent1"
-               aria-describedby="cke_110" style="position: relative; margin-left: -1em;">
-            <h4>Description</h4>
-            <p>{{project.details}}</p>
+               aria-label="Project Description"
+               title="Project Description"
+               aria-describedby="cke_110" style="position: relative; margin-left: -1em; max-height: 250px; overflow-y: scroll">
+            <p>{{project.description}}</p>
           </div>
           </div>
         </div>
         <div class="stick-bottom-right">
-          <!--<button class="btn btn-primary" (click)="log()">Log</button>-->
         </div>
-      </div><!--end .card-body -->
-    </div><!--end .card -->
+      </div>
+    </div>
   </div>
   <!--ANALYSIS QUEUE-->
   <div class="col-xs-10 col-xs-offset-1" >
