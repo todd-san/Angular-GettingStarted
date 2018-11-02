@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CrudService} from "../../crud/crud.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ProjectCrudComponent} from "../../crud/project-crud.component";
 
 @Component({
   templateUrl: './project-details.component.html',
@@ -11,7 +12,10 @@ export class ProjectDetailsComponent implements OnInit {
   route: any;
   project: any;
 
-  constructor(private crudService: CrudService, private router: Router, private current_route: ActivatedRoute) {
+  constructor(private crudService: CrudService,
+              private router: Router,
+              private projectCrud: ProjectCrudComponent,
+              private current_route: ActivatedRoute) {
 
     this.router.events.subscribe(
       route =>{
@@ -49,6 +53,8 @@ export class ProjectDetailsComponent implements OnInit {
   public updateDescription(){
     console.log('AT UPDATE DESCRIPTION');
     console.log('project: ', this.project);
+
+    this.projectCrud.update();
 
   }
 

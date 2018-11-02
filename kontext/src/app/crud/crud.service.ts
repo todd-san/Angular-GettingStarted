@@ -35,7 +35,6 @@ export class CrudService  {
       )
 
   }
-
   getKontextById(type, id): Observable<HttpResponse<KontextItem[]>>{
 
     let url: string = CrudService.getUrl(type, id);
@@ -72,7 +71,6 @@ export class CrudService  {
         catchError(CrudService.handleError)
       )
   }
-
 
   setCurrentKontext(type, id){
     this.getKontextById(type, id).subscribe(

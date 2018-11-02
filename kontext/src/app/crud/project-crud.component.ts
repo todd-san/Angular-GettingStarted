@@ -95,7 +95,7 @@ export class ProjectCrudComponent implements OnInit {
           resp =>{
             this.filterService.changeItems(resp.body);
             this.model = {};
-            $('#projectEditModal').modal('toggle');
+            $('#projectEditModal').modal('hide');
             this.projectTreeComponent.expandFiltered();
           });
       default: {
@@ -116,6 +116,7 @@ export class ProjectCrudComponent implements OnInit {
       }
     }
   }
+
   private handleError(action, error){
     this.toastaConfig.theme = 'default';
 
@@ -207,7 +208,8 @@ export class ProjectCrudComponent implements OnInit {
   }
   update(){
     this.loading = true;
-    this.model['owner'] = this.current_user.id;
+    let current_user = JSON.parse(localStorage.getItem('currentUser'));
+    this.model['owner'] = current_user.id;
 
     this.crudService.update('http://127.0.0.1:8000/kontext/projects/'+this.model.id+'/', this.model).subscribe(
       resp =>{

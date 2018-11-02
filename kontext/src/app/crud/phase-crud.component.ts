@@ -44,7 +44,6 @@ export class PhaseCrudComponent{
     );
   }
 
-
   private handleSuccess(action, response){
     this.toastaConfig.theme = 'default';
     switch (action){

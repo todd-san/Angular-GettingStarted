@@ -189,6 +189,10 @@ export class ProjectTreeComponent implements OnInit {
   *
   * */
   public createItem(obj, sibling=false){
+
+    console.log('obj: ', obj);
+    console.log('sibling: ', sibling);
+
     function toggleCreateProjectModal(){
       $('#projectCreateModal').modal('show');
     }
@@ -203,20 +207,29 @@ export class ProjectTreeComponent implements OnInit {
     }
     this.crudService.setCurrentKontext(obj.type, obj.id);
 
-    switch (obj.type && sibling){
-      case 'project' && true:
-        return toggleCreateProjectModal();
-      case 'project' && false:
+    console.log('obj: ', obj);
+    console.log('sibling: ', sibling);
+
+    switch (obj.type){
+      case 'project':
+        if(sibling){
+          return toggleCreateProjectModal();
+        }
         return toggleCreatePhaseModal();
-      case 'phase' && true:
-        return toggleCreatePhaseModal();
-      case 'phase' && false:
+
+      case 'phase':
+        if(sibling){
+          return toggleCreatePhaseModal();
+        }
         return toggleCreateDesignModal();
-      case 'design' && true:
-        return toggleCreateDesignModal();
-      case 'design' && false:
+
+      case 'design':
+        if(sibling){
+          return toggleCreateDesignModal();
+        }
         return toggleCreateSpecModal();
-      case 'spec' && true:
+
+      case 'spec':
         return toggleCreateSpecModal();
 
     }
