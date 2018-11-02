@@ -49,7 +49,6 @@ export class PhaseCrudComponent{
     this.toastaConfig.theme = 'default';
     switch (action){
       case 'create': {
-        // set my message options
         let toastOptions = {
           title: 'Phase Created!',
           msg: this.parent.name + '-> ' + this.model.phase_name + ' '+ response.status + ', Created Successfully',
@@ -58,23 +57,16 @@ export class PhaseCrudComponent{
         };
         this.router.navigate(["/phase/"+response.body.id.toString()]);
         this.toastaService.success(toastOptions);
-
-        // re-enable modal buttons (otherwise I won't be able to do anything with the phase form)
         this.loading = false;
-
-        // update filter params to get project-tree to expand
         this.filterService.changeParams({pid: {name:this.parent.name}});
 
-        // update project tree with new phase, expand project tree
-        this.menuService.getMenu({}, 1).subscribe(
+        return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
             this.projectTreeComponent.expandFiltered();
             this.model = {};
             $('#phaseCreateModal').modal('toggle');
           });
-
-        return
       }
       case 'destroy': {
         let toastOptions = {
@@ -86,30 +78,25 @@ export class PhaseCrudComponent{
         this.router.navigate(["/"]);
         this.toastaService.success(toastOptions);
         this.loading = false;
-        this.menuService.getMenu({}, 1).subscribe(
+
+        return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
             $('#phaseDeleteModal').modal('toggle');
           });
-        return
       }
       case 'update':
-         // set my message options
         let toastOptions = {
           title: 'Phase Updated!',
-          msg: this.parent.name + '-> ' + this.model.phase_name + ' '+ response.status + ', Updated Successfully',
+          msg: this.model.project.name + '-> ' + this.model.phase_name + ' '+ response.status + ', Updated Successfully',
           showClose: true,
           timeout: 5000,
         };
         this.toastaService.success(toastOptions);
-
-        // re-enable modal buttons (otherwise I won't be able to do anything with the phase form)
         this.loading = false;
+        this.router.navigate(["/phase/"+response.body.id.toString()]);
+        this.filterService.changeParams({pid: {name: this.model.project.name}, phid:{name:this.model.name}});
 
-        // update filter params to get project-tree to expand
-        this.filterService.changeParams({pid: {name:this.parent.name}});
-
-        // update project tree with new phase, expand project tree
         return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
@@ -117,7 +104,6 @@ export class PhaseCrudComponent{
             this.model = {};
             $('#phaseEditModal').modal('toggle');
           });
-
       default: {
         let toastOptions: ToastOptions = {
           title: 'Success',
@@ -128,11 +114,11 @@ export class PhaseCrudComponent{
         this.router.navigate(["/"]);
         this.toastaService.success(toastOptions);
         this.loading = false;
-        this.menuService.getMenu({}, 1).subscribe(
+
+        return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
           });
-        return
       }
     }
   }
@@ -245,7 +231,6 @@ export class PhaseCrudComponent{
     )
   }
 
-  //
   ngOnInit(){
     this.model = {};
     this.current_user = JSON.parse(localStorage.getItem('currentUser'));

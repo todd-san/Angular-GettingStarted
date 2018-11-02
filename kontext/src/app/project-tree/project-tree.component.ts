@@ -46,7 +46,6 @@ export class ProjectTreeComponent implements OnInit {
     private toastaService: ToastaService,
     private toastaConfig: ToastaConfig,
     private crudService: CrudService,
-    private projectCrud: ProjectCrudComponent,
     private baseService: BaseService,
     private router: Router,) {
 
@@ -289,7 +288,9 @@ export class ProjectTreeComponent implements OnInit {
     //   params[item.param] = item.value;
     // });
 
+    console.log('===================================================');
     console.log('params: ', params);
+    console.log('===================================================');
 
     if (params['pid']){
       this.nestedDataSource.data.forEach(item =>{

@@ -38,13 +38,18 @@ export class ProjectDetailsComponent implements OnInit {
       }
     )
   }
-
   public isEmpty() {
     for(let prop in this.project) {
         if(this.project.hasOwnProperty(prop))
             return false;
     }
     return true;
+  }
+
+  public updateDescription(){
+    console.log('AT UPDATE DESCRIPTION');
+    console.log('project: ', this.project);
+
   }
 
   ngOnInit() {

@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MenuService} from "../shared/menu.service";
 import {FilterService} from "../filter/filter.service";
 import {ToastaConfig, ToastaService, ToastOptions} from "ngx-toasta";
+import {ProjectTreeComponent} from "../project-tree/project-tree.component";
 
 declare var $: any;
 
@@ -23,6 +24,7 @@ export class ProjectCrudComponent implements OnInit {
   constructor(private crudService: CrudService,
               private router: Router,
               private toastaService: ToastaService,
+              private projectTreeComponent: ProjectTreeComponent,
               private toastaConfig: ToastaConfig,
               private filterService: FilterService,
               private menuService: MenuService) {
@@ -87,14 +89,15 @@ export class ProjectCrudComponent implements OnInit {
         this.router.navigate(["/project/"+response.body.id.toString()]);
         this.toastaService.success(toastOptions);
         this.loading = false;
+        this.filterService.changeParams({pid: {name:this.model.name}});
 
         return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
             this.model = {};
             $('#projectEditModal').modal('toggle');
+            this.projectTreeComponent.expandFiltered();
           });
-
       default: {
         let toastOptions: ToastOptions = {
           title: 'Success',

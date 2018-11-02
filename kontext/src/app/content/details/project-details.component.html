@@ -26,24 +26,35 @@
             <li class="text-muted" style="margin-top: -15px;">
               Customer: <span class="text-primary">{{project.customer}}</span>
             </li>
-            <li class="text-muted" style="margin-top: -15px;">
+            <li class="text-muted" style="margin-top: -15px; margin-bottom: -15px;">
               Date Modified: <span class="text-primary">{{project.date_modified | convertToSlashes: "_"}}</span>
             </li>
           </ul>
           <div>
-            <h3>Notes:</h3>
-            <hr style="margin-top: 0px;">
-            <div id="inlineContent1"
-               class="col-md-12 cke_editable cke_editable_inline cke_contents_ltr"
-               contenteditable="true"
-               tabindex="0"
-               spellcheck="false"
-               role="textbox"
-               aria-label="Project Description"
-               title="Project Description"
-               aria-describedby="cke_110" style="position: relative; margin-left: -1em; max-height: 250px; overflow-y: scroll">
-            <p>{{project.description}}</p>
-          </div>
+            <form class="form"
+                  style="margin-top: 2px;"
+                  name="form"
+                  (ngSubmit)="f.form.valid && update()"
+                  #f="ngForm"
+                  role="form" novalidate>
+
+
+                <!-- PHASE DESCRIPTION -->
+                <div class="form-group">
+
+                  <label for="description_edit" class="control-label">Description: </label>
+                  <textarea rows="10"
+                            cols="50"
+                            name="description_edit"
+                            [(ngModel)]="project.description"
+                            (change)="updateDescription()"
+                            #description="ngModel"
+                            id="description_edit"
+                            class="form-control" style="position: relative; margin-left: 1em;">
+                  </textarea>
+                  <div class="form-control-line"></div>
+                </div>
+            </form>
           </div>
         </div>
         <div class="stick-bottom-right">
