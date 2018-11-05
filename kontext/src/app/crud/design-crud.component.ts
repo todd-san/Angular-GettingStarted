@@ -215,20 +215,6 @@ loading: boolean = false;
 
     console.log(this.model);
 
-    // this.loading = true;
-    // this.model['owner'] =  this.current_user.id;
-    // this.model['tire_project_id'] = this.parent.id;
-    // this.crudService.create('http://127.0.0.1:8000/kontext/phases/', this.model).subscribe(
-    //   resp =>{
-    //     this.handleSuccess('create', resp);
-    //     this.model = {};
-    //   },
-    //   error =>{
-    //     console.log('ERRRRRROR!: ', error);
-    //     this.handleError('create', error);
-    //     this.model = {};
-    //   }
-    // );
   }
   destroy(){
 
