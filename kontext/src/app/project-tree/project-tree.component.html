@@ -303,7 +303,7 @@
       <ng-template contextMenuItem
                    [visible]="true"
                    [enabled]="true"
-                   (execute)="showMessage('Create', $event.item)">
+                   (execute)="createItem($event.item, sibling=true)">
         <i class="fa fa-plus">&nbsp;</i> Create New <span style="font-weight: bold; color: #319644">DESIGN</span>
       </ng-template>
       <ng-template contextMenuItem

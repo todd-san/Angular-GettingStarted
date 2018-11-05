@@ -20,6 +20,13 @@ loading: boolean = false;
   parent: any = {};
   route: any;
   current_user: any;
+  tire_lines: any;
+  tire_types: any;
+  load_ratings: any;
+  speed_ratings: any;
+  regions: any;
+  factories: any;
+
 
   constructor(private crudService: CrudService,
               private router: Router,
@@ -29,14 +36,42 @@ loading: boolean = false;
               private filterService: FilterService,
               private menuService: MenuService) {
 
-    this.crudService.currentKontext.subscribe( resp => {
-      if(resp['type'] === 'project'){
-        this.parent = resp;
-      } else {
-        this.model = resp;
-      }
+
+
+    /* Subscription to crud.service.ts services
+    *
+    * */
+    this.crudService.get_TireLines().subscribe(resp=>{
+      this.tire_lines = resp.body;
+    });
+    this.crudService.get_LoadRatings().subscribe(resp =>{
+      this.load_ratings = resp.body;
+    });
+    this.crudService.get_SpeedRatings().subscribe(resp =>{
+      this.speed_ratings = resp.body;
+      console.log('SPEED RATINGS: ', this.speed_ratings)
+    });
+    this.crudService.get_TireTypes().subscribe(resp=>{
+      this.tire_types = resp.body;
+    });
+    this.crudService.get_Factories().subscribe(resp=>{
+      this.factories = resp.body
+    });
+    this.crudService.get_Regions().subscribe( resp =>{
+      this.regions = resp.body;
     });
 
+    this.crudService.currentKontext.subscribe( resp => {
+          if(resp['type'] === 'phase'){
+            this.parent = resp;
+          } else if(resp['type'] === 'design') {
+            this.model = resp;
+          }
+        });
+
+    /* Subscription to router.events to pickup the current route
+    *
+    * */
     this.router.events.subscribe(
       route =>{
         this.route = route;
@@ -177,20 +212,23 @@ loading: boolean = false;
   }
 
   create(){
-    this.loading = true;
-    this.model['owner'] =  this.current_user.id;
-    this.model['tire_project_id'] = this.parent.id;
-    this.crudService.create('http://127.0.0.1:8000/kontext/phases/', this.model).subscribe(
-      resp =>{
-        this.handleSuccess('create', resp);
-        this.model = {};
-      },
-      error =>{
-        console.log('ERRRRRROR!: ', error);
-        this.handleError('create', error);
-        this.model = {};
-      }
-    );
+
+    console.log(this.model);
+
+    // this.loading = true;
+    // this.model['owner'] =  this.current_user.id;
+    // this.model['tire_project_id'] = this.parent.id;
+    // this.crudService.create('http://127.0.0.1:8000/kontext/phases/', this.model).subscribe(
+    //   resp =>{
+    //     this.handleSuccess('create', resp);
+    //     this.model = {};
+    //   },
+    //   error =>{
+    //     console.log('ERRRRRROR!: ', error);
+    //     this.handleError('create', error);
+    //     this.model = {};
+    //   }
+    // );
   }
   destroy(){
 
@@ -229,6 +267,7 @@ loading: boolean = false;
       }
     )
   }
+
 
   ngOnInit(){
     this.model = {};

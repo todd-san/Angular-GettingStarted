@@ -190,9 +190,6 @@ export class ProjectTreeComponent implements OnInit {
   * */
   public createItem(obj, sibling=false){
 
-    console.log('obj: ', obj);
-    console.log('sibling: ', sibling);
-
     function toggleCreateProjectModal(){
       $('#projectCreateModal').modal('show');
     }
@@ -231,7 +228,6 @@ export class ProjectTreeComponent implements OnInit {
 
       case 'spec':
         return toggleCreateSpecModal();
-
     }
   }
   public editItem(obj){
@@ -264,7 +260,6 @@ export class ProjectTreeComponent implements OnInit {
     }
 
   }
-
 
   /* Route content to new page
   * */

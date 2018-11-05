@@ -14,16 +14,29 @@
         <h3 class="modal-title" id="phaseCreateForm">Create A New Tire Design</h3>
         <p class="text-muted"><span class="text-primary" style="font-weight: bold;">*required</span>/optional</p>
       </div>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal"
+            name="form"
+            (ngSubmit)="f.form.valid && create()"
+            #f="ngForm"
+            role="form"
+            novalidate>
+
         <div class="modal-body">
 
           <!-- PROJECT -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_name" class="text-primary-dark" style="font-weight: bold;">*Project</label>
+              <label for="project_name_create" class="text-primary-dark" style="font-weight: bold;">*Project</label>
             </div>
-            <div class="col-sm-9">
-              <input type="text" name="project_name" id="pr_name" class="form-control" placeholder="Project Name" disabled>
+            <div class="col-sm-9" *ngIf="model.hasOwnProperty('project')">
+              <input type="text"
+                     [(ngModel)]="model.project.name"
+                     #name="ngModel"
+                     name="project_name_create"
+                     id="project_name_create"
+                     class="form-control"
+                     placeholder="Project Name"
+                     disabled>
               <div class="form-control-line"></div>
             </div>
           </div>
@@ -31,25 +44,35 @@
           <!-- PHASE -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="ph_name" class="text-primary-dark" style="font-weight: bold;">*Phase</label>
+              <label for="phase_name_create"
+                     class="text-primary-dark" style="font-weight: bold;">*Phase</label>
             </div>
-            <div class="col-sm-9">
-              <input type="text" name="project_name" id="ph_name" class="form-control" placeholder="Phase Name" disabled>
+            <div class="col-sm-9" *ngIf="model.hasOwnProperty('phase')">
+              <input type="text"
+                     name="phase_name_create"
+                     [(ngModel)]="model.phase.name"
+                     #name="ngModel"
+                     id="phase_name_create"
+                     class="form-control"
+                     placeholder="Phase Name"
+                     disabled>
               <div class="form-control-line"></div>
             </div>
           </div>
 
-          <!-- TIRE TYPE -->
+          <!--TIRE TYPE-->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="d_type" class="text-primary" style="font-weight: bold;">*Tire Type</label>
+              <label for="tire_type_create" class="text-primary" style="font-weight: bold;">*Tire Type</label>
             </div>
             <div class="col-sm-9">
-              <select class="form-control" id="d_type">
-                <option> &nbsp;</option>
-                <option>Replacement</option>
-                <option>OE</option>
-                <option>Research</option>
+              <select name="tire_type_create"
+                      [(ngModel)]="model.tire_type"
+                      #tire_type="ngModel"
+                      class="form-control"
+                      id="tire_type_create">
+                <option> &nbsp; </option>
+                <option *ngFor="let type of tire_types" [value]="type.name">{{type.name}}</option>
               </select>
             </div>
           </div>
@@ -57,14 +80,18 @@
           <!-- TIRE LINE -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="line" class="text-primary" style="font-weight: bold;">*Tire Line</label>
+              <label for="tire_line_create"
+                     class="text-primary"
+                     style="font-weight: bold;">*Tire Line</label>
             </div>
             <div class="col-sm-9">
-              <select class="form-control" id="line">
-                <option> &nbsp;</option>
-                <option>Replacement</option>
-                <option>OE</option>
-                <option>Research</option>
+              <select class="form-control"
+                      id="tire_line_create"
+                      #tire_line="ngModel"
+                      name="tire_line_create"
+                      [(ngModel)]="model.tire_line">
+                <option> &nbsp; </option>
+                <option *ngFor="let line of tire_lines">{{line.name}}</option>
               </select>
             </div>
           </div>
@@ -82,14 +109,16 @@
           <!-- SPEED RATING -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="speed_rating" class="control-label">Speed Rating: </label>
+              <label for="speed_rating_create" class="control-label">Speed Rating: </label>
             </div>
             <div class="col-sm-9">
-              <select  class="form-control" id="speed_rating">
-                <option> &nbsp;</option>
-                <option>Replacement</option>
-                <option>OE</option>
-                <option>Research</option>
+              <select  class="form-control"
+                       name="speed_rating_create"
+                       [(ngModel)]="model.speed_rating"
+                       #speed_rating="ngModel"
+                       id="speed_rating_create">
+                <option> &nbsp; </option>
+                <option *ngFor="let speed_rating of speed_ratings">{{speed_rating.label}}</option>
               </select>
             </div>
           </div>
@@ -97,14 +126,16 @@
           <!--LOAD RATING-->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="load_rating" class="control-label">Load Rating: </label>
+              <label for="load_rating_create" class="control-label">Load Rating: </label>
             </div>
             <div class="col-sm-9">
-              <select  class="form-control" id="load_rating">
-                <option> &nbsp;</option>
-                <option>Replacement</option>
-                <option>OE</option>
-                <option>Research</option>
+              <select  class="form-control"
+                       name="speed_rating_create"
+                       [(ngModel)]="model.load_rating"
+                       #load_rating="ngModel"
+                       id="load_rating_create">
+                <option> &nbsp; </option>
+                <option *ngFor="let load_rating of load_ratings">{{load_rating.label}}</option>
               </select>
             </div>
           </div>
@@ -112,14 +143,16 @@
           <!-- REGION -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="region" class="control-label">Region: </label>
+              <label for="region_create" class="control-label">Region: </label>
             </div>
             <div class="col-sm-9">
-              <select  class="form-control" id="region">
-                <option> &nbsp;</option>
-                <option>Replacement</option>
-                <option>OE</option>
-                <option>Research</option>
+              <select  class="form-control"
+                       name="region_create"
+                       [(ngModel)]="model.region"
+                       #region="ngModel"
+                       id="region_create">
+                <option> &nbsp; </option>
+                <option *ngFor="let region of regions">{{region.name}}</option>
               </select>
             </div>
           </div>
@@ -127,15 +160,17 @@
           <!-- FACTORY -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="factory" class="control-label">Factory: </label>
+              <label for="factory_create" class="control-label">Factory: </label>
             </div>
             <div class="col-sm-9">
-              <select  class="form-control" id="factory">
-              <option> &nbsp;</option>
-              <option>Replacement</option>
-              <option>OE</option>
-              <option>Research</option>
-            </select>
+              <select  class="form-control"
+                       name="factory_create"
+                       [(ngModel)]="model.factory"
+                       #factory="ngModel"
+                       id="factory_create">
+                <option> &nbsp; </option>
+                <option *ngFor="let factory of factories">{{factory.label}}</option>
+              </select>
             </div>
           </div>
         </div>
@@ -143,7 +178,7 @@
           <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-success-dark">Create and Add Project Phase</button>
           <button type="button" class="btn btn-accent">Create and Add Another</button>
-          <button type="button" class="btn btn-accent-dark">Create</button>
+          <button type="button" class="btn btn-accent-dark" (click)="create()">Create</button>
         </div>
       </form>
     </div>
