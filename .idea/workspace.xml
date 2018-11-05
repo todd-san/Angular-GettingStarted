@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d60e9481-55dc-4d0b-bbc2-71793ecdde9d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/kontext/src/app/shared/api.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/forms/phase.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/forms/phase.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6193103">
+    <splitter split-orientation="horizontal" split-proportion="0.62288684">
       <split-first>
         <leaf>
           <file leaf-file-name="crud.service.ts" pinned="false" current-in-tab="false">
@@ -71,8 +63,8 @@
           <file leaf-file-name="design-crud.component.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="574">
-                  <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+                <state relative-caret-position="466">
+                  <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                     <element signature="e#1053#1111#0" />
@@ -82,6 +74,7 @@
                     <element signature="e#1263#1305#0" />
                     <element signature="e#1632#1646#0" />
                     <element signature="e#1728#1742#0" />
+                    <element signature="e#1363#1510#0" />
                     <element signature="e#1519#1594#0" />
                     <element signature="e#1643#1680#0" />
                     <element signature="n#!!block;n#handleSuccess#0;n#DesignCrudComponent#0" />
@@ -373,15 +366,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="crud" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Angular-GettingStarted" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Angular-GettingStarted" type="462c0819:PsiDirectoryNode" />
-              <item name="kontext" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="crud" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -691,7 +675,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541179500927</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="api.service.ts added as a central control for all the api addresses needed for ktek API interaction">
+      <created>1541451733508</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1541451733508</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -706,7 +697,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839744" weight="0.32624114" />
       <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32978722" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22542734" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1784188" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32959402" />
@@ -758,7 +749,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="service-sharing between filter and menu components!" />
     <MESSAGE value="running into issues on filtering in backend... filter service drives menus! yay!" />
     <MESSAGE value="filters need work on the backend, but nearly there! close to rendering content and routing!" />
     <MESSAGE value="next step, fill out the page, get into reppin' the directory space" />
@@ -783,7 +773,8 @@
     <MESSAGE value="post new projects, delete owned projects, better token auth" />
     <MESSAGE value="crud stuff, updates, and whatnot to projects and phases" />
     <MESSAGE value="rewrite switch logic on project-tree" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrite switch logic on project-tree" />
+    <MESSAGE value="api.service.ts added as a central control for all the api addresses needed for ktek API interaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="api.service.ts added as a central control for all the api addresses needed for ktek API interaction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1427,8 +1418,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+        <state relative-caret-position="466">
+          <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
             <element signature="e#1053#1111#0" />
@@ -1438,6 +1429,7 @@
             <element signature="e#1263#1305#0" />
             <element signature="e#1632#1646#0" />
             <element signature="e#1728#1742#0" />
+            <element signature="e#1363#1510#0" />
             <element signature="e#1519#1594#0" />
             <element signature="e#1643#1680#0" />
             <element signature="n#!!block;n#handleSuccess#0;n#DesignCrudComponent#0" />
