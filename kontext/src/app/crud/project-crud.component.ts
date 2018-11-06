@@ -5,6 +5,7 @@ import {MenuService} from "../shared/menu.service";
 import {FilterService} from "../filter/filter.service";
 import {ToastaConfig, ToastaService, ToastOptions} from "ngx-toasta";
 import {ProjectTreeComponent} from "../project-tree/project-tree.component";
+import {ApiService} from "../shared/api.service";
 
 declare var $: any;
 
@@ -26,6 +27,7 @@ export class ProjectCrudComponent implements OnInit {
               private toastaService: ToastaService,
               private projectTreeComponent: ProjectTreeComponent,
               private toastaConfig: ToastaConfig,
+              private apiService: ApiService,
               private filterService: FilterService,
               private menuService: MenuService) {
 
@@ -178,7 +180,7 @@ export class ProjectCrudComponent implements OnInit {
     this.loading = true;
     this.model['owner'] =  this.current_user.id;
 
-    this.crudService.create('http://127.0.0.1:8000/kontext/projects/', this.model).subscribe(
+    this.crudService.create(this.apiService.projects, this.model).subscribe(
       resp =>{
         this.handleSuccess('create', resp);
         this.model = {};

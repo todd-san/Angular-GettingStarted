@@ -5,6 +5,7 @@ import {ProjectTreeComponent} from "../project-tree/project-tree.component";
 import {Router} from "@angular/router";
 import {MenuService} from "../shared/menu.service";
 import {FilterService} from "../filter/filter.service";
+import {ApiService} from "../shared/api.service";
 
 declare var $: any;
 
@@ -17,7 +18,9 @@ declare var $: any;
 export class DesignCrudComponent {
 loading: boolean = false;
   model: any = {};
-  parent: any = {};
+  design = {};
+  phase = {};
+  project = {};
   route: any;
   current_user: any;
   tire_lines: any;
@@ -27,16 +30,14 @@ loading: boolean = false;
   regions: any;
   factories: any;
 
-
   constructor(private crudService: CrudService,
               private router: Router,
+              private apiService: ApiService,
               private toastaService: ToastaService,
               private toastaConfig: ToastaConfig,
               private projectTreeComponent: ProjectTreeComponent,
               private filterService: FilterService,
               private menuService: MenuService) {
-
-
 
     /* Subscription to crud.service.ts services
     *
@@ -62,12 +63,15 @@ loading: boolean = false;
     });
 
     this.crudService.currentKontext.subscribe( resp => {
-          if(resp['type'] === 'phase'){
-            this.parent = resp;
-          } else if(resp['type'] === 'design') {
-            this.model = resp;
-          }
-        });
+      if(resp['type'] === 'phase'){
+        this.phase = resp;
+        this.project = resp['project'];
+      } else if(resp['type'] === 'design') {
+        this.phase = resp['phase'];
+        this.project = resp['project'];
+        this.design = resp;
+      }
+    });
 
     /* Subscription to router.events to pickup the current route
     *
@@ -84,22 +88,23 @@ loading: boolean = false;
     switch (action){
       case 'create': {
         let toastOptions = {
-          title: 'Phase Created!',
-          msg: this.parent.name + '-> ' + this.model.phase_name + ' '+ response.status + ', Created Successfully',
+          title: 'Design Created!',
+          msg: this.project['name'] + '-> ' + this.phase['name'] + '-> '+ this.model.size + ', Created Successfully',
           showClose: true,
           timeout: 5000,
         };
-        this.router.navigate(["/phase/"+response.body.id.toString()]);
+        this.router.navigate(["/design/"+response.body.id.toString()]);
         this.toastaService.success(toastOptions);
         this.loading = false;
-        this.filterService.changeParams({pid: {name:this.parent.name}});
+        // needs fixed.
+        // this.filterService.changeParams({pid: {name:this.project.name}});
 
         return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
             this.projectTreeComponent.expandFiltered();
             this.model = {};
-            $('#phaseCreateModal').modal('toggle');
+            $('#designCreateModal').modal('toggle');
           });
       }
       case 'destroy': {
@@ -121,23 +126,28 @@ loading: boolean = false;
       }
       case 'update':
         let toastOptions = {
-          title: 'Phase Updated!',
-          msg: this.model.project.name + '-> ' + this.model.phase_name + ' '+ response.status + ', Updated Successfully',
+          title: 'Design Updated!',
+          msg: this.project['name'] + '-> ' + this.phase['name'] + '-> ' + ', Updated Successfully',
           showClose: true,
           timeout: 5000,
         };
         this.toastaService.success(toastOptions);
         this.loading = false;
-        this.router.navigate(["/phase/"+response.body.id.toString()]);
-        this.filterService.changeParams({pid: {name: this.model.project.name}, phid:{name:this.model.name}});
+        this.router.navigate(["/design/"+response.body.id.toString()]);
+        this.filterService.changeParams({
+          pid:  {name: this.project['name']},
+          phid: {name:this.phase['name']},
+          sid: {size: this.design['size']}
+        });
 
         return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
             this.projectTreeComponent.expandFiltered();
             this.model = {};
-            $('#phaseEditModal').modal('toggle');
+            $('#designEditModal').modal('toggle');
           });
+
       default: {
         let toastOptions: ToastOptions = {
           title: 'Success',
@@ -162,7 +172,7 @@ loading: boolean = false;
       case 'create': {
         let toastOptions = {
           title: 'Phase Create Error!',
-          msg: this.parent.name + ' -> ' + this.model.phase_name + ', Could Not be Created  \n ERROR: '+ error,
+          msg: ' -> ' + this.model.phase_name + ', Could Not be Created  \n ERROR: '+ error,
           showClose: true,
           timeout: 5000,
         };
@@ -173,7 +183,7 @@ loading: boolean = false;
       case 'destroy': {
         let toastOptions = {
           title: 'Phase Delete Error!',
-          msg: this.parent.name + ' -> ' + ': ' + this.model.name + ', Could Not be Deleted  \n ERROR: '+ error,
+          msg: ' -> ' + ': ' + this.model.name + ', Could Not be Deleted  \n ERROR: '+ error,
           showClose: true,
           timeout: 5000,
         };
@@ -184,7 +194,7 @@ loading: boolean = false;
       case 'update': {
         let toastOptions = {
           title: 'Phase Update Error!',
-          msg: this.parent.name + ' -> ' + this.model.phase_name + ', Could Not be Updated  \n ERROR: '+ error,
+          msg: ' -> ' + this.model.phase_name + ', Could Not be Updated  \n ERROR: '+ error,
           showClose: true,
           timeout: 5000,
         };
@@ -211,15 +221,29 @@ loading: boolean = false;
     }
   }
 
-  create(){
+  create() {
+    this.loading = true;
+    this.model['owner'] = this.current_user.id;
+    this.model['project_phase'] = this.phase['id'];
+    this.model.factory = parseInt(this.model.factory);
+    this.model.region = parseInt(this.model.region);
+    this.model.tire_line = parseInt(this.model.tire_line);
 
-    console.log(this.model);
-
+    this.crudService.create(this.apiService.designs, this.model).subscribe(
+      resp => {
+        this.handleSuccess('create', resp);
+        this.model = {};
+      },
+      error => {
+        this.handleError('create', error);
+        this.model = {};
+      }
+    );
   }
   destroy(){
 
     console.log('model:', this.model);
-    console.log('parent:', this.parent);
+    // console.log('parent:', this.parent);
 
     this.loading = true;
     this.model['owner'] =  this.current_user.id;
@@ -236,13 +260,10 @@ loading: boolean = false;
     )
   }
   update(){
-    console.log('model:', this.model);
-    console.log('parent:', this.parent);
     this.loading = true;
-    this.model['owner'] =  this.current_user.id;
-    this.model['phase_name'] = this.model.name;
+    let url = this.apiService.obj_detail(this.apiService.designs, this.design['id']);
 
-    this.crudService.update('http://127.0.0.1:8000/kontext/phases/'+this.model.id+'/', this.model).subscribe(
+    this.crudService.update(url, this.design).subscribe(
       resp => {
         this.handleSuccess('update', resp);
         this.model = {};
@@ -253,7 +274,6 @@ loading: boolean = false;
       }
     )
   }
-
 
   ngOnInit(){
     this.model = {};

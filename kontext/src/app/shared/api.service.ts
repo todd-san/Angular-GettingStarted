@@ -24,6 +24,14 @@ export class ApiService  {
   // public host = "http://127.0.0.1:8888";
   // public host = "http://kendaeng02:8080";
 
+  /* Base-Routes for creating CRUD
+  * */
+  public projects: string = this.api('/kontext/projects/');
+  public phases: string = this.api('/kontext/phases/');
+  public designs: string = this.api('/kontext/designs/');
+  public specs: string = this.api('/kontext/specs/');
+
+
   /* Routes used by FilterComponent & FilterService
   * */
   public filter_menu_users: string = this.api("/kore/api/users/");
@@ -51,6 +59,10 @@ export class ApiService  {
   * */
   public api(address){
     return this.host + address;
+  }
+
+  public obj_detail(address, id){
+    return address + id.toString()+'/';
   }
 
 

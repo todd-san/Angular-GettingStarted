@@ -28,9 +28,9 @@
             <div class="col-sm-3">
               <label for="project_name_create" class="text-primary-dark" style="font-weight: bold;">*Project</label>
             </div>
-            <div class="col-sm-9" *ngIf="model.hasOwnProperty('project')">
+            <div class="col-sm-9" *ngIf="project.hasOwnProperty('name')">
               <input type="text"
-                     [(ngModel)]="model.project.name"
+                     [(ngModel)]="project.name"
                      #name="ngModel"
                      name="project_name_create"
                      id="project_name_create"
@@ -47,10 +47,10 @@
               <label for="phase_name_create"
                      class="text-primary-dark" style="font-weight: bold;">*Phase</label>
             </div>
-            <div class="col-sm-9" *ngIf="model.hasOwnProperty('phase')">
+            <div class="col-sm-9" *ngIf="phase.hasOwnProperty('name')">
               <input type="text"
                      name="phase_name_create"
-                     [(ngModel)]="model.phase.name"
+                     [(ngModel)]="phase.name"
                      #name="ngModel"
                      id="phase_name_create"
                      class="form-control"
@@ -91,7 +91,7 @@
                       name="tire_line_create"
                       [(ngModel)]="model.tire_line">
                 <option> &nbsp; </option>
-                <option *ngFor="let line of tire_lines">{{line.name}}</option>
+                <option *ngFor="let line of tire_lines" [value]="line.id">{{line.name}}</option>
               </select>
             </div>
           </div>
@@ -99,10 +99,15 @@
           <!-- SIZE -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="size" class="text-primary" style="font-weight: bold;">*Size: </label>
+              <label for="size_create" class="text-primary" style="font-weight: bold;">*Size: </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" id="size" class="form-control" placeholder="Tire Size">
+              <input type="text"
+                     id="size_create"
+                     name="size_create"
+                     [(ngModel)]="model.size"
+                     #size="ngModel"
+                     class="form-control">
             </div>
           </div>
 
@@ -152,7 +157,7 @@
                        #region="ngModel"
                        id="region_create">
                 <option> &nbsp; </option>
-                <option *ngFor="let region of regions">{{region.name}}</option>
+                <option *ngFor="let region of regions" [value]="region.id">{{region.name}}</option>
               </select>
             </div>
           </div>
@@ -169,7 +174,7 @@
                        #factory="ngModel"
                        id="factory_create">
                 <option> &nbsp; </option>
-                <option *ngFor="let factory of factories">{{factory.label}}</option>
+                <option *ngFor="let factory of factories" [value]="factory.id">{{factory.label}}</option>
               </select>
             </div>
           </div>
@@ -185,90 +190,192 @@
   </div>
 </div>
 
-<!--&lt;!&ndash; EDIT MODAL &ndash;&gt;-->
-<!--<div class="modal fade"-->
-     <!--id="projectEditModal"-->
-     <!--tabindex="-1"-->
-     <!--role="dialog"-->
-     <!--aria-labelledby="formModalLabel"-->
-     <!--aria-hidden="true"-->
-     <!--style="display: none;">-->
-  <!--<div class="modal-dialog modal-lg">-->
-    <!--<div class="modal-content">-->
-      <!--<div class="modal-header">-->
-        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
-        <!--<h4 class="modal-title" id="formModalLabel">Edit Project:</h4>-->
-      <!--</div>-->
-      <!--<form class="form-horizontal" role="form">-->
-        <!--<div class="modal-body">-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_name_edit" class="text-primary" style="font-weight: bold;">*Name </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="project_name" id="pr_name_edit" class="form-control" placeholder="Project Name">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_number_edit" class="control-label">Number</label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="number" name="pr_number" id="pr_number_edit" class="form-control" placeholder="Project Number">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_type_edit" class="text-primary" style="font-weight: bold;">*Project Type</label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<select name="pr_type" class="form-control" id="pr_type_edit">-->
-                <!--<option> &nbsp;</option>-->
-                <!--<option>Replacement</option>-->
-                <!--<option>OE</option>-->
-                <!--<option>Research</option>-->
-              <!--</select>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="description_edit" class="control-label">Description: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="description" id="description_edit" class="form-control" placeholder="Description">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="customer_edit" class="control-label">Customer: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="customer" id="customer_edit" class="form-control" placeholder="Customer">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="tag_edit" class="control-label">Tag: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="tag" id="tag_edit" class="form-control" placeholder="Tag">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="modal-footer">-->
-          <!--<button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>-->
-          <!--<button type="button" class="btn btn-accent">Save and Continue Editing</button>-->
-          <!--<button type="button" class="btn btn-accent-dark">Update</button>-->
-        <!--</div>-->
-      <!--</form>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+<!-- EDIT MODAL-->
+<div class="modal fade"
+     id="designEditModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="formModalLabel"
+     aria-hidden="true"
+     style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title" id="phaseEditForm">Edit Tire Design</h3>
+        <p class="text-muted"><span class="text-primary" style="font-weight: bold;">*required</span>/optional</p>
+      </div>
+      <form class="form-horizontal"
+            name="form"
+            (ngSubmit)="f.form.valid && create()"
+            #f="ngForm"
+            role="form"
+            novalidate>
+
+        <div class="modal-body">
+
+          <!-- PROJECT -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="project_name_edit" class="text-primary-dark" style="font-weight: bold;">*Project</label>
+            </div>
+            <div class="col-sm-9" *ngIf="project.hasOwnProperty('name')">
+              <input type="text"
+                     [(ngModel)]="project.name"
+                     #name="ngModel"
+                     name="project_name_edit"
+                     id="project_name_edit"
+                     class="form-control"
+                     disabled>
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+
+          <!-- PHASE -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="phase_name_edit"
+                     class="text-primary-dark" style="font-weight: bold;">*Phase</label>
+            </div>
+            <div class="col-sm-9" *ngIf="phase.hasOwnProperty('name')">
+              <input type="text"
+                     name="phase_name_create"
+                     [(ngModel)]="phase.name"
+                     #name="ngModel"
+                     id="phase_name_edit"
+                     class="form-control"
+                     disabled>
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+
+          <!--TIRE TYPE-->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="tire_type_edit" class="text-primary" style="font-weight: bold;">*Tire Type</label>
+            </div>
+            <div class="col-sm-9">
+              <select name="tire_type_create"
+                      [(ngModel)]="design.tire_type"
+                      #tire_type="ngModel"
+                      class="form-control"
+                      id="tire_type_edit">
+                <option> &nbsp; </option>
+                <option *ngFor="let type of tire_types" [value]="type.name">{{type.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- TIRE LINE -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="tire_line_edit"
+                     class="text-primary"
+                     style="font-weight: bold;">*Tire Line</label>
+            </div>
+            <div class="col-sm-9">
+              <select class="form-control"
+                      id="tire_line_edit"
+                      #tire_line="ngModel"
+                      name="tire_line_create"
+                      [(ngModel)]="design.tire_line">
+                <option> &nbsp; </option>
+                <option *ngFor="let line of tire_lines" [value]="line.id">{{line.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- SIZE -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="size_edit" class="text-primary" style="font-weight: bold;">*Size: </label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text"
+                     id="size_edit"
+                     name="size_edit"
+                     [(ngModel)]="design.size"
+                     #size="ngModel"
+                     class="form-control">
+            </div>
+          </div>
+
+          <!-- SPEED RATING -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="speed_rating_edit" class="control-label">Speed Rating: </label>
+            </div>
+            <div class="col-sm-9">
+              <select  class="form-control"
+                       name="speed_rating_create"
+                       [(ngModel)]="design.speed_rating"
+                       #speed_rating="ngModel"
+                       id="speed_rating_edit">
+                <option> &nbsp; </option>
+                <option *ngFor="let speed_rating of speed_ratings">{{speed_rating.label}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!--LOAD RATING-->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="load_rating_edit" class="control-label">Load Rating: </label>
+            </div>
+            <div class="col-sm-9">
+              <select  class="form-control"
+                       name="speed_rating_create"
+                       [(ngModel)]="design.load_rating"
+                       #load_rating="ngModel"
+                       id="load_rating_edit">
+                <option> &nbsp; </option>
+                <option *ngFor="let load_rating of load_ratings">{{load_rating.label}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- REGION -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="region_edit" class="control-label">Region: </label>
+            </div>
+            <div class="col-sm-9">
+              <select  class="form-control"
+                       name="region_create"
+                       [(ngModel)]="design.region"
+                       #region="ngModel"
+                       id="region_edit">
+                <option> &nbsp; </option>
+                <option *ngFor="let region of regions" [value]="region.id">{{region.name}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- FACTORY -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="factory_edit" class="control-label">Factory: </label>
+            </div>
+            <div class="col-sm-9">
+              <select  class="form-control"
+                       name="factory_create"
+                       [(ngModel)]="design.factory"
+                       #factory="ngModel"
+                       id="factory_edit">
+                <option> &nbsp; </option>
+                <option *ngFor="let factory of factories" [value]="factory.id">{{factory.label}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-accent-dark" (click)="update()">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <!--&lt;!&ndash; DELETE MODAL &ndash;&gt;-->
 <!--<div class="modal fade"-->
