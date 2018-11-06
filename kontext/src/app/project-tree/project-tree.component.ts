@@ -258,7 +258,6 @@ export class ProjectTreeComponent implements OnInit {
       case 'spec':
         return $("#specDeleteModal").modal('show');
     }
-
   }
 
   /* Route content to new page

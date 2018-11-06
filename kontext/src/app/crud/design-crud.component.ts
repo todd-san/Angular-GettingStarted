@@ -109,8 +109,8 @@ loading: boolean = false;
       }
       case 'destroy': {
         let toastOptions = {
-          title: 'Project Deleted!',
-          msg: this.model.type.toUpperCase() + ': ' + this.model.name + ' '+ response.status + ', Deleted Successfully',
+          title: 'Design Deleted!',
+          msg: 'DESIGN: ' + this.design['size'] + ', Deleted Successfully',
           showClose: true,
           timeout: 5000,
         };
@@ -121,7 +121,7 @@ loading: boolean = false;
         return this.menuService.getMenu({}, 1).subscribe(
           resp =>{
             this.filterService.changeItems(resp.body);
-            $('#phaseDeleteModal').modal('toggle');
+            $('#designDeleteModal').modal('toggle');
           });
       }
       case 'update':
@@ -241,14 +241,11 @@ loading: boolean = false;
     );
   }
   destroy(){
-
-    console.log('model:', this.model);
-    // console.log('parent:', this.parent);
-
     this.loading = true;
-    this.model['owner'] =  this.current_user.id;
+    let url = this.apiService.obj_detail(this.apiService.designs, this.design['id']);
+
     console.log(this.model);
-    this.crudService.destroy('http://127.0.0.1:8000/kontext/phases/'+this.model.id+'/').subscribe(
+    this.crudService.destroy(url).subscribe(
       resp => {
         this.handleSuccess('destroy', resp);
         this.model = {};
