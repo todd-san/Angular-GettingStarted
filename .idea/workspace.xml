@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d60e9481-55dc-4d0b-bbc2-71793ecdde9d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kontext/src/app/shared/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/kontext/src/app/shared/api.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,14 +12,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.773794">
+    <splitter split-orientation="horizontal" split-proportion="0.62125164">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="project-tree.component.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="718">
-                  <caret line="334" column="3" lean-forward="true" selection-start-line="334" selection-start-column="3" selection-end-line="334" selection-end-column="3" />
+                <state relative-caret-position="160">
+                  <caret line="248" selection-start-line="248" selection-end-line="248" selection-end-column="21" />
                   <folding>
                     <element signature="n#!!block;n#constructor#0;n#ProjectTreeComponent#0" />
                     <element signature="n#!!block;n#fetchMenuItems#0;n#ProjectTreeComponent#0" />
@@ -102,8 +97,8 @@
           <file leaf-file-name="design-crud.component.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+                <state relative-caret-position="574">
+                  <caret line="241" column="3" lean-forward="true" selection-start-line="241" selection-start-column="3" selection-end-line="241" selection-end-column="3" />
                   <folding>
                     <element signature="e#416#532#0" />
                     <element signature="e#1150#1208#0" />
@@ -115,11 +110,11 @@
                     <element signature="e#1819#1858#0" />
                     <element signature="e#2100#2175#0" />
                     <element signature="e#2224#2261#0" />
+                    <element signature="n#!!block;n#handleSuccess#0;n#DesignCrudComponent#0" />
+                    <element signature="e#2572#5280#0" />
                     <element signature="e#2596#3404#0" />
                     <element signature="e#2783#2798#0" />
-                    <element signature="e#3174#3765#0" />
-                    <element signature="e#3211#3432#0" />
-                    <element signature="e#3627#3747#0" />
+                    <element signature="e#4008#4872#0" />
                     <element signature="e#4050#4265#0" />
                     <element signature="e#4444#4563#0" />
                     <element signature="e#4365#4568#0" />
@@ -139,6 +134,7 @@
                     <element signature="e#6630#6698#0" />
                     <element signature="n#!!block;n#create#0;n#DesignCrudComponent#0" />
                     <element signature="n#!!block;n#destroy#0;n#DesignCrudComponent#0" />
+                    <element signature="n#!!block;n#update#0;n#DesignCrudComponent#0" />
                     <element signature="n#!!block;n#ngOnInit#0;n#DesignCrudComponent#0" />
                   </folding>
                 </state>
@@ -152,7 +148,7 @@
           <file leaf-file-name="project-tree.component.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
+                <state relative-caret-position="1350">
                   <caret line="257" column="52" lean-forward="true" selection-start-line="257" selection-start-column="52" selection-end-line="257" selection-end-column="52" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -252,11 +248,15 @@
           <file leaf-file-name="design.component.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="700">
-                  <caret line="384" column="44" lean-forward="true" selection-start-line="384" selection-start-column="44" selection-end-line="384" selection-end-column="44" />
+                <state relative-caret-position="682">
+                  <caret line="569" lean-forward="true" selection-start-line="569" selection-end-line="569" />
                   <folding>
                     <element signature="e#22#7248#0" />
+                    <element signature="e#205#7241#0" />
+                    <element signature="e#245#7232#0" />
                     <element signature="e#279#610#0" />
+                    <element signature="e#617#7221#0" />
+                    <element signature="e#802#6761#0" />
                     <element signature="e#865#1562#0" />
                     <element signature="e#902#1060#0" />
                     <element signature="e#1073#1545#0" />
@@ -270,8 +270,15 @@
                     <element signature="e#2379#2531#0" />
                     <element signature="e#2544#2979#0" />
                     <element signature="e#2581#2960#0" />
+                    <element signature="e#3037#3713#0" />
                     <element signature="e#3074#3268#0" />
                     <element signature="e#3111#3249#0" />
+                    <element signature="e#3281#3696#0" />
+                    <element signature="e#3318#3677#0" />
+                    <element signature="e#3749#4083#0" />
+                    <element signature="e#3786#3923#0" />
+                    <element signature="e#3936#4066#0" />
+                    <element signature="e#3977#4137#0" />
                     <element signature="e#4127#4779#0" />
                     <element signature="e#4164#4297#0" />
                     <element signature="e#4310#4762#0" />
@@ -280,11 +287,30 @@
                     <element signature="e#4857#4988#0" />
                     <element signature="e#5001#5447#0" />
                     <element signature="e#5038#5428#0" />
+                    <element signature="e#5502#6099#0" />
                     <element signature="e#5539#5660#0" />
+                    <element signature="e#5673#6082#0" />
+                    <element signature="e#5710#6063#0" />
+                    <element signature="e#6138#6746#0" />
                     <element signature="e#6175#6298#0" />
+                    <element signature="e#6311#6729#0" />
+                    <element signature="e#6348#6710#0" />
                     <element signature="e#6770#7207#0" />
+                    <element signature="e#7471#14897#0" />
+                    <element signature="e#7728#8059#0" />
                     <element signature="e#8314#9004#0" />
                     <element signature="e#9041#9738#0" />
+                    <element signature="e#9115#9234#0" />
+                    <element signature="e#10546#10684#0" />
+                    <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#label#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#label#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#div#6;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+                    <element signature="n#div#8;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
                   </folding>
                 </state>
               </provider>
@@ -398,14 +424,14 @@
         <option value="$PROJECT_DIR$/kontext/src/app/content/details/project-details.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/content/details/design-details.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/phase-crud.component.ts" />
-        <option value="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/forms/phase.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/filter/filter.service.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/crud.service.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.html" />
-        <option value="$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html" />
         <option value="$PROJECT_DIR$/kontext/src/app/shared/api.service.ts" />
+        <option value="$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html" />
+        <option value="$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.ts" />
         <option value="$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts" />
       </list>
     </option>
@@ -808,7 +834,21 @@
       <option name="project" value="LOCAL" />
       <updated>1541454059687</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="design create and edit are working!">
+      <created>1541519911643</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1541519911643</updated>
+    </task>
+    <task id="LOCAL-00041" summary="design crud completed!">
+      <created>1541522856142</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1541522856142</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -823,7 +863,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49839744" weight="0.32624114" />
       <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32978722" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18055555" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18055555" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32959402" />
@@ -875,8 +915,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="filters need work on the backend, but nearly there! close to rendering content and routing!" />
-    <MESSAGE value="next step, fill out the page, get into reppin' the directory space" />
     <MESSAGE value="need to -&gt; show that filter is active/inactive, expand to filtered level, turn pagination back on &amp; fix look/feel, add page contents, expand-all, gather details on page when item is clicked, with clever loading" />
     <MESSAGE value="just before implementing mat-tree in the app-menu component." />
     <MESSAGE value="working on offcanvas!!!" />
@@ -900,7 +938,9 @@
     <MESSAGE value="rewrite switch logic on project-tree" />
     <MESSAGE value="api.service.ts added as a central control for all the api addresses needed for ktek API interaction" />
     <MESSAGE value="small change to design-crud.component.ts to make another commit to test if project it updating correctly on new repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="small change to design-crud.component.ts to make another commit to test if project it updating correctly on new repo" />
+    <MESSAGE value="design create and edit are working!" />
+    <MESSAGE value="design crud completed!" />
+    <option name="LAST_COMMIT_MESSAGE" value="design crud completed!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1311,44 +1351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="334" column="3" lean-forward="true" selection-start-line="334" selection-start-column="3" selection-end-line="334" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!block;n#constructor#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#fetchMenuItems#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#setPagination#0;n#ProjectTreeComponent#0" />
-            <element signature="e#3938#3982#0" />
-            <element signature="e#4047#4161#0" />
-            <element signature="e#4075#4125#0" />
-            <element signature="e#4130#4157#0" />
-            <element signature="n#!!block;n#buildFileTree#0;n#ProjectTreeComponent#0" />
-            <element signature="e#4352#4377#0" />
-            <element signature="n#!!block;n#toggleFilter#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#closeProjectTree#0;n#ProjectTreeComponent#0" />
-            <element signature="e#4534#4543#0" />
-            <element signature="n#!!block;n#emptyParams#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#cleanFilter#0;n#ProjectTreeComponent#0" />
-            <element signature="e#5401#5438#0" />
-            <element signature="n#!!block;n#log#0;n#ProjectTreeComponent#0" />
-            <element signature="e#5609#5649#0" />
-            <element signature="n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#toggleCreateProjectModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#toggleCreatePhaseModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#toggleCreateDesignModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#toggleCreateSpecModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#editItem#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#activateRoute#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#isExpandedOrActive#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#expandFiltered#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#showCopyMessage#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#onContextMenu#0;n#ProjectTreeComponent#0" />
-            <element signature="n#!!block;n#ngOnInit#0;n#ProjectTreeComponent#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/forms/project.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -1403,9 +1405,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="119" column="3" lean-forward="true" selection-start-line="119" selection-start-column="3" selection-end-line="119" selection-end-column="3" />
+          <folding>
+            <element signature="e#439#558#0" />
+            <element signature="n#!!block;n#constructor#0;n#ProjectCrudComponent#0" />
+            <element signature="e#1110#1142#0" />
+            <element signature="e#1193#1230#0" />
+            <element signature="e#2028#2621#0" />
+            <element signature="e#2073#2294#0" />
+            <element signature="e#2489#2611#0" />
+            <element signature="e#2628#3407#0" />
+            <element signature="e#2670#2899#0" />
+            <element signature="e#3202#3405#0" />
+            <element signature="e#3414#3879#0" />
+            <element signature="e#3466#3599#0" />
+            <element signature="e#3786#3854#0" />
+            <element signature="n#!!block;n#handleError#0;n#ProjectCrudComponent#0" />
+            <element signature="e#3975#5594#0" />
+            <element signature="e#3998#4366#0" />
+            <element signature="e#4042#4264#0" />
+            <element signature="e#4373#4742#0" />
+            <element signature="e#4418#4640#0" />
+            <element signature="e#4749#5116#0" />
+            <element signature="e#4793#5014#0" />
+            <element signature="e#5123#5588#0" />
+            <element signature="e#5175#5308#0" />
+            <element signature="e#5495#5563#0" />
+            <element signature="n#!!block;n#destroy#0;n#ProjectCrudComponent#0" />
+            <element signature="e#6211#6290#0" />
+            <element signature="e#6305#6383#0" />
+            <element signature="n#!!block;n#update#0;n#ProjectCrudComponent#0" />
+            <element signature="e#6672#6750#0" />
+            <element signature="e#6765#6842#0" />
+            <element signature="n#!!block;n#ngOnInit#0;n#ProjectCrudComponent#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/shared/api.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="68" column="18" lean-forward="true" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#814#853#0" />
+            <element signature="e#812#868#0" />
+            <element signature="e#1232#1291#0" />
+            <element signature="e#1368#1432#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="1350">
           <caret line="257" column="52" lean-forward="true" selection-start-line="257" selection-start-column="52" selection-end-line="257" selection-end-column="52" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
@@ -1459,53 +1515,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/project-crud.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="119" column="3" lean-forward="true" selection-start-line="119" selection-start-column="3" selection-end-line="119" selection-end-column="3" />
-          <folding>
-            <element signature="e#439#558#0" />
-            <element signature="n#!!block;n#constructor#0;n#ProjectCrudComponent#0" />
-            <element signature="e#1110#1142#0" />
-            <element signature="e#1193#1230#0" />
-            <element signature="e#2028#2621#0" />
-            <element signature="e#2073#2294#0" />
-            <element signature="e#2489#2611#0" />
-            <element signature="e#2628#3407#0" />
-            <element signature="e#2670#2899#0" />
-            <element signature="e#3202#3405#0" />
-            <element signature="e#3414#3879#0" />
-            <element signature="e#3466#3599#0" />
-            <element signature="e#3786#3854#0" />
-            <element signature="n#!!block;n#handleError#0;n#ProjectCrudComponent#0" />
-            <element signature="e#3975#5594#0" />
-            <element signature="e#3998#4366#0" />
-            <element signature="e#4042#4264#0" />
-            <element signature="e#4373#4742#0" />
-            <element signature="e#4418#4640#0" />
-            <element signature="e#4749#5116#0" />
-            <element signature="e#4793#5014#0" />
-            <element signature="e#5123#5588#0" />
-            <element signature="e#5175#5308#0" />
-            <element signature="e#5495#5563#0" />
-            <element signature="n#!!block;n#destroy#0;n#ProjectCrudComponent#0" />
-            <element signature="e#6211#6290#0" />
-            <element signature="e#6305#6383#0" />
-            <element signature="n#!!block;n#update#0;n#ProjectCrudComponent#0" />
-            <element signature="e#6672#6750#0" />
-            <element signature="e#6765#6842#0" />
-            <element signature="n#!!block;n#ngOnInit#0;n#ProjectCrudComponent#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/forms/design.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="384" column="44" lean-forward="true" selection-start-line="384" selection-start-column="44" selection-end-line="384" selection-end-column="44" />
+        <state relative-caret-position="682">
+          <caret line="569" lean-forward="true" selection-start-line="569" selection-end-line="569" />
           <folding>
             <element signature="e#22#7248#0" />
+            <element signature="e#205#7241#0" />
+            <element signature="e#245#7232#0" />
             <element signature="e#279#610#0" />
+            <element signature="e#617#7221#0" />
+            <element signature="e#802#6761#0" />
             <element signature="e#865#1562#0" />
             <element signature="e#902#1060#0" />
             <element signature="e#1073#1545#0" />
@@ -1519,8 +1539,15 @@
             <element signature="e#2379#2531#0" />
             <element signature="e#2544#2979#0" />
             <element signature="e#2581#2960#0" />
+            <element signature="e#3037#3713#0" />
             <element signature="e#3074#3268#0" />
             <element signature="e#3111#3249#0" />
+            <element signature="e#3281#3696#0" />
+            <element signature="e#3318#3677#0" />
+            <element signature="e#3749#4083#0" />
+            <element signature="e#3786#3923#0" />
+            <element signature="e#3936#4066#0" />
+            <element signature="e#3977#4137#0" />
             <element signature="e#4127#4779#0" />
             <element signature="e#4164#4297#0" />
             <element signature="e#4310#4762#0" />
@@ -1529,33 +1556,76 @@
             <element signature="e#4857#4988#0" />
             <element signature="e#5001#5447#0" />
             <element signature="e#5038#5428#0" />
+            <element signature="e#5502#6099#0" />
             <element signature="e#5539#5660#0" />
+            <element signature="e#5673#6082#0" />
+            <element signature="e#5710#6063#0" />
+            <element signature="e#6138#6746#0" />
             <element signature="e#6175#6298#0" />
+            <element signature="e#6311#6729#0" />
+            <element signature="e#6348#6710#0" />
             <element signature="e#6770#7207#0" />
+            <element signature="e#7471#14897#0" />
+            <element signature="e#7728#8059#0" />
             <element signature="e#8314#9004#0" />
             <element signature="e#9041#9738#0" />
+            <element signature="e#9115#9234#0" />
+            <element signature="e#10546#10684#0" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#label#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#label#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#6;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#8;n#div#0;n#form#0;n#div#0;n#div#0;n#div#2;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kontext/src/app/shared/api.service.ts">
+    <entry file="file://$PROJECT_DIR$/kontext/src/app/project-tree/project-tree.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="68" column="18" lean-forward="true" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
+        <state relative-caret-position="160">
+          <caret line="248" selection-start-line="248" selection-end-line="248" selection-end-column="21" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
-            <element signature="e#814#853#0" />
-            <element signature="e#812#868#0" />
-            <element signature="e#1232#1291#0" />
-            <element signature="e#1368#1432#0" />
+            <element signature="n#!!block;n#constructor#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#fetchMenuItems#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#setPagination#0;n#ProjectTreeComponent#0" />
+            <element signature="e#3938#3982#0" />
+            <element signature="e#4047#4161#0" />
+            <element signature="e#4075#4125#0" />
+            <element signature="e#4130#4157#0" />
+            <element signature="n#!!block;n#buildFileTree#0;n#ProjectTreeComponent#0" />
+            <element signature="e#4352#4377#0" />
+            <element signature="n#!!block;n#toggleFilter#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#closeProjectTree#0;n#ProjectTreeComponent#0" />
+            <element signature="e#4534#4543#0" />
+            <element signature="n#!!block;n#emptyParams#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#cleanFilter#0;n#ProjectTreeComponent#0" />
+            <element signature="e#5401#5438#0" />
+            <element signature="n#!!block;n#log#0;n#ProjectTreeComponent#0" />
+            <element signature="e#5609#5649#0" />
+            <element signature="n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#toggleCreateProjectModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#toggleCreatePhaseModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#toggleCreateDesignModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#toggleCreateSpecModal#0;n#!!block;n#createItem#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#editItem#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#activateRoute#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#isExpandedOrActive#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#expandFiltered#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#showCopyMessage#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#onContextMenu#0;n#ProjectTreeComponent#0" />
+            <element signature="n#!!block;n#ngOnInit#0;n#ProjectTreeComponent#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kontext/src/app/crud/design-crud.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+        <state relative-caret-position="574">
+          <caret line="241" column="3" lean-forward="true" selection-start-line="241" selection-start-column="3" selection-end-line="241" selection-end-column="3" />
           <folding>
             <element signature="e#416#532#0" />
             <element signature="e#1150#1208#0" />
@@ -1567,11 +1637,11 @@
             <element signature="e#1819#1858#0" />
             <element signature="e#2100#2175#0" />
             <element signature="e#2224#2261#0" />
+            <element signature="n#!!block;n#handleSuccess#0;n#DesignCrudComponent#0" />
+            <element signature="e#2572#5280#0" />
             <element signature="e#2596#3404#0" />
             <element signature="e#2783#2798#0" />
-            <element signature="e#3174#3765#0" />
-            <element signature="e#3211#3432#0" />
-            <element signature="e#3627#3747#0" />
+            <element signature="e#4008#4872#0" />
             <element signature="e#4050#4265#0" />
             <element signature="e#4444#4563#0" />
             <element signature="e#4365#4568#0" />
@@ -1591,6 +1661,7 @@
             <element signature="e#6630#6698#0" />
             <element signature="n#!!block;n#create#0;n#DesignCrudComponent#0" />
             <element signature="n#!!block;n#destroy#0;n#DesignCrudComponent#0" />
+            <element signature="n#!!block;n#update#0;n#DesignCrudComponent#0" />
             <element signature="n#!!block;n#ngOnInit#0;n#DesignCrudComponent#0" />
           </folding>
         </state>
