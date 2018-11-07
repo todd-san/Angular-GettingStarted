@@ -8,6 +8,7 @@ import {KontextItem} from "./kontextItem";
 import { PaginationHeaders} from "../project-tree/interfaces/paginationHeaders";
 import {Project} from "../project-tree/interfaces/project";
 import {nextTick} from "q";
+import {ApiService} from "./api.service";
 
 
 @Injectable({
@@ -16,17 +17,16 @@ import {nextTick} from "q";
 
 export class MenuService {
   private tree = new BehaviorSubject([]);
-  private treeUrl: string = "http://127.0.0.1:8000/kontext/projects/nav_menu/";
   private tree_params = new BehaviorSubject({});
 
   menuTree_params = this.tree_params.asObservable();
   project_tree = this.tree.asObservable();
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private apiService: ApiService){}
 
   getMenu(qp, page?): Observable<HttpResponse<KontextItem[]>>{
 
-    let url: string = this.treeUrl;
+    let url: string = this.apiService.project_tree;
     let params = new HttpParams();
 
     if(!!qp){

@@ -19,10 +19,15 @@ export class ApiService  {
   * all different instances
   *
   * */
-  public host: string = "http://127.0.0.1:8000";
+  // public host: string = "http://127.0.0.1:8000";
   // public host = "http://ktek/";
   // public host = "http://127.0.0.1:8888";
-  // public host = "http://kendaeng02:8080";
+  public host = "http://kendaeng02:8080";
+
+
+  /* Login Route
+  * */
+  public login: string = this.api('/login/');
 
   /* Base-Routes for creating CRUD
   * */
@@ -30,7 +35,6 @@ export class ApiService  {
   public phases: string = this.api('/kontext/phases/');
   public designs: string = this.api('/kontext/designs/');
   public specs: string = this.api('/kontext/specs/');
-
 
   /* Routes used by FilterComponent & FilterService
   * */

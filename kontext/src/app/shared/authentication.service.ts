@@ -6,15 +6,16 @@ import {Observable} from "rxjs/index";
 import {MenuService} from "./menu.service";
 import {catchError, tap} from "rxjs/operators";
 import {KontextItem} from "./kontextItem";
+import {ApiService} from "./api.service";
 
 
 @Injectable()
 export class AuthenticationService {
   user: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private apiService: ApiService) { }
 
   login(username: string, password: string) {
-      return this.http.post<any>('http://127.0.0.1:8000/login/', { username: username, password: password })
+      return this.http.post<any>(this.apiService.login, { username: username, password: password })
         .pipe(map(user => {
           // login successful if there's a jwt token in the response
           if (user && user.token) {
