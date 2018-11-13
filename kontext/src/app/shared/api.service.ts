@@ -28,6 +28,7 @@ export class ApiService  {
   /* Login Route
   * */
   public login: string = this.api('/login/');
+  public current_user: string = this.api('/kore/api/users/current_user/');
 
   /* Base-Routes for creating CRUD
   * */

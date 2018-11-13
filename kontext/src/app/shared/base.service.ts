@@ -3,6 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from "@angular
 import {BehaviorSubject, Observable} from "rxjs/index";
 import {catchError, tap} from "rxjs/operators";
 import {throwError} from "rxjs/internal/observable/throwError";
+import {ApiService} from "./api.service";
 
 declare var $: any;
 
@@ -24,12 +25,13 @@ export class BaseService  {
 
   /*
   * */
-  constructor(private http: HttpClient,) {}
+  constructor(private http: HttpClient,
+              private apiService: ApiService,) {}
 
   /*
   * */
   public login(username, password): Observable<HttpResponse<any>>{
-    let url: string = "http://127.0.0.1:8000/login/";
+    let url: string = this.apiService.login;
     let user = {username:  username, password: password};
 
     return this.http.post<HttpResponse<any>>(url, user, {observe: 'response'})
@@ -42,7 +44,7 @@ export class BaseService  {
       );
   }
   public getCurrentUser(): Observable<HttpResponse<any>>{
-    return this.http.get<any>("http://127.0.0.1:8000/kore/api/users/current_user/", {observe: 'response'});
+    return this.http.get<any>(this.apiService.current_user, {observe: 'response'});
   }
 
   /*

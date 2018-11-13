@@ -11,7 +11,7 @@ import {PhaseName} from "./interfaces/phaseName"
 import {DesignSize} from "./interfaces/designSize"
 import {TireLine} from "./interfaces/tireLine"
 import {UserName} from "./interfaces/userName"
-import { PaginationHeaders} from "../project-tree/interfaces/paginationHeaders";
+import {PaginationHeaders} from "../project-tree/interfaces/paginationHeaders";
 import {ApiService} from "../shared/api.service";
 
 

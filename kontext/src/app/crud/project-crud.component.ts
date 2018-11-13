@@ -197,7 +197,8 @@ export class ProjectCrudComponent implements OnInit {
     this.loading = true;
     this.model['owner'] =  this.current_user.id;
     console.log(this.model);
-    this.crudService.destroy('http://127.0.0.1:8000/kontext/projects/'+this.model.id+'/').subscribe(
+    // this.crudService.destroy('http://127.0.0.1:8000/kontext/projects/'+this.model.id+'/').subscribe(
+    this.crudService.destroy(this.apiService.obj_detail(this.apiService.projects, this.model.id)).subscribe(
       resp => {
         this.handleSuccess('destroy', resp);
         this.model = {};
@@ -213,7 +214,7 @@ export class ProjectCrudComponent implements OnInit {
     let current_user = JSON.parse(localStorage.getItem('currentUser'));
     this.model['owner'] = current_user.id;
 
-    this.crudService.update('http://127.0.0.1:8000/kontext/projects/'+this.model.id+'/', this.model).subscribe(
+    this.crudService.update(this.apiService.obj_detail(this.apiService.projects, this.model.id), this.model).subscribe(
       resp =>{
         this.handleSuccess('update', resp);
         this.model = {};

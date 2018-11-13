@@ -5,6 +5,7 @@ import {CrudService} from "./crud.service";
 import {MenuService} from "../shared/menu.service";
 import {FilterService} from "../filter/filter.service";
 import {ProjectTreeComponent} from "../project-tree/project-tree.component";
+import {ApiService} from "../shared/api.service";
 
 declare var $: any;
 
@@ -23,6 +24,7 @@ export class PhaseCrudComponent{
 
   constructor(private crudService: CrudService,
               private router: Router,
+              private apiService: ApiService,
               private toastaService: ToastaService,
               private toastaConfig: ToastaConfig,
               private projectTreeComponent: ProjectTreeComponent,
@@ -180,7 +182,7 @@ export class PhaseCrudComponent{
     this.loading = true;
     this.model['owner'] =  this.current_user.id;
     this.model['tire_project_id'] = this.parent.id;
-    this.crudService.create('http://127.0.0.1:8000/kontext/phases/', this.model).subscribe(
+    this.crudService.create(this.apiService.phases, this.model).subscribe(
       resp =>{
         this.handleSuccess('create', resp);
         this.model = {};
@@ -200,7 +202,7 @@ export class PhaseCrudComponent{
     this.loading = true;
     this.model['owner'] =  this.current_user.id;
     console.log(this.model);
-    this.crudService.destroy('http://127.0.0.1:8000/kontext/phases/'+this.model.id+'/').subscribe(
+    this.crudService.destroy(this.apiService.obj_detail(this.apiService.phases, this.model.id)).subscribe(
       resp => {
         this.handleSuccess('destroy', resp);
         this.model = {};
@@ -218,7 +220,7 @@ export class PhaseCrudComponent{
     this.model['owner'] =  this.current_user.id;
     this.model['phase_name'] = this.model.name;
 
-    this.crudService.update('http://127.0.0.1:8000/kontext/phases/'+this.model.id+'/', this.model).subscribe(
+    this.crudService.update(this.apiService.obj_detail(this.apiService.phases, this.model.id), this.model).subscribe(
       resp => {
         this.handleSuccess('update', resp);
         this.model = {};
