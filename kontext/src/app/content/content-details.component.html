@@ -1,0 +1,58 @@
+<div class="section-header">
+  <ol class="breadcrumb">
+    <!--<li><a routerLink="/home">home</a></li>-->
+    <li class="active">home</li>
+  </ol>
+</div>
+
+<h2 class="text-light text-center">KTEK Home<br><small class="text-primary">Kenda Tire Engineering Kit</small></h2>
+
+  <div class="col-xs-10 col-xs-offset-1" style="margin-top: 25px;">
+    <div class="card">
+      <div class="card-head">
+        <header>KTEK Usage Metrics </header>
+      </div>
+      <div class="card-body">
+        <div *ngIf="projects">
+          <button class="btn btn-default" (click)="log()">click me</button>
+          <ul>
+            <li *ngFor="let project of projects">
+              {{project.name}}
+            </li>
+          </ul>
+        </div>
+
+        <div class="stick-bottom-right">
+
+        </div>
+      </div><!--end .card-body -->
+    </div><!--end .card -->
+  </div>
+  <div class="col-xs-10 col-xs-offset-1" >
+    <div class="card">
+      <div class="card-head">
+        <header>Analysis Queue </header>
+      </div>
+      <div class="card-body">
+          <div class="stick-bottom-right">
+          </div>
+      </div><!--end .card-body -->
+    </div><!--end .card -->
+  </div>
+  <div class="col-xs-10 col-xs-offset-1" >
+    <div class="card">
+      <div class="card-head">
+        <header>New KTEK Features</header>
+      </div>
+      <div class="card-body">
+          <ul>
+            <li>Quicker Index Page Loading</li>
+            <li>Better Filtering</li>
+            <li>More Robust Job-Tracking</li>
+            <li>Tool Integration</li>
+          </ul>
+          <div class="stick-bottom-right">
+          </div>
+      </div><!--end .card-body -->
+    </div><!--end .card -->
+  </div>

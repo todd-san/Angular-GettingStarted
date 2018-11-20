@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import {FilterService} from "./filter.service";
-import {MenuService} from "../menu/menu.service";
+import { MenuService } from "../shared/menu.service";
 
 import {ProjectName} from "./interfaces/projectName";
 import {PhaseName} from "./interfaces/phaseName";
 import {DesignSize} from "./interfaces/designSize";
 import {TireLine} from "./interfaces/tireLine";
 import {UserName} from "./interfaces/userName";
-import {Project} from "../menu/interfaces/project";
-import {PaginationHeaders} from "../menu/interfaces/paginationHeaders";
+import { Project} from "../project-tree/interfaces/project";
+import {PaginationHeaders} from "../project-tree/interfaces/paginationHeaders";
 
 declare var $: any;
 

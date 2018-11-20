@@ -1,5 +1,6 @@
 
-<!-- CREATE MODAL-->
+<!-- PHASE CREATE MODAL-->
+<script src="../project-crud.component.ts"></script>
 <div class="modal fade"
      id="phaseCreateModal"
      tabindex="-1"
@@ -14,215 +15,250 @@
         <h3 class="modal-title" id="phaseCreateForm">Create A New Phase</h3>
         <p class="text-muted"><span class="text-primary" style="font-weight: bold;">*required</span>/optional</p>
       </div>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal"
+            name="form"
+            (ngSubmit)="f.form.valid && create()"
+            #f="ngForm"
+            role="form" novalidate>
         <div class="modal-body">
+
+          <!--PROJECT NAME -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="pr_name" class="text-primary" style="font-weight: bold;">*Project</label>
+              <label for="project_name_create" class="text-primary" style="font-weight: bold;">*Project</label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="project_name" id="pr_name" class="form-control" placeholder="Project Name">
+              <input type="text"
+                     [(ngModel)]="parent.name"
+                     #name="ngModel"
+                     name="project_name_create"
+                     id="project_name_create"
+                     class="form-control"
+                     disabled>
               <div class="form-control-line"></div>
             </div>
           </div>
+
+          <!-- PHASE NAME -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="ph_name" class="text-primary" style="font-weight: bold;">*Name</label>
+              <label for="name_create"
+                     class="text-primary"
+                     style="font-weight: bold;">*Name</label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="ph_name" id="ph_name" class="form-control" placeholder="Phase Name">
+              <input type="text"
+                     [(ngModel)]="model.phase_name"
+                     #name="ngModel"
+                     name="name_create"
+                     id="name_create"
+                     class="form-control"
+                     placeholder="Phase Name">
               <div class="form-control-line"></div>
             </div>
           </div>
+
+          <!-- PHASE DESCRIPTION -->
           <div class="form-group">
             <div class="col-sm-3">
-              <label for="description" class="control-label">Description: </label>
+              <label for="description_create" class="control-label">Description: </label>
             </div>
             <div class="col-sm-9">
-              <input type="text" name="description" id="description" class="form-control" placeholder="Description">
+              <textarea rows="10"
+                        cols="50"
+                        name="description_create"
+                        [(ngModel)]="model.description"
+                        #description="ngModel"
+                        id="description_create"
+                        class="form-control">
+              </textarea>
               <div class="form-control-line"></div>
             </div>
           </div>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-success-dark">Create and Add Project Phase</button>
           <button type="button" class="btn btn-accent">Create and Add Another</button>
-          <button type="button" class="btn btn-accent-dark">Create</button>
+          <button type="button" class="btn btn-accent-dark" (click)="create()">Create</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-<!--&lt;!&ndash; EDIT MODAL &ndash;&gt;-->
-<!--<div class="modal fade"-->
-     <!--id="projectEditModal"-->
-     <!--tabindex="-1"-->
-     <!--role="dialog"-->
-     <!--aria-labelledby="formModalLabel"-->
-     <!--aria-hidden="true"-->
-     <!--style="display: none;">-->
-  <!--<div class="modal-dialog modal-lg">-->
-    <!--<div class="modal-content">-->
-      <!--<div class="modal-header">-->
-        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
-        <!--<h4 class="modal-title" id="formModalLabel">Edit Project:</h4>-->
-      <!--</div>-->
-      <!--<form class="form-horizontal" role="form">-->
-        <!--<div class="modal-body">-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_name_edit" class="text-primary" style="font-weight: bold;">*Name </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="project_name" id="pr_name_edit" class="form-control" placeholder="Project Name">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_number_edit" class="control-label">Number</label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="number" name="pr_number" id="pr_number_edit" class="form-control" placeholder="Project Number">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_type_edit" class="text-primary" style="font-weight: bold;">*Project Type</label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<select name="pr_type" class="form-control" id="pr_type_edit">-->
-                <!--<option> &nbsp;</option>-->
-                <!--<option>Replacement</option>-->
-                <!--<option>OE</option>-->
-                <!--<option>Research</option>-->
-              <!--</select>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="description_edit" class="control-label">Description: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="description" id="description_edit" class="form-control" placeholder="Description">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="customer_edit" class="control-label">Customer: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="customer" id="customer_edit" class="form-control" placeholder="Customer">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="tag_edit" class="control-label">Tag: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="tag" id="tag_edit" class="form-control" placeholder="Tag">-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="modal-footer">-->
-          <!--<button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>-->
-          <!--<button type="button" class="btn btn-accent">Save and Continue Editing</button>-->
-          <!--<button type="button" class="btn btn-accent-dark">Update</button>-->
-        <!--</div>-->
-      <!--</form>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
 
-<!--&lt;!&ndash; DELETE MODAL &ndash;&gt;-->
-<!--<div class="modal fade"-->
-     <!--id="projectDeleteModal"-->
-     <!--tabindex="-1"-->
-     <!--role="dialog"-->
-     <!--aria-labelledby="formModalLabel"-->
-     <!--aria-hidden="true"-->
-     <!--style="display: none;">-->
-  <!--<div class="modal-dialog modal-lg">-->
-    <!--<div class="modal-content">-->
-      <!--<div class="modal-header">-->
-        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
-        <!--<h4 class="modal-title" id="projectDeleteLabel">Delete Project:</h4>-->
-      <!--</div>-->
-      <!--<form class="form-horizontal" role="form">-->
-        <!--<div class="modal-body">-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_name_delete" class="text-primary" style="font-weight: bold;">*Name </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="project_name" id="pr_name_delete" class="form-control" placeholder="Project Name" disabled>-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_number_delete" class="control-label">Number</label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="number" name="pr_number" id="pr_number_delete" class="form-control" placeholder="Project Number" disabled>-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="pr_type_delete" class="text-primary" style="font-weight: bold;">*Project Type</label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<select name="pr_type" class="form-control" id="pr_type_delete" disabled>-->
-                <!--<option> &nbsp;</option>-->
-                <!--<option>Replacement</option>-->
-                <!--<option>OE</option>-->
-                <!--<option>Research</option>-->
-              <!--</select>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="description_edit" class="control-label">Description: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="description" id="description_delete" class="form-control" placeholder="Description" disabled>-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="customer_delete" class="control-label">Customer: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="customer" id="customer_delete" class="form-control" placeholder="Customer" disabled>-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="form-group">-->
-            <!--<div class="col-sm-3">-->
-              <!--<label for="tag_delete" class="control-label">Tag: </label>-->
-            <!--</div>-->
-            <!--<div class="col-sm-9">-->
-              <!--<input type="text" name="tag" id="tag_delete" class="form-control" placeholder="Tag" disabled>-->
-              <!--<div class="form-control-line"></div>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="modal-footer">-->
-           <!--<button type="button" class="btn btn-default pull-left"-->
-                   <!--data-dismiss="modal">Cancel</button>-->
-          <!--<button type="button" class="btn btn-danger">Delete</button>-->
-        <!--</div>-->
-      <!--</form>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
+<!-- PHASE DELETE MODAL-->
+<div class="modal fade"
+     id="phaseDeleteModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="formModalLabel"
+     aria-hidden="true"
+     style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title" id="phaseDeleteForm">Delete Phase: {{model.name}}</h3>
+        <p class="text-muted"><span class="text-primary" style="font-weight: bold;">*required</span>/optional</p>
+      </div>
+      <form class="form-horizontal"
+            name="form"
+            (ngSubmit)="f.form.valid && delete()"
+            #f="ngForm"
+            role="form" novalidate>
+        <div class="modal-body">
+
+          <!--PROJECT NAME -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="project_name_delete" class="text-primary" style="font-weight: bold;">*Project</label>
+            </div>
+            <div class="col-sm-9" *ngIf="model.hasOwnProperty('project')">
+              <input type="text"
+                     [(ngModel)]="model.project.name"
+                     #name="ngModel"
+                     name="project_name_delete"
+                     id="project_name_delete"
+                     class="form-control"
+                     disabled>
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+
+          <!-- PHASE NAME -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="name_create"
+                     class="text-primary"
+                     style="font-weight: bold;">*Name</label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text"
+                     [(ngModel)]="model.name"
+                     #name="ngModel"
+                     name="name_delete"
+                     id="name_delete"
+                     class="form-control"
+                     disabled>
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+
+          <!-- PHASE DESCRIPTION -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="description_delete" class="control-label">Description: </label>
+            </div>
+            <div class="col-sm-9">
+              <textarea rows="10"
+                        cols="50"
+                        name="description_create"
+                        [(ngModel)]="model.description"
+                        #description="ngModel"
+                        id="description_delete"
+                        class="form-control">
+              </textarea>
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success-dark">Create and Add Project Phase</button>
+          <button type="button" class="btn btn-accent">Create and Add Another</button>
+          <button type="button" class="btn btn-accent-dark" (click)="destroy()">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
+<!-- PHASE EDIT MODAL-->
+<div class="modal fade"
+     id="phaseEditModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="formModalLabel"
+     aria-hidden="true"
+     style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title" id="phaseEditForm">Edit Phase: {{model.name}}</h3>
+        <p class="text-muted"><span class="text-primary" style="font-weight: bold;">*required</span>/optional</p>
+      </div>
+      <form class="form-horizontal"
+            name="form"
+            (ngSubmit)="f.form.valid && update()"
+            #f="ngForm"
+            role="form" novalidate>
+        <div class="modal-body">
+
+          <!--PROJECT NAME -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="project_name_edit" class="text-primary" style="font-weight: bold;">*Project</label>
+            </div>
+            <div class="col-sm-9" *ngIf="model.hasOwnProperty('project')">
+              <input type="text"
+                     [(ngModel)]="model.project.name"
+                     #name="ngModel"
+                     name="project_name_edit"
+                     id="project_name_edit"
+                     class="form-control"
+                     disabled>
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+
+          <!-- PHASE NAME -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="name_edit"
+                     class="text-primary"
+                     style="font-weight: bold;">*Name</label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text"
+                     [(ngModel)]="model.name"
+                     #name="ngModel"
+                     name="name_edit"
+                     id="name_edit"
+                     class="form-control">
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+
+          <!-- PHASE DESCRIPTION -->
+          <div class="form-group">
+            <div class="col-sm-3">
+              <label for="description_edit" class="control-label">Description: </label>
+            </div>
+            <div class="col-sm-9">
+              <textarea rows="10"
+                        cols="50"
+                        name="description_edit"
+                        [(ngModel)]="model.description"
+                        #description="ngModel"
+                        id="description_edit"
+                        class="form-control">
+              </textarea>
+              <div class="form-control-line"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger ink-reaction pull-left" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-accent-dark" (click)="update()">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

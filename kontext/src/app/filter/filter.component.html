@@ -1,55 +1,74 @@
-<form class="form" role="form">
-  <div class="form-group">
-    <select id="select0" name="select2" (change)="updateBySelected('user', $event.target.value);" class="form-control">
-      <option value="">&nbsp;</option>
-      <option *ngFor="let user of users" [value]="user.id">{{user.username}}</option>
-    </select>
-    <label for="select0">Users</label>
+<!-- FILTER MODAL -->
+<div class="modal fade"
+     id="filter-modal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="formModalLabel"
+     aria-hidden="true"
+     style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title" id="phaseCreateForm">Project Tree Filter</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form" role="form">
+          <div class="form-group">
+            <select id="select0" name="select2" (change)="updateBySelected('user', $event.target.value);" class="form-control">
+              <option value="">&nbsp;</option>
+              <option *ngFor="let user of users" [value]="user.id">{{user.username}}</option>
+            </select>
+            <label for="select0">Users</label>
+          </div>
+          <div class="form-group">
+            <select id="select1" name="select2" class="form-control" (change)="updateBySelected('project', $event.target.value);">
+              <option value="" >&nbsp;</option>
+              <optgroup label="Project Owner" *ngIf="selectedUser">
+                <option *ngFor="let project of isProjectOwner(selectedUser)" [value]="project.id">
+                  {{project.name}}
+                </option>
+              </optgroup>
+              <optgroup label="Project Member" *ngIf="selectedUser">
+                <option *ngFor="let project of isProjectMember(selectedUser)" [value]="project.id">
+                  {{project.name}}
+                </option>
+              </optgroup>
+              <optgroup label="All Projects" *ngIf="!selectedUser">
+                <option *ngFor="let project of projects" [value]="project.id">
+                  {{project.name}}
+                </option>
+              </optgroup>
+            </select>
+            <label for="select1">Project</label>
+          </div>
+          <div class="form-group">
+            <select id="select2" name="select2" class="form-control" (change)="updateBySelected('phase', $event.target.value);">
+              <option value="">&nbsp;</option>
+              <option *ngFor="let phase of phases" [value]="phase.id">{{phase.name}}</option>
+            </select>
+            <label for="select2">Phase</label>
+          </div>
+          <div class="form-group">
+            <select id="select3" name="select3" class="form-control" (change)="updateBySelected('size', $event.target.value);">
+              <option value="">&nbsp;</option>
+              <option *ngFor="let size of sizes" [value]="size.id">{{size.size}}</option>
+            </select>
+            <label for="select3">Size</label>
+          </div>
+          <div class="form-group">
+            <select id="select4" name="select4" class="form-control" (change)="updateBySelected('line', $event.target.value);">
+              <option value="">&nbsp;</option>
+              <option *ngFor="let line of lines" [value]="line.id">{{line.name}}</option>
+            </select>
+            <label for="select4">Tire Line</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="col-xs-6"><button class="btn btn-block ink-reaction btn-primary-light" data-dismiss="modal">Cancel</button></div>
+        <div class="col-xs-6"><button (click)="filterMenu()" class="btn btn-block ink-reaction btn-accent-light" data-dismiss="modal">Go!</button></div>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <select id="select1" name="select2" class="form-control" (change)="updateBySelected('project', $event.target.value);">
-      <option value="" >&nbsp;</option>
-      <optgroup label="Project Owner" *ngIf="selectedUser">
-        <option *ngFor="let project of isProjectOwner(selectedUser)" [value]="project.id">
-          {{project.name}}
-        </option>
-      </optgroup>
-      <optgroup label="Project Member" *ngIf="selectedUser">
-        <option *ngFor="let project of isProjectMember(selectedUser)" [value]="project.id">
-          {{project.name}}
-        </option>
-      </optgroup>
-      <optgroup label="All Projects" *ngIf="!selectedUser">
-        <option *ngFor="let project of projects" [value]="project.id">
-          {{project.name}}
-        </option>
-      </optgroup>
-    </select>
-    <label for="select1">Project</label>
-  </div>
-  <div class="form-group">
-    <select id="select2" name="select2" class="form-control" (change)="updateBySelected('phase', $event.target.value);">
-      <option value="">&nbsp;</option>
-      <option *ngFor="let phase of phases" [value]="phase.id">{{phase.name}}</option>
-    </select>
-    <label for="select2">Phase</label>
-  </div>
-  <div class="form-group">
-    <select id="select3" name="select3" class="form-control" (change)="updateBySelected('size', $event.target.value);">
-      <option value="">&nbsp;</option>
-      <option *ngFor="let size of sizes" [value]="size.id">{{size.size}}</option>
-    </select>
-    <label for="select3">Size</label>
-  </div>
-  <div class="form-group">
-    <select id="select4" name="select4" class="form-control" (change)="updateBySelected('line', $event.target.value);">
-      <option value="">&nbsp;</option>
-      <option *ngFor="let line of lines" [value]="line.id">{{line.name}}</option>
-    </select>
-    <label for="select4">Tire Line</label>
-  </div>
-  <div class="form-group">
-    <div class="col-xs-6"><button class="btn btn-block ink-reaction btn-primary-light" data-dismiss="offcanvas">Cancel</button></div>
-    <div class="col-xs-6"><button (click)="filterMenu()" class="btn btn-block ink-reaction btn-accent-light" data-dismiss="offcanvas">Go!</button></div>
-  </div>
-</form>
+</div>

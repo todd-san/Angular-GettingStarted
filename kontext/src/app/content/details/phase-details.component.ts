@@ -1,32 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import {CrudService} from "../../crud/crud.service";
-import {Router} from "@angular/router";
+import { CrudService } from "../../crud/crud.service";
+import { Router } from "@angular/router";
+import {BaseService} from "../../shared/base.service";
 
 @Component({
   templateUrl: './phase-details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class PhaseDetailsComponent{
+export class PhaseDetailsComponent implements OnInit {
   route: any;
   phase: any;
 
-  constructor(private crudService: CrudService, private router: Router) {
-    this.crudService.currentKontext.subscribe(
-      item => {
-        this.phase= item;
-        console.log('phase-detail: ', item)
-      }
-    );
+  constructor(
+    private crudService: CrudService,
+    private baseService: BaseService,
+    private router: Router,) {
 
     this.router.events.subscribe(
-      route =>{
+      route => {
         this.route = route;
       }
     );
+
+    this.crudService.currentKontext.subscribe(
+      val => {
+        if (val.hasOwnProperty('type') && val['type'] === 'phase'){
+          this.phase = val;
+        }
+      }
+    )
   }
 
   public lazyLoadProjectByRoute(){
-    console.log('trying to lazy load from route!');
     this.crudService.getKontextById(
       this.route.url.split('/')[1],
       this.route.url.split('/')[2]
@@ -36,7 +41,6 @@ export class PhaseDetailsComponent{
       }
     )
   }
-
   public isEmpty() {
     for(let prop in this.phase) {
         if(this.phase.hasOwnProperty(prop))
@@ -45,6 +49,9 @@ export class PhaseDetailsComponent{
     return true;
   }
 
+  public updateMenuTree(){
+    this.baseService.setTreeToProject();
+  }
 
   ngOnInit() {
     if(this.isEmpty()){

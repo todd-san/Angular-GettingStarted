@@ -1,0 +1,45 @@
+<!-- OFF-CANVAS PROJECT MENU -->
+<div id="spec-tree-offcanvas"
+     class="offcanvas-pane style-default-dark width-12 active"
+     style="margin-top: 60px; background-color: #2f353c;">
+  <div class="offcanvas-head" style="background-color: #a20036; text-align: center;">
+
+    <!-- TITLE BANNER-->
+    <header>
+      <h3>
+        <i class="fa fa-tree fa-lg"></i> Spec Tree
+      </h3>
+    </header>
+
+    <!-- UPPER-RIGHT TOOLS-->
+    <div class="offcanvas-tools">
+
+      <!-- CLOSE PROJECT TREE -->
+      <a class="btn btn-icon-toggle btn-default-light pull-right"
+         (click)="closeSpecTree()" data-backdrop="false">
+        <i class="md md-close"></i>
+      </a>
+
+    </div>
+  </div>
+  <div class="nano-content" tabindex="0">
+
+    <!-- NEW PROJECT/ FILTER TOGGLE/ PAGINATION CNTRL-->
+    <!--<div *ngIf="nestedDataSource.data">-->
+
+    <!--</div>-->
+
+    <!--SPEC-TREE & CONTEXT MENUS-->
+    <div class="offcanvas-body">
+
+      <!-- SPEC-TREE -->
+      <div class="menubar-scroll-panel">
+        <button class="btn btn-default" (click)="log()"><i class="fa fa-leaf"></i> LOG</button>
+        <button class="btn btn-default" (click)="update()"><i class="fa fa-refresh"></i> UPDATE</button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
